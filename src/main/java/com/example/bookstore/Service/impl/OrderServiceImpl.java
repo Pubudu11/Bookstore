@@ -1,7 +1,6 @@
 package com.example.bookstore.Service.impl;
 
 import com.example.bookstore.Model.Order;
-import com.example.bookstore.Model.User;
 import com.example.bookstore.Repository.OrderRepository;
 import com.example.bookstore.Service.OrderService;
 
@@ -12,16 +11,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-
-
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
     @Override
     public Order createOrder(Order order) {
-        Order newOrder = orderRepository.save(order);
-        return newOrder;
+        return orderRepository.save(order);
     }
     @Override
     public Order findOrderById(String id){
