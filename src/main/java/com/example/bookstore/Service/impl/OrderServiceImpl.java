@@ -32,8 +32,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> getAllOrders(){
-        List<Order> orders = orderRepository.findAll();
-        return orders;
+        return orderRepository.findAll();
     }
     @Override
     public Order updateOrder(Order order, String id) {

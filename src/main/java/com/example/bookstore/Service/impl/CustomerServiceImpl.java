@@ -20,5 +20,28 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.save(customer);
     }
     @Override
-    public
+    public Customer getCustomerById(String id) {
+        Optional<Customer> customer = customerRepository.findById(id);
+        return customer.orElse(null);
+    }
+    @Override
+    public List<Customer> getCustomers() {
+        return customerRepository.findAll();
+    }
+    @Override
+    public Customer updateCustomer(Customer customer, String id) {
+        Customer existingCustomer = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
+        existingCustomer.setName(customer.getName());
+        existingCustomer.setAddress(customer.getAddress());
+        existingCustomer.setPhone(customer.getPhone());
+        existingCustomer.setEmail(customer.getEmail());
+        existingCustomer.setZipcode(customer.getZipcode());
+        existingCustomer.setCity(customer.getCity());
+        customerRepository.save(existingCustomer);
+        return existingCustomer;
+    }
+    @Override
+    public void deleteCustomer(String id) {
+        customerRepository.deleteById(id);
+    }
 }
