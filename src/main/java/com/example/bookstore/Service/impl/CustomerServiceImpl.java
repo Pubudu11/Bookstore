@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
         return customer.orElse(null);
     }
     @Override
-    public List<Customer> getCustomers() {
+    public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }
     @Override

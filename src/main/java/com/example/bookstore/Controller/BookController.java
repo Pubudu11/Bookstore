@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping({"/api/books"})
+@RequestMapping({"/api/books/"})
 public class BookController {
     @Autowired
     private BookService bookService;
@@ -29,7 +29,12 @@ public class BookController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable("id") String id) {
-        return ResponseEntity.ok(bookService.getBookById(id));
+        if (bookService.getBookById(id) != null) {
+            return ResponseEntity.ok(bookService.getBookById(id));
+        }
+        else {
+            return ResponseEntity.badRequest().build();
+        }
     }
     @GetMapping("/title/{title}")
     public ResponseEntity<List<Book>> getBookByTitle(@PathVariable("title") String title) {
