@@ -1,0 +1,123 @@
+.navbar {
+  position: fixed;
+  width: 99%;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: #7a7a7a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+  font-size: 14px;
+  overflow-y: auto;
+}
+
+.top-bar .email a {
+  color: #d3aaf8;
+  text-decoration: none;
+}
+
+.top-bar .email a:hover {
+  text-decoration: underline;
+}
+
+/* Main Header */
+.main-header {
+  background-color: #661414;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: absolute;
+}
+
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.site-name {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Search Section */
+.search-section {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 5px 50px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+}
+
+.search-button {
+  background-color: rgb(221, 215, 215);
+  border: none;
+  border-radius: 8px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Navigation Section */
+.nav-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.currency {
+  font-size: 14px;
+}
+
+.cart {
+  position: relative;
+}
+
+.cart img {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
