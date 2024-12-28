@@ -8,7 +8,12 @@ const App = () => {
       <Navbar />
       <div
         className="background"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          height: "100vh", // Full viewport height
+        }}
       ></div>
     </div>
   );
