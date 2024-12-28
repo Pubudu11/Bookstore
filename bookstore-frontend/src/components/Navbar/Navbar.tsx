@@ -3,7 +3,7 @@ import "./Header.css"; // Assuming CSS file for styling
 
 const Header = () => {
   return (
-    <header>
+    <header className="navbar">
       {/* Top Bar */}
       <div className="top-bar">
         <p className="contact">

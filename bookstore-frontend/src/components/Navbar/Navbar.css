@@ -1,3 +1,9 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  font-family: "Times New Roman", Times, serif;
+}
+
 /* Top Bar */
 .top-bar {
   background-color: #7a7a7a;
@@ -6,6 +12,8 @@
   justify-content: space-between;
   padding: 5px 20px;
   font-size: 14px;
+  overflow-y: auto;
+  width: 97%;
 }
 
 .top-bar .email a {
@@ -24,7 +32,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 20px;
+  position: absolute;
+  width: 97%;
 }
 
 /* Logo Section */
@@ -51,16 +61,16 @@
 }
 
 .search-input {
-  padding: 5px 10px;
+  padding: 5px 100px;
   font-size: 16px;
   border: none;
-  border-radius: 4px 0 0 4px;
+  border-radius: 8px;
 }
 
 .search-button {
-  background-color: white;
+  background-color: rgb(221, 215, 215);
   border: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 8px;
   padding: 5px;
   cursor: pointer;
 }
