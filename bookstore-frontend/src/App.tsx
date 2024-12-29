@@ -6,10 +6,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <div
-        className="background"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      ></div>
+      <div className="body-background"></div>
     </div>
   );
 };
