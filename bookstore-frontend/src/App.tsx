@@ -1,12 +1,16 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import backgroundImage from "./assets/library.jpg";
+import MainSection from "./components/MainSection/MainSection";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <div className="body-background"></div>
+      <div className="body-background">
+        <MainSection />
+        <Footer />
+      </div>
     </div>
   );
 };

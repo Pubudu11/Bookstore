@@ -1,0 +1,9 @@
+.footer {
+  background-color: #52527a;
+  color: white;
+  text-align: center;
+  padding: 2px 0;
+  position: fixed; /* Use "fixed" to keep it always at the bottom */
+  bottom: 0;
+  width: 100%;
+}
