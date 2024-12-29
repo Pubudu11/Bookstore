@@ -10,7 +10,9 @@ const MainSection = () => {
         <h2>The Bookshop</h2>
         <p>eBook Store</p>
         <button>
-          <a href="">Start Your Journey on Google Play!</a>
+          <a href="https://play.google.com">
+            Start Your Journey on Google Play!
+          </a>
         </button>
       </div>
     </section>
