@@ -1,4 +1,4 @@
-import "./App.css"; // Import the CSS file
+import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import backgroundImage from "./assets/library.jpg";
 
@@ -8,12 +8,7 @@ const App = () => {
       <Navbar />
       <div
         className="background"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          height: "100vh", // Full viewport height
-        }}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       ></div>
     </div>
   );

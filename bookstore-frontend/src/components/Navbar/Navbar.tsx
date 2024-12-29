@@ -1,5 +1,4 @@
-import React from "react";
-import "./Header.css"; // Assuming CSS file for styling
+import "./Navbar.css";
 
 const Header = () => {
   return (
@@ -17,14 +16,18 @@ const Header = () => {
       {/* Main Content */}
       <div className="main-header">
         <div className="logo-section">
-          <img src="logo.png" alt="Book Haven Logo" className="logo" />
+          <img src="logo.JPG" alt="Book Haven Logo" className="logo" />
           <h1 className="site-name">Book Haven</h1>
         </div>
 
         <div className="search-section">
-          <input type="text" placeholder="Search" className="search-input" />
+          <input
+            type="text"
+            placeholder="Search Books"
+            className="search-input"
+          />
           <button className="search-button">
-            <img src="search-icon.png" alt="Search" />
+            <img src="search_icon.png" alt="Search" />
           </button>
         </div>
 
