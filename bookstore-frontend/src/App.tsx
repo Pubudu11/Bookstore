@@ -2,13 +2,17 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import MainSection from "./components/MainSection/MainSection";
 import Footer from "./components/Footer/Footer";
+import Slideshow from "./components/SlideShow/SlideShow";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <div className="body-background">
-        <MainSection />
+        <div>
+          <MainSection />
+          <Slideshow />
+        </div>
         <Footer />
       </div>
     </div>

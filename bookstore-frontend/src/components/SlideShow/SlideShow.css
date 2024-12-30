@@ -1,0 +1,43 @@
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+.nav-button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5); /* Background similar to the example */
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 2;
+  outline: none;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+}
