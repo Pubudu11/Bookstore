@@ -1,14 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css";
+import "./Navbar.css"; // Assuming CSS file for styling
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <header className="navbar">
       {/* Top Bar */}
       <div className="top-bar">
         <p className="contact">
-          ---Call us for Web Orders: +94 765252133 / 0111234567---
+          --------Call us for Web Orders: +94 765252133 / 0111234567----
         </p>
         <p className="email">
           Email: <a href="mailto:bookhaven.lk">bookhaven.lk</a>
@@ -28,16 +26,18 @@ const Header: React.FC = () => {
             placeholder="Search Books"
             className="search-input"
           />
-          <button className="search-button">🔍</button>
+          <button className="search-button">
+            <img src="search_icon.png" alt="Search" />
+          </button>
         </div>
 
         <div className="nav-section">
-          <Link to="/advanced-search" className="nav-link">
+          <a href="/advanced-search" className="nav-link">
             Advanced Search
-          </Link>
-          <Link to="/login" className="nav-link">
+          </a>
+          <a href="/login" className="nav-link">
             Sign Up / Login
-          </Link>
+          </a>
           <span className="currency">LKR</span>
           <div className="cart">
             <img src="cart-icon.png" alt="Cart" />
