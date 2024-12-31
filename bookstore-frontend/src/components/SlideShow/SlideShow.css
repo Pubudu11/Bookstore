@@ -2,7 +2,7 @@
 .slideshow-container {
   position: relative;
   width: 100%;
-  height: 500px; /* Adjust the height as needed */
+  height: 550px; /* Adjust the height as needed */
   overflow: hidden; /* Prevents images from spilling out */
 }
 
@@ -29,30 +29,28 @@
 }
 
 .overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the content */
-  text-align: center;
+  position: fixed;
+  bottom: 300px;
+  left: 200px;
+
   color: white;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+  background: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
-  animation: fadeIn 1s ease-out;
+
+  text-align: center;
 }
 
 .overlay h2 {
-  font-size: 3rem; /* Larger font for the main heading */
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
-  margin-bottom: 10px;
+  font-size: 2rem;
+  margin: 0;
+  font-family: "Arial", sans-serif;
 }
 
 .overlay p {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-align: center;
 }
 
 .overlay button {

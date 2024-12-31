@@ -17,9 +17,8 @@ const Slideshow = () => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, 5000);
-
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, []);
 
   return (
     <div className="slideshow-container">
@@ -29,7 +28,6 @@ const Slideshow = () => {
           className={`slide ${index === currentIndex ? "active" : ""}`}
         >
           <img src={slide.src} alt={slide.alt} className="banner" />
-          {/* Overlay only for Banner 1 */}
           {index === 0 && index === currentIndex && (
             <div className="overlay">
               <h2>The Bookshop</h2>
@@ -43,8 +41,6 @@ const Slideshow = () => {
           )}
         </div>
       ))}
-
-      {/* Navigation Buttons */}
       <button
         className="nav-button prev-button"
         onClick={() =>

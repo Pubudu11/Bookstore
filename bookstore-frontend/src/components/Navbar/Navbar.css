@@ -6,19 +6,18 @@
   background: #800000;
   z-index: 1000; /* Ensures it's above other elements */
   color: white;
-  padding: 5px 20px;
+  padding: 2px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-family: "Times New Roman", Times, serif;
 }
 
 /* Top Bar */
 .top-bar {
-  position: static;
   background-color: #800000;
   color: white;
   display: flex;
   justify-content: space-between;
-  padding: 5px 20px;
+  padding: 1px 20px;
   font-size: 14px;
   overflow-y: auto;
   width: 99%;
@@ -35,7 +34,6 @@
 
 /* Main Header */
 .main-header {
-  position: fixed;
   background-color: #00e6e6;
   color: black;
   display: flex;

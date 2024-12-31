@@ -1,6 +1,8 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className="navbar">
       {/* Top Bar */}
@@ -30,12 +32,12 @@ const Header = () => {
         </div>
 
         <div className="nav-section">
-          <a href="/advanced-search" className="nav-link">
+          <Link to="/advanced-search" className="nav-link">
             Advanced Search
-          </a>
-          <a href="/login" className="nav-link">
+          </Link>
+          <Link to="/login" className="nav-link">
             Sign Up / Login
-          </a>
+          </Link>
           <span className="currency">LKR</span>
           <div className="cart">
             <img src="cart-icon.png" alt="Cart" />
