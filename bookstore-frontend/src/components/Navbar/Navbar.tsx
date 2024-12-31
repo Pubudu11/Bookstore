@@ -26,9 +26,7 @@ const Header = () => {
             placeholder="Search Books"
             className="search-input"
           />
-          <button className="search-button">
-            <img src="search_icon.png" alt="Search" />
-          </button>
+          <button className="search-button">🔍</button>
         </div>
 
         <div className="nav-section">

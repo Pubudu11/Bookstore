@@ -1,7 +1,7 @@
 import React from "react";
 import "./MainSection.css";
-import bannerImage from "../../images/banner.jpg";
-
+import bannerImage from "../../images/banner 2.jpg";
+import Slideshow from "../SlideShow/SlideShow";
 const MainSection = () => {
   return (
     <section className="main-section">

@@ -1,35 +1,25 @@
 import React, { useState, useEffect } from "react";
-import "./Slideshow.css";
-import bannerImage from "../../images/banner.jpg";
-import bannerImage2 from "../../images/banner 1.jpg";
-import bannerImage3 from "../../images/banner 2.jpg";
+import "./SlideShow.css";
+import bannerImage1 from "../../images/banner 1.jpg";
+import bannerImage2 from "../../images/banner 2.jpg";
+import bannerImage3 from "../../images/banner 3.jpg";
 
 const Slideshow = () => {
   const slides = [
-    { src: "banner.jpg", alt: "Banner 1" },
-    { src: "banner 2.jpg", alt: "Banner 2" },
-    { src: "banner 3.jpg", alt: "Banner 3" },
+    { src: bannerImage1, alt: "Banner 1" },
+    { src: bannerImage2, alt: "Banner 2" },
+    { src: bannerImage3, alt: "Banner 3" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Function to go to the next slide
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
-
-  // Function to go to the previous slide
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-    );
-  };
-
-  // Auto-slide every 5 seconds
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, []);
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   return (
     <div className="slideshow-container">
@@ -38,17 +28,35 @@ const Slideshow = () => {
           key={index}
           className={`slide ${index === currentIndex ? "active" : ""}`}
         >
-          {index === currentIndex && (
-            <img src={slide.src} alt={slide.alt} style={{ width: "100%" }} />
+          <img src={slide.src} alt={slide.alt} className="banner" />
+          {/* Overlay only for Banner 1 */}
+          {index === 0 && index === currentIndex && (
+            <div className="overlay">
+              <h2>The Bookshop</h2>
+              <p>eBook Store</p>
+              <button>
+                <a href="https://play.google.com">
+                  Start Your Journey on Google Play!
+                </a>
+              </button>
+            </div>
           )}
         </div>
       ))}
 
-      {/* Navigation buttons */}
-      <button className="nav-button prev-button" onClick={prevSlide}>
+      {/* Navigation Buttons */}
+      <button
+        className="nav-button prev-button"
+        onClick={() =>
+          setCurrentIndex((currentIndex - 1 + slides.length) % slides.length)
+        }
+      >
         ❮
       </button>
-      <button className="nav-button next-button" onClick={nextSlide}>
+      <button
+        className="nav-button next-button"
+        onClick={() => setCurrentIndex((currentIndex + 1) % slides.length)}
+      >
         ❯
       </button>
     </div>
