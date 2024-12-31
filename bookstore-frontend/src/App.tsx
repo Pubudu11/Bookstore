@@ -9,7 +9,7 @@ import UserLogin from "./components/Login/UserLogin";
 const App: React.FC = () => {
   return (
     <Router>
-      <div>
+      <div className="app-container">
         <Navbar />
         <div className="body-background">
           <Routes>
@@ -18,13 +18,13 @@ const App: React.FC = () => {
               element={
                 <>
                   <Slideshow />
-                  <Footer />
                 </>
               }
             />
             <Route path="/login" element={<UserLogin />} />
           </Routes>
         </div>
+        <Footer /> {/* Footer is placed outside the Routes block */}
       </div>
     </Router>
   );

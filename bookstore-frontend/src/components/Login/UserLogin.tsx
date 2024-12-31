@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./UserLogin.css";
+import Footer from "../Footer/Footer";
 
 const UserLogin: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -62,6 +63,7 @@ const UserLogin: React.FC = () => {
       </div>
     </div>
   );
+  <Footer />;
 };
 
 export default UserLogin;
