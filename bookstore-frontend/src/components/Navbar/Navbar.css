@@ -1,35 +1,28 @@
 .navbar {
-  position: fixed; /* Navbar stays at the top of the page even when scrolling */
+  position: fixed;
   top: 0;
   width: 100%;
   right: 0;
   background: #800000;
-  z-index: 1000; /* Ensures it's above other elements */
+  z-index: 1000;
   color: white;
-  padding: 2px 20px;
+  padding: 1px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-family: "Times New Roman", Times, serif;
 }
 
 /* Top Bar */
 .top-bar {
+  position: relative;
   background-color: #800000;
   color: white;
   display: flex;
   justify-content: space-between;
-  padding: 1px 20px;
-  font-size: 14px;
+  padding: 5px 10px;
+  font-size: 12px;
   overflow-y: auto;
   width: 99%;
-}
-
-.top-bar .email a {
-  color: #d3aaf8;
-  text-decoration: none;
-}
-
-.top-bar .email a:hover {
-  text-decoration: underline;
+  text-align: center;
 }
 
 /* Main Header */
@@ -39,9 +32,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 25px 20px;
   position: absolute;
   width: 96.5%;
+}
+
+.top-bar .email a {
+  color: #d3aaf8;
+  text-decoration: none;
+}
+
+.top-bar .email a:hover {
+  text-decoration: underline;
 }
 
 /* Logo Section */
