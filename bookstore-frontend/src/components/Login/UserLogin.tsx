@@ -29,6 +29,7 @@ const UserLogin: React.FC = () => {
             <input
               type="text"
               id="username"
+              placeholder="user_name"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -39,6 +40,7 @@ const UserLogin: React.FC = () => {
             <input
               type="password"
               id="password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
