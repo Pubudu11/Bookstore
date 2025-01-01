@@ -6,7 +6,7 @@ const Header = () => {
       {/* Top Bar */}
       <div className="top-bar">
         <p className="contact">
-          --------Call us for Web Orders: +94 765252133 / 0111234567----
+          ----Call us for Web Orders: +94 765252133 / 0111234567----
         </p>
         <p className="email">
           Email: <a href="mailto:bookhaven.lk">bookhaven.lk</a>
@@ -26,9 +26,7 @@ const Header = () => {
             placeholder="Search Books"
             className="search-input"
           />
-          <button className="search-button">
-            <img src="search_icon.png" alt="Search" />
-          </button>
+          <button className="search-button">🔍</button>
         </div>
 
         <div className="nav-section">

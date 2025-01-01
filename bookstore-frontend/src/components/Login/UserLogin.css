@@ -1,57 +1,64 @@
-.center-container {
-  display: flex;
-  align-items: center;
-  padding-top: 120px;
-  padding-left: 250px;
-  margin: 0 auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  object-fit: cover;
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("background1.jpg"); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  padding-top: 100px;
 }
 
 .login-container {
-  background-color: #00000079;
-  padding: 70px;
-  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  padding: 100px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   width: 100%;
-  max-width: 300px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  text-align: center;
 }
 
 h2 {
-  text-align: center;
+  color: #fff;
   margin-bottom: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group {
-  margin-bottom: 15px;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  text-align: left;
+  color: #fff;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 input,
 select {
   width: 100%;
-  padding: 8px;
-  border: 1px solid black;
-  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 button {
   background-color: #a51717;
   color: white;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -59,13 +66,19 @@ button:hover {
 }
 
 a {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-  color: #0ce153;
+  color: #4caf50;
   text-decoration: none;
+  font-size: 14px;
+  margin-top: 10px;
+  display: inline-block;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+p {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 14px;
 }

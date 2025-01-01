@@ -1,40 +1,45 @@
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  right: 0;
   background: #800000;
-  z-index: 500;
   color: white;
-  padding: 1px 20px;
+  padding: 0px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-family: "Times New Roman", Times, serif;
+  z-index: 1000; /* Ensure it stays above other elements */
 }
 
 /* Top Bar */
 .top-bar {
-  position: relative;
+  position: fixed;
+  top: 40px; /* Place below navbar if needed */
   background-color: #800000;
   color: white;
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 2px;
   font-size: 12px;
   overflow-y: auto;
-  width: 99%;
+  width: 100%; /* Adjusted to prevent scroll issues */
+  z-index: 999; /* Place below navbar but above content */
 }
 
 /* Main Header */
 .main-header {
+  position: relative; /* Changed to avoid conflict with fixed elements */
+  margin-top: 80px; /* Offset by the combined height of navbar and top-bar */
   background-color: white;
   color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  position: absolute;
-  width: 96.5%;
   font-weight: bold;
+  font-size: 18px;
+  border-bottom: 2px solid #ccc; /* Optional: Adds a divider for clarity */
 }
 
 .top-bar .email a {
@@ -73,22 +78,17 @@
 }
 
 .search-input {
-  padding: 5px 100px;
+  padding: 5px 200px;
   font-size: 16px;
   border: 2px solid black;
   border-radius: 8px;
 }
 
 .search-button {
-  background-color: white;
-  border-radius: 8px;
-  padding: 5px;
   cursor: pointer;
-}
-
-.search-button img {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  padding: 2px;
 }
 
 /* Navigation Section */

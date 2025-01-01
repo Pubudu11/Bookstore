@@ -41,20 +41,6 @@ const Slideshow = () => {
           )}
         </div>
       ))}
-      <button
-        className="nav-button prev-button"
-        onClick={() =>
-          setCurrentIndex((currentIndex - 1 + slides.length) % slides.length)
-        }
-      >
-        ❮
-      </button>
-      <button
-        className="nav-button next-button"
-        onClick={() => setCurrentIndex((currentIndex + 1) % slides.length)}
-      >
-        ❯
-      </button>
     </div>
   );
 };
