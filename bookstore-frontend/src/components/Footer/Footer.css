@@ -2,8 +2,10 @@
   background-color: black;
   color: white;
   text-align: center;
-  padding: 2px 0;
-  position: fixed; /* Use "fixed" to keep it always at the bottom */
+  padding: 10px;
+  position: fixed; /* Ensures the footer stays at the bottom of the page */
   bottom: 0;
-  width: 100%;
+  left: 0;
+  width: 100%; /* Ensures the footer spans the full width */
+  z-index: 1000; /* Keeps the footer above other elements if necessary */
 }

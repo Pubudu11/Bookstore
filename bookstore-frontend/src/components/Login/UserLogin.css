@@ -6,29 +6,42 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-image: url("background1.jpg"); /* Replace with your image */
-  background-size: cover;
-  background-position: center;
+  background-color: #f4f4f4;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
-  padding-top: 100px;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-width: 350px;
+  padding-top: 10px;
 }
 
 .login-container {
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-  padding: 100px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7); /* Darker transparent background */
+  padding: 30px 40px; /* Adjust padding for a more compact form */
+  border-radius: 30px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 400px;
+  max-width: 380px;
   text-align: center;
+  margin-top: auto;
+  margin-bottom: 20px; /* Space between the form and the bottom */
 }
 
 h2 {
   color: #fff;
+  font-size: 24px;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 label {
@@ -36,17 +49,27 @@ label {
   text-align: left;
   color: #fff;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 input,
 select {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #a51717;
+  outline: none;
 }
 
 button {
@@ -62,7 +85,7 @@ button {
 }
 
 button:hover {
-  background-color: #2d7cd6;
+  background-color: #d53b3b;
 }
 
 a {

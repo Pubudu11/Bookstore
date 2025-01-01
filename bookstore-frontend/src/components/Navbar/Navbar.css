@@ -1,28 +1,15 @@
-/* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #800000;
-  color: white;
-  padding: 0px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-family: "Times New Roman", Times, serif;
-  z-index: 1000; /* Ensure it stays above other elements */
-}
-
 /* Top Bar */
 .top-bar {
-  position: fixed;
-  top: 40px; /* Place below navbar if needed */
+  position: relative;
+  top: 0px; /* Place below navbar if needed */
   background-color: #800000;
   color: white;
   display: flex;
+  height: 50px;
   justify-content: space-between;
   padding: 2px;
   font-size: 12px;
-  overflow-y: auto;
+
   width: 100%; /* Adjusted to prevent scroll issues */
   z-index: 999; /* Place below navbar but above content */
 }
@@ -30,15 +17,15 @@
 /* Main Header */
 .main-header {
   position: relative; /* Changed to avoid conflict with fixed elements */
-  margin-top: 80px; /* Offset by the combined height of navbar and top-bar */
+
   background-color: white;
   color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 2px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   border-bottom: 2px solid #ccc; /* Optional: Adds a divider for clarity */
 }
 
