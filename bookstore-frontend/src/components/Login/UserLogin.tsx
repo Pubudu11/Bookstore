@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./UserLogin.css";
 import Footer from "../Footer/Footer";
+import background1 from "../../images/background1.jpg";
 
 const UserLogin: React.FC = () => {
   const [username, setUsername] = useState("");
