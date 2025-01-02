@@ -16,7 +16,9 @@ const Header = () => {
       {/* Main Content */}
       <div className="main-header">
         <div className="logo-section">
-          <img src="logo.JPG" alt="Book Haven Logo" className="logo" />
+          <a href="/" className="logo-link">
+            <img src="logo.JPG" alt="Book Haven Logo" className="logo" />
+          </a>
           <h1 className="site-name">Book Haven</h1>
         </div>
 
