@@ -10,12 +10,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Customer {
     @Id
     private String id;
-    private String name;
+    private String userId;
+    private String firstName;
+    private String lastName;
     private String address;
     private String phone;
     private String email;
     private String zipcode;
     private String city;
+    private String oderNote;
 
     public String getId() {
         return id;
@@ -25,12 +28,12 @@ public class Customer {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getAddress() {
@@ -71,6 +74,30 @@ public class Customer {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getOderNote() {
+        return oderNote;
+    }
+
+    public void setOderNote(String oderNote) {
+        this.oderNote = oderNote;
     }
 }
 

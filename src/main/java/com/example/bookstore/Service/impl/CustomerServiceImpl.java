@@ -31,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer updateCustomer(Customer customer, String id) {
         Customer existingCustomer = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
-        existingCustomer.setName(customer.getName());
+        existingCustomer.setFirstName(customer.getFirstName());
         existingCustomer.setAddress(customer.getAddress());
         existingCustomer.setPhone(customer.getPhone());
         existingCustomer.setEmail(customer.getEmail());
@@ -39,6 +39,11 @@ public class CustomerServiceImpl implements CustomerService {
         existingCustomer.setCity(customer.getCity());
         customerRepository.save(existingCustomer);
         return existingCustomer;
+    }
+    @Override
+    public List<Customer> getCustomerByUserid(String userid){
+        return customerRepository.findByUserId(userid);
+
     }
     @Override
     public void deleteCustomer(String id) {
