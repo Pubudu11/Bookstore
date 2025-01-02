@@ -10,32 +10,25 @@ import "./App.css";
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="app-container">
-        {/* Navbar will appear on all pages */}
-        <Navbar />
+      <Navbar />
 
-        {/* Main content area */}
-        <div className="main-content">
-          <Routes>
-            {/* Home Page */}
-            <Route
-              path="/"
-              element={
-                <div className="body-background">
-                  <Slideshow />
-                </div>
-              }
-            />
-            {/* Login Page */}
-            <Route path="/login" element={<UserLogin />} />
-            {/* Register Page */}
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="body-background">
+              <Slideshow />
+            </div>
+          }
+        />
+        {/* Login Page */}
+        <Route path="/login" element={<UserLogin />} />
+        {/* Register Page */}
+        <Route path="/register" element={<Register />} />
+      </Routes>
 
-        {/* Footer will appear on all pages */}
-        <Footer />
-      </div>
+      {/* Footer will appear on all pages */}
+      <Footer />
     </Router>
   );
 };

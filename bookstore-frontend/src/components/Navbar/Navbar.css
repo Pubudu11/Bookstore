@@ -1,3 +1,15 @@
+.header {
+  width: 100%;
+}
+/* Ensure the body takes up the full height and avoids overlap */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding-top: 120px; /* Account for fixed top bar and main header */
+}
+
 /* Top Bar */
 .top-bar {
   position: fixed;
@@ -140,4 +152,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-section {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .nav-section {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .logo-section {
+    margin-bottom: 10px;
+  }
 }

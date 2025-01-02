@@ -2,7 +2,7 @@ import "./Navbar.css"; // Assuming CSS file for styling
 
 const Header = () => {
   return (
-    <header className="navbar">
+    <header className="header">
       {/* Top Bar */}
       <div className="top-bar">
         <p className="contact">
