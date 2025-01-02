@@ -1,12 +1,13 @@
+import React from 'react';
+import Cart from './components/Cart';
+import './App.css';
 
-function App() {
-
+const App: React.FC = () => {
   return (
-    <>
-      <h1>Welocome</h1>
-      <h1>Book</h1>
-    </>
-  )
-}
+    <div className="App">
+      <Cart />
+    </div>
+  );
+};
 
-export default App
+export default App;
