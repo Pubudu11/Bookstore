@@ -33,7 +33,7 @@ const Cart: React.FC = () => {
                     />
                 ))
             ) : (
-                <p>Your cart is empty.</p>
+                <p>Your Cart is Empty.</p>
             )}
             <h2>Total: ${total}</h2>
         </div>
