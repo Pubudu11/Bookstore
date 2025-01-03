@@ -29,7 +29,7 @@ public class UserController {
         return ResponseEntity.ok(newUser);
     }
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<User>> getUsers() {
         List<User> users = this.userService.getAllUsers();
         return ResponseEntity.ok(users);
