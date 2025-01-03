@@ -1,6 +1,7 @@
 package com.example.bookstore.Model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
@@ -27,7 +28,7 @@ public class User {
     @Size(min = 5, max = 50)
 
     private String password;
-
+    @Indexed(unique = true)
     @Size(min = 10, max = 100)
     @Email
     private String email;
