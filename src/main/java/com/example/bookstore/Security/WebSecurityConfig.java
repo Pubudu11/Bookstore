@@ -96,7 +96,8 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
                             "/v3/api-docs/**",    // Swagger v3 API docs
                             "/swagger-ui/**",     // Swagger UI
                             "/swagger-resources/**", // Swagger resources
-                            "/webjars/**"         // Swagger webjars
+                            "/webjars/**" ,        // Swagger webjars
+                            "/api/orders/"
                     ).permitAll().anyRequest().authenticated());
 
     http.authenticationProvider(authenticationProvider());
