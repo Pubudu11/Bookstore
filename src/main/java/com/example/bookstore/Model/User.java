@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Size;
 
 @Document(collection = "users")
 
-
+//User
 public class User {
     @Id
     private String id;
