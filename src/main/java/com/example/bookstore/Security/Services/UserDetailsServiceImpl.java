@@ -1,4 +1,4 @@
-package com.example.CRUD_BE_MDB.Security.Services;
+package com.example.bookstore.Security.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.CRUD_BE_MDB.Model.User;
-import com.example.CRUD_BE_MDB.Repository.UserRepository;
+import com.example.bookstore.Model.User;
+import com.example.bookstore.Repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

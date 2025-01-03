@@ -1,4 +1,4 @@
-package com.example.CRUD_BE_MDB.Security;
+package com.example.bookstore.Security;
 
 
 import org.springframework.context.annotation.Bean;

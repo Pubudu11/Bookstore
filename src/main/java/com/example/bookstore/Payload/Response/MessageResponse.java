@@ -1,4 +1,4 @@
-package com.example.CRUD_BE_MDB.Payload.Response;
+package com.example.bookstore.Payload.Response;
 
 public class MessageResponse {
 	private String message;

@@ -1,4 +1,4 @@
-package com.example.CRUD_BE_MDB.Payload.Request;
+package com.example.bookstore.Payload.Request;
 
 import java.util.Set;
 

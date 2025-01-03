@@ -1,4 +1,4 @@
-package com.example.CRUD_BE_MDB.Security.JWT;
+package com.example.bookstore.Security.JWT;
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;

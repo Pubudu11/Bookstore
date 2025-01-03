@@ -1,4 +1,4 @@
-package com.example.CRUD_BE_MDB.Security.JWT;
+package com.example.bookstore.Security.JWT;
 
 import java.security.Key;
 import java.util.Date;
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import com.example.CRUD_BE_MDB.Security.Services.UserDetailsImpl;
+import com.example.bookstore.Security.Services.UserDetailsImpl;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
