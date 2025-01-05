@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Slideshow from "./components/SlideShow/SlideShow";
@@ -8,9 +13,12 @@ import Register from "./components/Register/Register";
 import "./App.css";
 
 const App: React.FC = () => {
+  const location = useLocation();
+
   return (
-    <Router>
-      <Navbar />
+    <>
+      {/* Conditionally render Navbar only on the home page */}
+      {location.pathname === "/" && <Navbar />}
 
       <Routes>
         <Route
@@ -29,8 +37,15 @@ const App: React.FC = () => {
 
       {/* Footer will appear on all pages */}
       <Footer />
-    </Router>
+    </>
   );
 };
 
-export default App;
+// Wrap the App component with Router to provide routing context
+const AppWrapper: React.FC = () => (
+  <Router>
+    <App />
+  </Router>
+);
+
+export default AppWrapper;
