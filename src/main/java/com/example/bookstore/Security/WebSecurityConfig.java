@@ -85,25 +85,56 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 //  http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 //}
 
+  //code
+
+//  @Bean
+//  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//    http.csrf(csrf -> csrf.disable())
+//            .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
+//            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//            .authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll().requestMatchers("/api/auth/**").permitAll().requestMatchers("/api/test/**")
+//                    .permitAll() .requestMatchers(
+//                            "/v2/api-docs",       // Swagger v2 API docs
+//                            "/v3/api-docs/**",    // Swagger v3 API docs
+//                            "/swagger-ui/**",     // Swagger UI
+//                            "/swagger-resources/**", // Swagger resources
+//                            "/webjars/**" ,        // Swagger webjars
+//                            "/api/orders/"
+//                    ).permitAll().anyRequest().authenticated());
+//
+//    http.authenticationProvider(authenticationProvider());
+//
+//    http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+//
+//    return http.build();
+//  }
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.csrf(csrf -> csrf.disable())
             .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll().requestMatchers("/api/auth/**").permitAll().requestMatchers("/api/test/**")
-                    .permitAll() .requestMatchers(
+            .authorizeHttpRequests(auth -> auth
+                    .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                    .requestMatchers("/api/auth/**").permitAll() // Authentication endpoints
+//                    .requestMatchers("/api/public/**").permitAll() // Public API endpoints
+                    .requestMatchers("/static/**").permitAll() // Static resources
+                    .requestMatchers(
                             "/v2/api-docs",       // Swagger v2 API docs
                             "/v3/api-docs/**",    // Swagger v3 API docs
                             "/swagger-ui/**",     // Swagger UI
                             "/swagger-resources/**", // Swagger resources
-                            "/webjars/**" ,        // Swagger webjars
-                            "/api/orders/"
-                    ).permitAll().anyRequest().authenticated());
+                            "/webjars/**"         // Swagger webjars
+                    ).permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/orders/").permitAll() // Allow GET requests to /api/orders/
+                    .requestMatchers(HttpMethod.GET, "/api/orders").permitAll() // Allow GET requests to /api/orders
+                    .requestMatchers(HttpMethod.GET, "/api/users").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/users/").permitAll()
+                    .anyRequest().authenticated());
 
     http.authenticationProvider(authenticationProvider());
-
     http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
     return http.build();
   }
+
 }
