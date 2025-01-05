@@ -33,6 +33,7 @@ public class AdminServiceImpl implements AdminService {
         Admin oldAdmin = adminRepository.findById(id).orElseThrow(()-> new RuntimeException("Admin not found"));
         oldAdmin.setUsername(admin.getUsername());
         oldAdmin.setPassword(admin.getPassword());
+        oldAdmin.setEmail(admin.getEmail());
         return adminRepository.save(oldAdmin);
     }
     @Override
