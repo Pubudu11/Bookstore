@@ -116,7 +116,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                     .requestMatchers("/api/auth/**").permitAll() // Authentication endpoints
-//                    .requestMatchers("/api/public/**").permitAll() // Public API endpoints
+                    .requestMatchers("/api/public/**").permitAll() // Public API endpoints
                     .requestMatchers("/static/**").permitAll() // Static resources
                     .requestMatchers(
                             "/v2/api-docs",       // Swagger v2 API docs
