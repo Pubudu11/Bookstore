@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
+import com.example.bookstore.Repository.AdminRepository;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.bookstore.Model.ERole;
 import com.example.bookstore.Model.Role;
 import com.example.bookstore.Model.User;
+import com.example.bookstore.Model.Admin;
 import com.example.bookstore.Payload.Request.LoginRequest;
 import com.example.bookstore.Payload.Request.SignUpRequest;
 import com.example.bookstore.Payload.Response.JwtResponse;
@@ -31,6 +34,7 @@ import com.example.bookstore.Repository.RoleRepository;
 import com.example.bookstore.Repository.UserRepository;
 import com.example.bookstore.Security.JWT.JwtUtils;
 import com.example.bookstore.Security.Services.UserDetailsImpl;
+import com.example.bookstore.Security.Services.AdminDetailsImpl;
 
 
 
@@ -41,6 +45,8 @@ public class AuthController {
 	@Autowired
 	AuthenticationManager authenticationManager;
 
+	@Autowired
+	AdminRepository adminRepository;
 	@Autowired
 	UserRepository userRepository;
 
@@ -53,7 +59,9 @@ public class AuthController {
 	@Autowired
 	JwtUtils jwtUtils;
 
-	@PostMapping("/signin")
+
+
+	@PostMapping("/user/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
 		Authentication authentication = authenticationManager.authenticate(
@@ -61,7 +69,7 @@ public class AuthController {
 
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtUtils.generateJwtToken(authentication);
-		
+
 		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();		
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
@@ -74,7 +82,7 @@ public class AuthController {
 												 roles));
 	}
 
-	@PostMapping("/signup")
+	@PostMapping("/user/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity
@@ -93,39 +101,63 @@ public class AuthController {
 							 signUpRequest.getEmail(),
 							 encoder.encode(signUpRequest.getPassword()));
 
-		Set<String> strRoles = signUpRequest.getRoles();
+
 		Set<Role> roles = new HashSet<>();
-
-		if (strRoles == null) {
-			Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-			roles.add(userRole);
-		} else {
-			strRoles.forEach(role -> {
-				switch (role) {
-				case "admin":
-					Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-					roles.add(adminRole);
-
-					break;
-				case "mod":
-					Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
-							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-					roles.add(modRole);
-
-					break;
-				default:
-					Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-					roles.add(userRole);
-				}
-			});
-		}
+		roles.add(roleRepository.findByName(ERole.ROLE_USER)
+				.orElseThrow(() -> new RuntimeException("Error: Role is not found.")));
 
 		user.setRoles(roles);
 		userRepository.save(user);
 
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
+	@PostMapping("admin/signup")
+	public ResponseEntity<?> registerAdmin(@Valid @RequestBody SignUpRequest signUpRequest) {
+		if (adminRepository.existsByUsername(signUpRequest.getUsername())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Admin Username is already taken!"));
+		}
+
+		if (adminRepository.existsByEmail(signUpRequest.getEmail())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Admin Email is already in use!"));
+		}
+
+		// Create new admin  account
+		Admin admin = new Admin(signUpRequest.getUsername(),
+				encoder.encode(signUpRequest.getPassword()),
+				signUpRequest.getEmail());
+
+		Set<Role> roles = new HashSet<>();
+
+		roles.add(roleRepository.findByName(ERole.ROLE_ADMIN)
+				.orElseThrow(() -> new RuntimeException("Error: Role is not found.")));
+		admin.setRoles(roles);
+		adminRepository.save(admin);
+
+		return ResponseEntity.ok(new MessageResponse("Admin registered successfully!"));
+	}
+	@PostMapping("/admin/signin")
+	public ResponseEntity<?> authenticateAdmin(@Valid @RequestBody LoginRequest loginRequest) {
+
+		Authentication authentication = authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+		String jwt = jwtUtils.generateJwtToken(authentication);
+
+		AdminDetailsImpl adminDetails = (AdminDetailsImpl) authentication.getPrincipal();
+		List<String> roles = adminDetails.getAuthorities().stream()
+				.map(item -> item.getAuthority())
+				.collect(Collectors.toList());
+
+		return ResponseEntity.ok(new JwtResponse(jwt,
+				adminDetails.getId(),
+				adminDetails.getUsername(),
+				adminDetails.getEmail(),
+				roles));
+	}
+
 }
