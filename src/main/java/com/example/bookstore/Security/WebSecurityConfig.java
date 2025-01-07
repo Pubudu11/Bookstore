@@ -1,5 +1,6 @@
 package com.example.bookstore.Security;
 
+import com.example.bookstore.Security.Services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +20,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.example.bookstore.Security.JWT.AuthEntryPointJwt;
 import com.example.bookstore.Security.JWT.AuthTokenFilter;
-import com.example.bookstore.Security.Services.UserDetailsServiceImpl;
 
 import org.springframework.http.HttpMethod;
 

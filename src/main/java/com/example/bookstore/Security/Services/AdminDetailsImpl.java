@@ -19,12 +19,10 @@ public class AdminDetailsImpl extends UserDetailsImpl implements UserDetails {
                            Collection<? extends GrantedAuthority> authorities) {
         super(id, username, email, password, authorities);
     }
-
     public static AdminDetailsImpl build(Admin admin) {
         List<GrantedAuthority> authorities = admin.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
-
         return new AdminDetailsImpl(
                 admin.getId(),
                 admin.getUsername(),

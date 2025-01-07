@@ -17,32 +17,30 @@ import java.util.Optional;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	@Autowired
-	UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
 
-	@Autowired
-	AdminRepository adminRepository;
+    @Autowired
+    AdminRepository adminRepository;
 
 
-	@Override
-	@Transactional
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<User> userOptional = userRepository.findByUsername(username);
-		if (userOptional.isPresent()) {
-			System.out.println("Returning UserDetailsImpl for: " + username);
-			UserDetailsImpl userDetails = UserDetailsImpl.build(userOptional.get());
-			return UserDetailsImpl.build(userOptional.get());
-		}
+    @Override
+    @Transactional
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> userOptional = userRepository.findByUsername(username);
+        if (userOptional.isPresent()) {
+            System.out.println("Returning UserDetailsImpl for: " + username);
+            return UserDetailsImpl.build(userOptional.get());
+        }
+        Optional<Admin> adminOptional = adminRepository.findByUsername(username);
+        if (adminOptional.isPresent()) {
+            System.out.println("Returning AdminDetailsImpl for: " + username);
+            return AdminDetailsImpl.build(adminOptional.get());
+        }
 
-		Optional<Admin> adminOptional = adminRepository.findByUsername(username);
-		if (adminOptional.isPresent()) {
-			System.out.println("Returning AdminDetailsImpl for: " + username);
-			return (UserDetails) AdminDetailsImpl.build(adminOptional.get());
-		}
-
-		System.out.println("User or Admin not found for: " + username);
-		throw new UsernameNotFoundException("User or Admin not found with username: " + username);
-	}
+        System.out.println("User or Admin not found for: " + username);
+        throw new UsernameNotFoundException("User or Admin not found with username: " + username);
+    }
 
 
 
@@ -66,3 +64,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 //		}
 //	}
 }
+
