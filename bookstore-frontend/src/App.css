@@ -13,3 +13,27 @@ body {
   box-sizing: border-box;
   overflow-y: auto; /* Ensure scrolling is enabled */
 }
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make the app container at least as tall as the viewport */
+}
+
+/* Main content expands to fill space */
+.main-content {
+  flex: 1; /* Ensures this section takes up available space */
+}
+
+/* Footer styles */
+.footer {
+  background-color: rgb(96, 92, 92);
+  color: white;
+  text-align: center;
+  padding: 30px;
+  position: fixed; /* Ensures the footer stays at the bottom of the page */
+  bottom: 0;
+  left: 0;
+
+  width: 100%; /* Ensures the footer spans the full width */
+  z-index: 1000; /* Keeps the footer above other elements if necessary */
+}

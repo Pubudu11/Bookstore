@@ -14,34 +14,38 @@ import BookList from "./components/BookList"; // Corrected import statement
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Define the pages where the footer should not be displayed
+const noFooterPages = ["/login", "/register"];
+
 // Define the App component
 const App: React.FC = () => {
   const location = useLocation();
 
   return (
-    <>
+    <div className="app">
       {/* Conditionally render Navbar only on the home page */}
       {location.pathname === "/" && <Navbar />}
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="body-background">
-              <Slideshow />
-              <BookList />
-            </div>
-          }
-        />
-        {/* Login Page */}
-        <Route path="/login" element={<UserLogin />} />
-        {/* Register Page */}
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <div className="main-content">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="body-background">
+                <Slideshow />
+                <BookList />
+              </div>
+            }
+          />
+          {/* Login Page */}
+          <Route path="/login" element={<UserLogin />} />
+          {/* Register Page */}
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </div>
 
-      {/* Footer will appear on all pages */}
-      <Footer />
-    </>
+      {!noFooterPages.includes(location.pathname) && <Footer />}
+    </div>
   );
 };
 
