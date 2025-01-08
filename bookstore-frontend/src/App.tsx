@@ -10,11 +10,11 @@ import Footer from "./components/Footer/Footer";
 import Slideshow from "./components/SlideShow/SlideShow";
 import UserLogin from "./components/Login/UserLogin";
 import Register from "./components/Register/Register";
+import BookList from "./components/BookList"; // Corrected import statement
 import "./App.css";
-import BookList from "./components/BookList";
 import "bootstrap/dist/css/bootstrap.min.css";
-import BookCarousel from "./components/BookList";
 
+// Define the App component
 const App: React.FC = () => {
   const location = useLocation();
 
@@ -29,7 +29,7 @@ const App: React.FC = () => {
           element={
             <div className="body-background">
               <Slideshow />
-              <BookCarousel />
+              <BookList />
             </div>
           }
         />

@@ -1,12 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Carousel, OverlayTrigger, Tooltip } from "react-bootstrap";
-import {
-  FaShoppingCart,
-  FaHeart,
-  FaChevronLeft,
-  FaChevronRight,
-} from "react-icons/fa";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { FaShoppingCart, FaHeart } from "react-icons/fa";
 
 // Import book images
 import bookImage1 from "./../images/1.jpg";
