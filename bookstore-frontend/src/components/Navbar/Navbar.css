@@ -1,5 +1,6 @@
 .header {
   width: 100%;
+  padding: 10px;
 }
 /* Ensure the body takes up the full height and avoids overlap */
 body {

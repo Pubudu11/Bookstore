@@ -16,9 +16,9 @@ const Slideshow = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 5000);
+    }, 5000); // 5 seconds per slide
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div className="slideshow-container">
@@ -28,7 +28,8 @@ const Slideshow = () => {
           className={`slide ${index === currentIndex ? "active" : ""}`}
         >
           <img src={slide.src} alt={slide.alt} className="banner" />
-          {index === 0 && index === currentIndex && (
+          {/* Show overlay only for Banner 1 */}
+          {index === 0 && currentIndex === 0 && (
             <div className="overlay">
               <h2>The Bookshop</h2>
               <p>eBook Store</p>

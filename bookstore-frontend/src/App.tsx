@@ -11,6 +11,7 @@ import Slideshow from "./components/SlideShow/SlideShow";
 import UserLogin from "./components/Login/UserLogin";
 import Register from "./components/Register/Register";
 import "./App.css";
+import BookList from "./components/BookList";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const App: React.FC = () => {
           element={
             <div className="body-background">
               <Slideshow />
+              <BookList />
             </div>
           }
         />
