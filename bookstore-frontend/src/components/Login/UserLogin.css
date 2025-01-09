@@ -35,14 +35,15 @@ body {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 380px;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
-  color: #fff;
   font-size: 24px;
   margin-bottom: 20px;
   font-weight: 600;
+  color: #fff;
+  text-align: center;
 }
 
 label {
@@ -67,11 +68,11 @@ select {
   transition: border-color 0.3s ease;
 }
 
-input:focus,
+/* input:focus,
 select:focus {
   border-color: #a51717;
   outline: none;
-}
+} */
 
 button {
   background-color: #a51717;
