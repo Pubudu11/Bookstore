@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Slideshow from "./components/SlideShow/SlideShow";
 import UserLogin from "./components/Login/UserLogin";
 import Register from "./components/Register/Register";
-import BookList from "./components/BookList"; // Corrected import statement
+import BookList from "./components/BookList/BookList"; // Corrected import statement
 import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
