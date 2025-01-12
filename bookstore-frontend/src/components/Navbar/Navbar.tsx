@@ -43,6 +43,10 @@ const Header = () => {
             <img src="cart-icon.png" alt="Cart" />
             <span className="cart-count">0</span>
           </div>
+          <div className="wishlist">
+            <img src="Wishlist.png" alt="wishList" />
+            <span className="wishlist-count">0</span>
+          </div>
         </div>
       </div>
     </header>

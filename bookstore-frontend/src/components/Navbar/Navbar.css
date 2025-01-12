@@ -154,6 +154,30 @@ body {
   align-items: center;
   justify-content: center;
 }
+.wishlist {
+  position: relative;
+}
+
+.wishlist img {
+  width: 24px;
+  height: 24px;
+}
+
+.wishlist-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: black;
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
