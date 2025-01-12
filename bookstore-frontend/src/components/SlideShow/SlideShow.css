@@ -27,6 +27,7 @@
   height: 100%;
   object-fit: cover; /* Ensures the image covers the entire container */
   display: block;
+  padding-top: 145px;
 }
 
 /* Overlay styling */

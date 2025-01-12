@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./SlideShow.css";
 import bannerImage1 from "../../images/banner 1.jpg";
-import bannerImage2 from "../../images/banner 2.jpg";
+import bannerImage2 from "../../images/banner 2.png";
 import bannerImage3 from "../../images/banner 3.jpg";
 
 const Slideshow = () => {

@@ -43,8 +43,6 @@ import bookImage25 from "./../../images/25.jpeg";
 import bookImage26 from "./../../images/26.jpeg";
 import bookImage27 from "./../../images/27.jpeg";
 import bookImage28 from "./../../images/28.jpeg";
-import bookImage29 from "./../../images/29.jpeg";
-import bookImage30 from "./../../images/30.jpeg";
 import bookImage31 from "./../../images/31.jpeg";
 import bookImage32 from "./../../images/32.jpeg";
 import bookImage33 from "./../../images/33.jpeg";
@@ -60,11 +58,23 @@ import bookImage42 from "./../../images/42.jpeg";
 import bookImage43 from "./../../images/43.jpeg";
 import bookImage44 from "./../../images/44.jpeg";
 import bookImage45 from "./../../images/45.jpeg";
-import bookImage46 from "./../../images/46.jpeg";
 import bookImage47 from "./../../images/47.jpeg";
 import bookImage48 from "./../../images/48.jpeg";
 import bookImage49 from "./../../images/49.jpeg";
 import bookImage50 from "./../../images/50.jpeg";
+import bookImage51 from "./../../images/51.jpeg";
+import bookImage52 from "./../../images/52.jpeg";
+import bookImage53 from "./../../images/53.jpeg";
+import bookImage54 from "./../../images/54.jpeg";
+import bookImage55 from "./../../images/55.jpeg";
+import bookImage56 from "./../../images/56.jpeg";
+import bookImage57 from "./../../images/57.jpeg";
+import bookImage58 from "./../../images/58.jpeg";
+import bookImage59 from "./../../images/59.jpeg";
+import bookImage60 from "./../../images/60.jpeg";
+import bookImage61 from "./../../images/61.jpeg";
+import bookImage63 from "./../../images/63.jpeg";
+import bookImage64 from "./../../images/64.jpeg";
 
 // Define books and moreBooks data
 const books = [
@@ -195,6 +205,281 @@ const books = [
     image: bookImage18,
   },
 ];
+const moreBooks = [
+  {
+    title: "WAR AND PEACE",
+    price: "LKR 2000.00",
+    discountPrice: "LKR 1600.00",
+    discount: "20%",
+    image: bookImage19,
+  },
+  {
+    title: "CRIME AND PUNISHMENT",
+    price: "LKR 1800.00",
+    discountPrice: "LKR 1440.00",
+    discount: "20%",
+    image: bookImage20,
+  },
+  {
+    title: "PRIDE AND PREJUDICE",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1350.00",
+    discount: "10%",
+    image: bookImage21,
+  },
+  {
+    title: "MOBY DICK",
+    price: "LKR 1750.00",
+    discountPrice: "LKR 1575.00",
+    discount: "10%",
+    image: bookImage22,
+  },
+  {
+    title: "GREAT EXPECTATIONS",
+    price: "LKR 1200.00",
+    discountPrice: "LKR 960.00",
+    discount: "20%",
+    image: bookImage23,
+  },
+  {
+    title: "WAR AND PEACE",
+    price: "LKR 2000.00",
+    discountPrice: "LKR 1600.00",
+    discount: "20%",
+    image: bookImage24,
+  },
+  {
+    title: "CRIME AND PUNISHMENT",
+    price: "LKR 1800.00",
+    discountPrice: "LKR 1440.00",
+    discount: "20%",
+    image: bookImage25,
+  },
+  {
+    title: "PRIDE AND PREJUDICE",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1350.00",
+    discount: "10%",
+    image: bookImage26,
+  },
+  {
+    title: "MOBY DICK",
+    price: "LKR 1750.00",
+    discountPrice: "LKR 1575.00",
+    discount: "10%",
+    image: bookImage27,
+  },
+  {
+    title: "GREAT EXPECTATIONS",
+    price: "LKR 1200.00",
+    discountPrice: "LKR 960.00",
+    discount: "20%",
+    image: bookImage28,
+  },
+];
+const anotherBooks = [
+  {
+    title: "SNEHA SANKARA",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1200.00",
+    image: bookImage31,
+  },
+  {
+    title: "MEDUSA",
+    price: "LKR 1400.00",
+    discountPrice: "LKR 1120.00",
+    image: bookImage32,
+  },
+  {
+    title: "MARILA IPADUNU MINISSU",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1350.00",
+    image: bookImage33,
+  },
+  {
+    title: "OOI",
+    price: "LKR 1750.00",
+    discountPrice: "LKR 1575.00",
+    image: bookImage34,
+  },
+  {
+    title: "BADDEGAMA",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1250.00",
+    image: bookImage35,
+  },
+  {
+    title: "NUBA HINDA",
+    price: "LKR 2000.00",
+    discountPrice: "LKR 1600.00",
+    image: bookImage36,
+  },
+  {
+    title: "LAKSHMI",
+    price: "LKR 1800.00",
+    discountPrice: "LKR 1440.00",
+    image: bookImage37,
+  },
+  {
+    title: "SIHINA VIMAN",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1350.00",
+    image: bookImage38,
+  },
+  {
+    title: "AURUDU TAGGA",
+    price: "LKR 1750.00",
+    discountPrice: "LKR 1575.00",
+    image: bookImage39,
+  },
+  {
+    title: "BARETHTHU",
+    price: "LKR 1200.00",
+    discountPrice: "LKR 960.00",
+    image: bookImage40,
+  },
+  {
+    title: "IRTHU",
+    price: "LKR 1800.00",
+    discountPrice: "LKR 1440.00",
+    image: bookImage41,
+  },
+  {
+    title: "SHASHAI MAMAI",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1350.00",
+    image: bookImage42,
+  },
+  {
+    title: "DROHI",
+    price: "LKR 1750.00",
+    discountPrice: "LKR 1575.00",
+    image: bookImage43,
+  },
+  {
+    title: "MAYAVI",
+    price: "LKR 1200.00",
+    discountPrice: "LKR 960.00",
+    image: bookImage44,
+  },
+  {
+    title: "HITH",
+    price: "LKR 2000.00",
+    discountPrice: "LKR 1600.00",
+    image: bookImage45,
+  },
+
+  {
+    title: "THEVI",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1350.00",
+    image: bookImage47,
+  },
+  {
+    title: "THARU DEKAK",
+    price: "LKR 1750.00",
+    discountPrice: "LKR 1575.00",
+    image: bookImage48,
+  },
+  {
+    title: "DEVA",
+    price: "LKR 1200.00",
+    discountPrice: "LKR 960.00",
+    image: bookImage49,
+  },
+  {
+    title: "ABIRAHAS BALAGANAYA",
+    price: "LKR 1200.00",
+    discountPrice: "LKR 1000.00",
+    image: bookImage50,
+  },
+];
+const childernBooks = [
+  {
+    title: "tyS",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1200.00",
+    image: bookImage51,
+  },
+  {
+    title: "MEDUSA",
+    price: "LKR 1400.00",
+    discountPrice: "LKR 1120.00",
+    image: bookImage52,
+  },
+  {
+    title: "MARILA IPADUNU MINISSU",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1350.00",
+    image: bookImage53,
+  },
+  {
+    title: "OOI",
+    price: "LKR 1750.00",
+    discountPrice: "LKR 1575.00",
+    image: bookImage54,
+  },
+  {
+    title: "BADDEGAMA",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1250.00",
+    image: bookImage55,
+  },
+  {
+    title: "NUBA HINDA",
+    price: "LKR 2000.00",
+    discountPrice: "LKR 1600.00",
+    image: bookImage56,
+  },
+  {
+    title: "LAKSHMI",
+    price: "LKR 1800.00",
+    discountPrice: "LKR 1440.00",
+    image: bookImage57,
+  },
+  {
+    title: "SIHINA VIMAN",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1350.00",
+    image: bookImage58,
+  },
+  {
+    title: "AURUDU TAGGA",
+    price: "LKR 1750.00",
+    discountPrice: "LKR 1575.00",
+    image: bookImage59,
+  },
+  {
+    title: "BARETHTHU",
+    price: "LKR 1200.00",
+    discountPrice: "LKR 960.00",
+    image: bookImage60,
+  },
+  {
+    title: "IRTHU",
+    price: "LKR 1800.00",
+    discountPrice: "LKR 1440.00",
+    image: bookImage61,
+  },
+  {
+    title: "SHASHAI MAMAI",
+    price: "LKR 1500.00",
+    discountPrice: "LKR 1350.00",
+    image: bookImage63,
+  },
+  {
+    title: "DROHI",
+    price: "LKR 1750.00",
+    discountPrice: "LKR 1575.00",
+    image: bookImage63,
+  },
+  {
+    title: "MAYAVI",
+    price: "LKR 1200.00",
+    discountPrice: "LKR 960.00",
+    image: bookImage64,
+  },
+];
 
 const BookList = () => {
   return (
@@ -203,7 +488,7 @@ const BookList = () => {
       <header
         className="mb-4 text-center py-3"
         style={{
-          backgroundColor: "#990033",
+          backgroundColor: "rgb(202, 139, 233)",
           color: "white",
           borderRadius: "8px",
         }}
@@ -286,6 +571,317 @@ const BookList = () => {
                   >
                     {book.discountPrice}
                   </p>
+                  <div className="d-flex justify-content-around mt-2">
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>Add to Cart</Tooltip>}
+                    >
+                      <button className="btn btn-outline-primary btn-sm">
+                        <FaShoppingCart />
+                      </button>
+                    </OverlayTrigger>
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>Add to Wishlist</Tooltip>}
+                    >
+                      <button className="btn btn-outline-danger btn-sm">
+                        <FaHeart />
+                      </button>
+                    </OverlayTrigger>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      {/* Second Swiper Slider Section */}
+      <header
+        className="mb-4 text-center py-3"
+        style={{
+          backgroundColor: "rgb(20, 140, 220)",
+          color: "white",
+          borderRadius: "8px",
+        }}
+      >
+        <p className="lead">
+          <strong>New Arrivals</strong>
+        </p>
+        <p className="text-muted" style={{ color: "white" }}>
+          <b>Discover the Latest Books.</b>
+        </p>
+      </header>
+
+      <div className="vertical-slideshow mb-5 swiper-slide-books">
+        <Swiper
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
+          slidesPerView={6}
+          spaceBetween={10}
+          breakpoints={{
+            1200: { slidesPerView: 6 },
+            992: { slidesPerView: 4 },
+            768: { slidesPerView: 3 },
+            576: { slidesPerView: 2 },
+          }}
+        >
+          {moreBooks.map((book, index) => (
+            <SwiperSlide key={index}>
+              {/* Card Content */}
+              <div
+                className="card"
+                style={{ width: "150px", borderRadius: "10px" }}
+              >
+                {/* Book Image and Discount */}
+                <div className="position-relative">
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="card-img-top"
+                    style={{
+                      height: "200px",
+                      objectFit: "cover",
+                      borderTopLeftRadius: "10px",
+                      borderTopRightRadius: "10px",
+                    }}
+                  />
+                  <span
+                    className="badge bg-danger text-white position-absolute top-0 end-0"
+                    style={{ borderBottomLeftRadius: "8px" }}
+                  >
+                    {book.discount}
+                  </span>
+                </div>
+                {/* Book Details */}
+                <div className="card-body text-center">
+                  <h6
+                    className="card-title"
+                    style={{
+                      fontSize: "0.85rem",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    {book.title}
+                  </h6>
+                  <p
+                    className="text-muted text-decoration-line-through small"
+                    style={{ fontSize: "0.75rem" }}
+                  >
+                    {book.price}
+                  </p>
+                  <p
+                    className="text-primary fw-bold"
+                    style={{ fontSize: "0.85rem" }}
+                  >
+                    {book.discountPrice}
+                  </p>
+                  {/* Buttons */}
+                  <div className="d-flex justify-content-around mt-2">
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>Add to Cart</Tooltip>}
+                    >
+                      <button className="btn btn-outline-primary btn-sm">
+                        <FaShoppingCart />
+                      </button>
+                    </OverlayTrigger>
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>Add to Wishlist</Tooltip>}
+                    >
+                      <button className="btn btn-outline-danger btn-sm">
+                        <FaHeart />
+                      </button>
+                    </OverlayTrigger>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      {/* third Swiper Slider Section */}
+      <header
+        className="mb-4 text-center py-3"
+        style={{
+          backgroundColor: "rgb(78, 215, 227)",
+          color: "white",
+          borderRadius: "8px",
+        }}
+      >
+        <p className="lead">
+          <strong>නවකතා</strong>
+        </p>
+        <p className="text-muted" style={{ color: "white" }}>
+          <b>Best Sinhala Novels</b>
+        </p>
+      </header>
+
+      <div className="vertical-slideshow mb-5 swiper-slide-books">
+        <Swiper
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
+          slidesPerView={6}
+          spaceBetween={10}
+          breakpoints={{
+            1200: { slidesPerView: 6 },
+            992: { slidesPerView: 4 },
+            768: { slidesPerView: 3 },
+            576: { slidesPerView: 2 },
+          }}
+        >
+          {anotherBooks.map((book, index) => (
+            <SwiperSlide key={index}>
+              {/* Card Content */}
+              <div
+                className="card"
+                style={{ width: "150px", borderRadius: "10px" }}
+              >
+                {/* Book Image and Discount */}
+                <div className="position-relative">
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="card-img-top"
+                    style={{
+                      height: "200px",
+                      objectFit: "cover",
+                      borderTopLeftRadius: "10px",
+                      borderTopRightRadius: "10px",
+                    }}
+                  />
+                  <span
+                    className="badge bg-danger text-white position-absolute top-0 end-0"
+                    style={{ borderBottomLeftRadius: "8px" }}
+                  ></span>
+                </div>
+                {/* Book Details */}
+                <div className="card-body text-center">
+                  <h6
+                    className="card-title"
+                    style={{
+                      fontSize: "0.85rem",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    {book.title}
+                  </h6>
+                  <p
+                    className="text-muted text-decoration-line-through small"
+                    style={{ fontSize: "0.75rem" }}
+                  >
+                    {book.price}
+                  </p>
+                  <p
+                    className="text-primary fw-bold"
+                    style={{ fontSize: "0.85rem" }}
+                  >
+                    {book.discountPrice}
+                  </p>
+                  {/* Buttons */}
+                  <div className="d-flex justify-content-around mt-2">
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>Add to Cart</Tooltip>}
+                    >
+                      <button className="btn btn-outline-primary btn-sm">
+                        <FaShoppingCart />
+                      </button>
+                    </OverlayTrigger>
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>Add to Wishlist</Tooltip>}
+                    >
+                      <button className="btn btn-outline-danger btn-sm">
+                        <FaHeart />
+                      </button>
+                    </OverlayTrigger>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      {/* Fourth Swiper Slider Section */}
+      <header
+        className="mb-4 text-center py-3"
+        style={{
+          backgroundColor: "rgb(20, 140, 220)",
+          color: "white",
+          borderRadius: "8px",
+        }}
+      >
+        <p className="lead">
+          <strong>CHILDREN</strong>
+        </p>
+      </header>
+
+      <div className="vertical-slideshow mb-5 swiper-slide-books">
+        <Swiper
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
+          slidesPerView={6}
+          spaceBetween={10}
+          breakpoints={{
+            1200: { slidesPerView: 6 },
+            992: { slidesPerView: 4 },
+            768: { slidesPerView: 3 },
+            576: { slidesPerView: 2 },
+          }}
+        >
+          {childernBooks.map((book, index) => (
+            <SwiperSlide key={index}>
+              {/* Card Content */}
+              <div
+                className="card"
+                style={{ width: "150px", borderRadius: "10px" }}
+              >
+                {/* Book Image and Discount */}
+                <div className="position-relative">
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="card-img-top"
+                    style={{
+                      height: "200px",
+                      objectFit: "cover",
+                      borderTopLeftRadius: "10px",
+                      borderTopRightRadius: "10px",
+                    }}
+                  />
+                  <span
+                    className="badge bg-danger text-white position-absolute top-0 end-0"
+                    style={{ borderBottomLeftRadius: "8px" }}
+                  ></span>
+                </div>
+                {/* Book Details */}
+                <div className="card-body text-center">
+                  <h6
+                    className="card-title"
+                    style={{
+                      fontSize: "0.85rem",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    {book.title}
+                  </h6>
+                  <p
+                    className="text-muted text-decoration-line-through small"
+                    style={{ fontSize: "0.75rem" }}
+                  >
+                    {book.price}
+                  </p>
+                  <p
+                    className="text-primary fw-bold"
+                    style={{ fontSize: "0.85rem" }}
+                  >
+                    {book.discountPrice}
+                  </p>
+                  {/* Buttons */}
                   <div className="d-flex justify-content-around mt-2">
                     <OverlayTrigger
                       placement="top"
