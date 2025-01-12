@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Carousel } from "react-bootstrap";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./style.css";
 
