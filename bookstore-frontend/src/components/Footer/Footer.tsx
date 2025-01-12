@@ -27,13 +27,9 @@ const Footer = () => {
             <h6>Categories</h6>
             <ul className="list-unstyled">
               <li>School List</li>
-              <li>Sarasavi Publications</li>
-              <li>Sumitha Publications</li>
               <li>Children</li>
-              <li>Galle Literary</li>
               <li>Gift Packs</li>
               <li>By Language</li>
-              <li>Promotions</li>
             </ul>
           </Col>
           <Col md={3} sm={6} className="mb-4">
@@ -41,9 +37,6 @@ const Footer = () => {
             <ul className="list-unstyled">
               <li>Home</li>
               <li>About Us</li>
-              <li>Awards</li>
-              <li>Branch Network</li>
-              <li>Contact Us</li>
               <li>Sign Up / Login</li>
               <li>My Account</li>
               <li>Wishlist</li>
@@ -64,10 +57,10 @@ const Footer = () => {
             <h6>Contact Details</h6>
             <ul className="list-unstyled">
               <li>
-                No.30, Stanley Thilakarathne Mawatha, Nugegoda, Sri Lanka, 10250
+                No.20, Stanley Thilakarathne Mawatha, Nugegoda, Sri Lanka, 10250
               </li>
-              <li>📞 +94 711304050 / 0112820820</li>
-              <li>📧 webadmin@sarasavi.lk</li>
+              <li>📞 +94 765252133 / 0111234567</li>
+              <li>📧 bookhaven.lk</li>
             </ul>
           </Col>
         </Row>
@@ -76,22 +69,20 @@ const Footer = () => {
             <h6>Follow Us</h6>
             <div className="d-flex justify-content-center">
               <a href="#" className="mx-2">
-                <img src="facebook-icon.png" alt="Facebook" />
+                <img src="fb.png" alt="Facebook" />
               </a>
               <a href="#" className="mx-2">
-                <img src="twitter-icon.png" alt="Twitter" />
+                <img src="twitter.png" alt="Twitter" />
               </a>
               <a href="#" className="mx-2">
-                <img src="linkedin-icon.png" alt="LinkedIn" />
+                <img src="in.png" alt="LinkedIn" />
+              </a>
+
+              <a href="#" className="mx-2">
+                <img src="youtube.png" alt="YouTube" />
               </a>
               <a href="#" className="mx-2">
-                <img src="pinterest-icon.png" alt="Pinterest" />
-              </a>
-              <a href="#" className="mx-2">
-                <img src="youtube-icon.png" alt="YouTube" />
-              </a>
-              <a href="#" className="mx-2">
-                <img src="instagram-icon.png" alt="Instagram" />
+                <img src="ins.png" alt="Instagram" />
               </a>
             </div>
           </Col>
@@ -100,11 +91,17 @@ const Footer = () => {
           <Col>
             <h6>We Accept</h6>
             <div className="d-flex justify-content-center">
-              <img src="visa-icon.png" alt="Visa" className="mx-2" />
               <img
-                src="mastercard-icon.png"
+                src="visa.png"
+                alt="Visa"
+                className="mx-2 rounded-circle"
+                style={{ width: "50px", height: "50px" }}
+              />
+              <img
+                src="master.png"
                 alt="MasterCard"
-                className="mx-2"
+                className="mx-2 rounded-circle"
+                style={{ width: "50px", height: "50px" }}
               />
             </div>
           </Col>
