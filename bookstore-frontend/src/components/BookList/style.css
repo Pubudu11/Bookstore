@@ -1,22 +1,56 @@
+/* Swiper container styling */
 .swiper {
   width: 100%;
-  height: 100%;
+  height: auto; /* Adjust height dynamically based on content */
 }
 
+/* Swiper slides */
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #f8f9fa;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
+/* Card adjustments for smaller size */
+.card {
+  width: 150px; /* Reduced width */
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 5px; /* Reduced margin between cards */
+}
+
+/* Image within the card */
+.card img {
+  height: 200px; /* Smaller height for images */
   object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Card title */
+.card-title {
+  font-size: 0.85rem; /* Smaller font size */
+  margin-bottom: 5px;
+}
+
+/* Original price */
+.text-decoration-line-through {
+  font-size: 0.75rem; /* Smaller font size for original price */
+}
+
+/* Discounted price */
+.text-primary {
+  font-size: 0.85rem; /* Smaller font size for discounted price */
+}
+
+/* Buttons */
+.btn-sm {
+  padding: 5px 8px; /* Smaller padding for buttons */
+  font-size: 0.75rem;
 }

@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Slideshow from "./components/SlideShow/SlideShow";
 import UserLogin from "./components/Login/UserLogin";
 import Register from "./components/Register/Register";
-import BookList from "./components/BookList/BookList"; // Corrected import statement
+import BookList from "./components/BookList/BookList"; // Ensure this path is correct
 import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,7 +20,7 @@ const noFooterPages = ["/login", "/register"];
 const noNavbarPages = ["/login", "/register"];
 
 const App: React.FC = () => {
-  const location = useLocation();
+  const location = useLocation(); // Get the current route
 
   return (
     <div className="app">
@@ -29,6 +29,7 @@ const App: React.FC = () => {
 
       <div className="main-content">
         <Routes>
+          {/* Home Page */}
           <Route
             path="/"
             element={
@@ -41,6 +42,7 @@ const App: React.FC = () => {
 
           {/* Login Page */}
           <Route path="/login" element={<UserLogin />} />
+
           {/* Register Page */}
           <Route path="/register" element={<Register />} />
         </Routes>

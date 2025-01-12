@@ -203,7 +203,7 @@ const BookList = () => {
       <header
         className="mb-4 text-center py-3"
         style={{
-          backgroundColor: "#808080",
+          backgroundColor: "#990033",
           color: "white",
           borderRadius: "8px",
         }}
@@ -216,21 +216,34 @@ const BookList = () => {
         </p>
       </header>
 
-      {/* Vertical Slideshow */}
+      {/* Swiper Slider Section */}
       <div className="vertical-slideshow mb-5 swiper-slide-books">
         <Swiper
           navigation={true}
           modules={[Navigation]}
           className="mySwiper"
-          slidesPerView={5}
-          spaceBetween={5}
+          slidesPerView={6} // Display 6 books per slide
+          spaceBetween={10} // Reduced spacing between slides
+          breakpoints={{
+            1200: {
+              slidesPerView: 6, // Large desktops
+            },
+            992: {
+              slidesPerView: 4, // Tablets
+            },
+            768: {
+              slidesPerView: 3, // Small tablets
+            },
+            576: {
+              slidesPerView: 2, // Mobile phones
+            },
+          }}
         >
           {books.map((book, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <div
-                key={index}
                 className="card"
-                style={{ width: "200px", borderRadius: "10px" }}
+                style={{ width: "150px", borderRadius: "10px" }}
               >
                 <div className="position-relative">
                   <img
@@ -238,7 +251,7 @@ const BookList = () => {
                     alt={book.title}
                     className="card-img-top"
                     style={{
-                      height: "300px",
+                      height: "200px", // Reduced height for book images
                       objectFit: "cover",
                       borderTopLeftRadius: "10px",
                       borderTopRightRadius: "10px",
@@ -252,12 +265,28 @@ const BookList = () => {
                   </span>
                 </div>
                 <div className="card-body text-center">
-                  <h6 className="card-title">{book.title}</h6>
-                  <p className="text-muted text-decoration-line-through small">
+                  <h6
+                    className="card-title"
+                    style={{
+                      fontSize: "0.85rem", // Reduced title font size
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    {book.title}
+                  </h6>
+                  <p
+                    className="text-muted text-decoration-line-through small"
+                    style={{ fontSize: "0.75rem" }} // Reduced price font size
+                  >
                     {book.price}
                   </p>
-                  <p className="text-primary fw-bold">{book.discountPrice}</p>
-                  <div className="d-flex justify-content-around mt-3">
+                  <p
+                    className="text-primary fw-bold"
+                    style={{ fontSize: "0.85rem" }} // Reduced discount price font size
+                  >
+                    {book.discountPrice}
+                  </p>
+                  <div className="d-flex justify-content-around mt-2">
                     <OverlayTrigger
                       placement="top"
                       overlay={<Tooltip>Add to Cart</Tooltip>}

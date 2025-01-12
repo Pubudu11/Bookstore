@@ -15,7 +15,7 @@ body {
 .top-bar {
   position: fixed;
   top: 0;
-  background-color: #800000;
+  background-color: #4d79ff;
   color: white;
   display: flex;
   justify-content: space-between;
