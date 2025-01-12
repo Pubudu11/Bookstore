@@ -75,6 +75,28 @@ import bookImage60 from "./../../images/60.jpeg";
 import bookImage61 from "./../../images/61.jpeg";
 import bookImage63 from "./../../images/63.jpeg";
 import bookImage64 from "./../../images/64.jpeg";
+import bookImage65 from "./../../images/65.jpeg";
+import bookImage66 from "./../../images/66.jpeg";
+import bookImage67 from "./../../images/67.jpeg";
+import bookImage68 from "./../../images/68.jpeg";
+import bookImage69 from "./../../images/69.jpeg";
+import bookImage70 from "./../../images/70.jpeg";
+import bookImage71 from "./../../images/71.jpeg";
+import bookImage72 from "./../../images/72.jpeg";
+import bookImage73 from "./../../images/73.jpeg";
+import bookImage74 from "./../../images/74.jpeg";
+import bookImage75 from "./../../images/75.jpeg";
+import bookImage76 from "./../../images/76.jpeg";
+import bookImage77 from "./../../images/77.jpeg";
+import bookImage78 from "./../../images/78.jpeg";
+import bookImage79 from "./../../images/79.jpeg";
+import bookImage80 from "./../../images/80.jpeg";
+import bookImage81 from "./../../images/81.jpeg";
+import bookImage82 from "./../../images/82.jpeg";
+import bookImage83 from "./../../images/83.jpeg";
+import bookImage84 from "./../../images/84.jpeg";
+import bookImage85 from "./../../images/85.jpeg";
+import bookImage86 from "./../../images/86.jpeg";
 
 // Define books and moreBooks data
 const books = [
@@ -475,6 +497,123 @@ const childernBooks = [
     image: bookImage64,
   },
 ];
+const Educationalbooks = [
+  {
+    title: "RASAYANA WIDYAWA",
+    price: "LKR 800.00",
+    discountPrice: "LKR 725.00",
+    image: bookImage65,
+  },
+  {
+    title: "JIWA WIDYAWA",
+    price: "LKR 800.00",
+    discountPrice: "LKR 720.00",
+    image: bookImage66,
+  },
+  {
+    title: "JIWA WIDYAWA 12",
+    price: "LKR 1600.00",
+    discountPrice: "LKR 1440.00",
+    image: bookImage67,
+  },
+  {
+    title: "BAUTHIKA WIDYAWA 13",
+    price: "LKR 2100.00",
+    discountPrice: "LKR 1890.00",
+    image: bookImage68,
+  },
+  {
+    title: "JIWA WIDYAWA 13",
+    price: "LKR 2100.00",
+    discountPrice: "LKR 1890.00",
+    image: bookImage69,
+  },
+  {
+    title: "BUDDHADARMAYA 9",
+    price: "LKR 250.00",
+    discountPrice: "LKR 200.00",
+    image: bookImage70,
+  },
+  {
+    title: "ITHIHASAYA 9",
+    price: "LKR 250.00",
+    discountPrice: "LKR 225.00",
+    image: bookImage71,
+  },
+  {
+    title: "GANITHAYA 9",
+    price: "LKR 295.00",
+    discountPrice: "LKR 265.00",
+    image: bookImage72,
+  },
+  {
+    title: "SINHALA 9",
+    price: "LKR 295.00",
+    discountPrice: "LKR 260.00",
+    image: bookImage73,
+  },
+  {
+    title: "ENGLISH 9",
+    price: "LKR 250.00",
+    discountPrice: "LKR 225.00",
+    image: bookImage74,
+  },
+  {
+    title: "DEMALA 5",
+    price: "LKR 250.00",
+    discountPrice: "LKR 225.00",
+    image: bookImage75,
+  },
+  {
+    title: "DEMALA 9",
+    price: "LKR 250.00",
+    discountPrice: "LKR 225.00",
+    image: bookImage76,
+  },
+  {
+    title: "DEMALA 4",
+    price: "LKR 300.00",
+    discountPrice: "LKR 270.00",
+    image: bookImage77,
+  },
+  {
+    title: "DEMALA 5",
+    price: "LKR 300.00",
+    discountPrice: "LKR 270.00",
+    image: bookImage78,
+  },
+  {
+    title: "DEMALA 7",
+    price: "LKR 300.00",
+    discountPrice: "LKR 270.00",
+    image: bookImage79,
+  },
+
+  {
+    title: "DEMALA 6",
+    price: "LKR 300.00",
+    discountPrice: "LKR 270.00",
+    image: bookImage80,
+  },
+  {
+    title: "KUMARA RACHANAYA 6",
+    price: "LKR 500.00",
+    discountPrice: "LKR 450.00",
+    image: bookImage81,
+  },
+  {
+    title: "RACHANA",
+    price: "LKR 490.00",
+    discountPrice: "LKR 450.00",
+    image: bookImage82,
+  },
+  {
+    title: "SINHALA BASNAHIRA PALATH",
+    price: "LKR 500.00",
+    discountPrice: "LKR 450.00",
+    image: bookImage83,
+  },
+];
 
 const BookList = () => {
   return (
@@ -829,6 +968,107 @@ const BookList = () => {
           }}
         >
           {childernBooks.map((book, index) => (
+            <SwiperSlide key={index}>
+              {/* Card Content */}
+              <div
+                className="card"
+                style={{ width: "150px", borderRadius: "10px" }}
+              >
+                {/* Book Image and Discount */}
+                <div className="position-relative">
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="card-img-top"
+                    style={{
+                      height: "200px",
+                      objectFit: "cover",
+                      borderTopLeftRadius: "10px",
+                      borderTopRightRadius: "10px",
+                    }}
+                  />
+                  <span
+                    className="badge bg-danger text-white position-absolute top-0 end-0"
+                    style={{ borderBottomLeftRadius: "8px" }}
+                  ></span>
+                </div>
+                {/* Book Details */}
+                <div className="card-body text-center">
+                  <h6
+                    className="card-title"
+                    style={{
+                      fontSize: "0.85rem",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    {book.title}
+                  </h6>
+                  <p
+                    className="text-muted text-decoration-line-through small"
+                    style={{ fontSize: "0.75rem" }}
+                  >
+                    {book.price}
+                  </p>
+                  <p
+                    className="text-primary fw-bold"
+                    style={{ fontSize: "0.85rem" }}
+                  >
+                    {book.discountPrice}
+                  </p>
+                  {/* Buttons */}
+                  <div className="d-flex justify-content-around mt-2">
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>Add to Cart</Tooltip>}
+                    >
+                      <button className="btn btn-outline-primary btn-sm">
+                        <FaShoppingCart />
+                      </button>
+                    </OverlayTrigger>
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>Add to Wishlist</Tooltip>}
+                    >
+                      <button className="btn btn-outline-danger btn-sm">
+                        <FaHeart />
+                      </button>
+                    </OverlayTrigger>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      {/* fifth Swiper Slider Section */}
+      <header
+        className="mb-4 text-center py-3"
+        style={{
+          backgroundColor: "rgb(235, 125, 206)",
+          color: "white",
+          borderRadius: "8px",
+        }}
+      >
+        <p className="lead">
+          <strong>Educational Books</strong>
+        </p>
+      </header>
+
+      <div className="vertical-slideshow mb-5 swiper-slide-books">
+        <Swiper
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
+          slidesPerView={6}
+          spaceBetween={10}
+          breakpoints={{
+            1200: { slidesPerView: 6 },
+            992: { slidesPerView: 4 },
+            768: { slidesPerView: 3 },
+            576: { slidesPerView: 2 },
+          }}
+        >
+          {Educationalbooks.map((book, index) => (
             <SwiperSlide key={index}>
               {/* Card Content */}
               <div
