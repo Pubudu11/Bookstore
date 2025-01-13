@@ -18,7 +18,29 @@ const Footer = () => {
                 placeholder="Enter Your Email"
                 className="me-2"
               />
-              <Button variant="primary">Subscribe</Button>
+              <Button
+                variant="primary"
+                style={{
+                  backgroundColor: " #4d94ff",
+
+                  color: " #fff",
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  marginTop: "8px",
+                  transition: "transform 0.3s ease",
+                }}
+                onMouseEnter={(e) =>
+                  ((e.target as HTMLButtonElement).style.transform =
+                    "scale(1.1)")
+                }
+                onMouseLeave={(e) =>
+                  ((e.target as HTMLButtonElement).style.transform = "scale(1)")
+                }
+              >
+                Subscribe
+              </Button>
             </Form>
           </Col>
         </Row>
