@@ -54,3 +54,6 @@
   padding: 5px 8px; /* Smaller padding for buttons */
   font-size: 0.75rem;
 }
+.btn btn-primary {
+  text-align: right;
+}

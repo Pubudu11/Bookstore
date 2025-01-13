@@ -620,19 +620,21 @@ const BookList = () => {
     <div className="container mt-5">
       {/* Header Section */}
       <header
-        className="mb-4 text-center py-3"
+        className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
         style={{
           backgroundColor: "rgb(202, 139, 233)",
           color: "white",
           borderRadius: "8px",
         }}
       >
-        <p className="lead">
-          <strong>Explore Best Novels</strong>
-        </p>
-        <p className="text-muted" style={{ color: "white" }}>
-          <b>Find Your Books.</b>
-        </p>
+        <div className="text-center w-100">
+          <p className="lead mb-1">
+            <strong>Explore Best Novels</strong>
+          </p>
+          <p className="text-muted mb-0" style={{ color: "white" }}>
+            <b>Find Your Books.</b>
+          </p>
+        </div>
       </header>
 
       {/* Swiper Slider Section */}
@@ -731,19 +733,31 @@ const BookList = () => {
       </div>
       {/* Second Swiper Slider Section */}
       <header
-        className="mb-4 text-center py-3"
+        className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
         style={{
-          backgroundColor: "rgb(20, 140, 220)",
+          backgroundColor: "rgb(112, 141, 210)",
           color: "white",
           borderRadius: "8px",
         }}
       >
-        <p className="lead">
-          <strong>New Arrivals</strong>
-        </p>
-        <p className="text-muted" style={{ color: "white" }}>
-          <b>Discover the Latest Books.</b>
-        </p>
+        <div className="text-center w-100">
+          <p className="lead mb-1">
+            <strong>New Arrivals</strong>
+          </p>
+          <p className="text-muted mb-0" style={{ color: "white" }}>
+            <b>Discover the Latest Books.</b>
+          </p>
+        </div>
+        <a
+          href="Newarrivals.html"
+          className="btn btn-light"
+          style={{
+            color: "rgb(13, 12, 13)",
+            whiteSpace: "nowrap", // Ensures the button text stays in one line
+          }}
+        >
+          Explore All
+        </a>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
@@ -837,19 +851,31 @@ const BookList = () => {
       </div>
       {/* third Swiper Slider Section */}
       <header
-        className="mb-4 text-center py-3"
+        className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
         style={{
-          backgroundColor: "rgb(78, 215, 227)",
+          backgroundColor: "rgb(136, 217, 225)",
           color: "white",
           borderRadius: "8px",
         }}
       >
-        <p className="lead">
-          <strong>නවකතා</strong>
-        </p>
-        <p className="text-muted" style={{ color: "white" }}>
-          <b>Best Sinhala Novels</b>
-        </p>
+        <div className="text-center w-100">
+          <p className="lead mb-1">
+            <strong>නවකතා</strong>
+          </p>
+          <p className="text-muted mb-0" style={{ color: "white" }}>
+            <b>Best Sinhala Novels.</b>
+          </p>
+        </div>
+        <a
+          href="novels.html"
+          className="btn btn-light"
+          style={{
+            color: "rgb(13, 12, 13)",
+            whiteSpace: "nowrap", // Ensures the button text stays in one line
+          }}
+        >
+          Explore All
+        </a>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
@@ -941,16 +967,28 @@ const BookList = () => {
       </div>
       {/* Fourth Swiper Slider Section */}
       <header
-        className="mb-4 text-center py-3"
+        className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
         style={{
-          backgroundColor: "rgb(20, 140, 220)",
+          backgroundColor: "rgb(99, 127, 236)",
           color: "white",
           borderRadius: "8px",
         }}
       >
-        <p className="lead">
-          <strong>CHILDREN</strong>
-        </p>
+        <div className="text-center w-100">
+          <p className="lead mb-1">
+            <strong>CHILDREN</strong>
+          </p>
+        </div>
+        <a
+          href="children.html"
+          className="btn btn-light"
+          style={{
+            color: "rgb(13, 12, 13)",
+            whiteSpace: "nowrap", // Ensures the button text stays in one line
+          }}
+        >
+          Explore All
+        </a>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
@@ -1042,16 +1080,28 @@ const BookList = () => {
       </div>
       {/* fifth Swiper Slider Section */}
       <header
-        className="mb-4 text-center py-3"
+        className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
         style={{
-          backgroundColor: "rgb(235, 125, 206)",
+          backgroundColor: "rgb(242, 86, 198)",
           color: "white",
           borderRadius: "8px",
         }}
       >
-        <p className="lead">
-          <strong>Educational Books</strong>
-        </p>
+        <div className="text-center w-100">
+          <p className="lead mb-1">
+            <strong>EDUCATIONAL</strong>
+          </p>
+        </div>
+        <a
+          href="Education.html"
+          className="btn btn-light"
+          style={{
+            color: "rgb(13, 12, 13)",
+            whiteSpace: "nowrap", // Ensures the button text stays in one line
+          }}
+        >
+          Explore All
+        </a>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
