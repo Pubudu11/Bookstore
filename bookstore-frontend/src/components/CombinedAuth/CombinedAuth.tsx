@@ -36,7 +36,6 @@ const CombinedAuth: React.FC = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const navigate = useNavigate();
 
   return (
     <div className="auth-container">
