@@ -28,7 +28,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> userOptional = userRepository.findByUsername(username);
-        if (userOptional.isPresent()) {
+        if (userOptional.isPresent() && !userOptional.get().getIsAdmin()) {
             System.out.println("Returning UserDetailsImpl for: " + username);
             return UserDetailsImpl.build(userOptional.get());
         }
