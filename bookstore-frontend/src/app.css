@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: auto; /* Ensure scrolling is enabled */
+  }
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make the app container at least as tall as the viewport */
+  }
+  
+  /* Main content expands to fill space */
+  .main-content {
+    flex: 1; /* Ensures this section takes up available space */
+  }
+  
+  /* Footer styles */
+  footer {
+    margin-top: auto;
+  }
