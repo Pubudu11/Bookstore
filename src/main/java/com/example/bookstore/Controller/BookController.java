@@ -48,9 +48,9 @@ public class BookController {
     public ResponseEntity<List<Book>> getBooksByAuthorAndTitle(String author, String title) {
         return ResponseEntity.ok(bookService.getBooksByAuthorAndTitle(author, title));
     }
-    @GetMapping("/genre/{genre}")
-    public ResponseEntity<List<Book>> getBooksByGenre(@PathVariable("genre") String genre) {
-        return ResponseEntity.ok(bookService.getBooksByGenre(genre));
+    @GetMapping("/genre/{category}")
+    public ResponseEntity<List<Book>> getBooksByCategory(@PathVariable("category") String category) {
+        return ResponseEntity.ok(bookService.getBooksByCategory(category));
     }
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable("id") String id, @RequestBody Book book) {

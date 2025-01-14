@@ -1,20 +1,19 @@
 package com.example.bookstore.Model;
 
-import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "books")
-@Data
 
 public class Book {
     @Id
     private String id;
     private String title;
     private String author;
+    private String Language;
+    private String Publisher;
     private String isbn;
-    private String edition;
-    private String genre;
+    private String category;
     private String quantity;
     private String price;
 
@@ -50,20 +49,20 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public String getEdition() {
-        return edition;
+    public String getLanguage() {
+        return Language;
     }
 
-    public void setEdition(String edition) {
-        this.edition = edition;
+    public void setLanguage(String language) {
+        this.Language = language;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getCategory() {
+        return category;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getQuantity() {
@@ -80,6 +79,14 @@ public class Book {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getPublisher() {
+        return Publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        Publisher = publisher;
     }
 }
 //update

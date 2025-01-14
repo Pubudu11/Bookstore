@@ -1,21 +1,46 @@
 package com.example.bookstore.Model;
 
-import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Document(collection = "users")
-@Data
 
+//User
 public class User {
     @Id
     private String id;
+
     private String firstName;
     private String lastName;
+    @NotBlank
+    @Size(min = 5, max = 50)
     private String username;
+    @NotBlank
+    @Size(min = 5, max = 50)
+
     private String password;
+    @Indexed(unique = true)
+    @Size(min = 10, max = 100)
+    @Email
     private String email;
-    private String phone;
+
+    @DBRef
+    private Set<Role> roles = new HashSet<>();
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     public String getId() {
         return id;
@@ -23,14 +48,6 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getEmail() {
@@ -71,5 +88,22 @@ public class User {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public boolean getIsAdmin() {
+        for (Role role : roles) {
+            if (role.getName().equals(ERole.ROLE_ADMIN)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,0 +1,95 @@
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Adjust as needed */
+  overflow: hidden; /* Prevents images from spilling out */
+}
+
+/* Individual slide */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Smooth fade effect */
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Banner images */
+.banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container */
+  display: block;
+  padding-top: 135px;
+}
+
+/* Overlay styling */
+.overlay {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the overlay */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 2; /* Ensure it appears above other elements */
+}
+
+.overlay h2 {
+  font-size: 2rem;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.overlay p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.overlay button {
+  background-color: #ff4d4d;
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.overlay button a {
+  color: white;
+  text-decoration: none;
+}
+
+.overlay button:hover {
+  background-color: #d84b55; /* Darker color on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+  }
+
+  .overlay button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
