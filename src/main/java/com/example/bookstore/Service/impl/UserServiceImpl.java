@@ -34,7 +34,11 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public User getUserByUsername(String username){
-        return userRepository.findByUsername(username);
+        Optional<User> user = userRepository.findByUsername(username);
+        if(user.isPresent()){
+            return user.get();
+        }
+        return null;
     }
     
     @Override
@@ -73,7 +77,6 @@ public class UserServiceImpl implements UserService {
         existingUser.setUsername(user.getUsername());
         existingUser.setPassword(user.getPassword());
         existingUser.setEmail(user.getEmail());
-        existingUser.setPhone(user.getPhone());
 
         userRepository.save(existingUser);
         return existingUser;
