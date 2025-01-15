@@ -867,11 +867,11 @@ const BookList = () => {
           </p>
         </div>
         <a
-          href="novels.html"
+          href="Novels.tsx"
           className="btn btn-light"
           style={{
             color: "rgb(13, 12, 13)",
-            whiteSpace: "nowrap", // Ensures the button text stays in one line
+            whiteSpace: "nowrap",
           }}
         >
           Explore All

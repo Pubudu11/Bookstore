@@ -8,12 +8,12 @@ import {
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Slideshow from "./components/SlideShow/SlideShow";
-
 import BookList from "./components/BookList/BookList"; // Ensure this path is correct
-import "./App.css";
-
-import "bootstrap/dist/css/bootstrap.min.css";
+import NovelsPage from "./components/NovelsPage/Novels"; // Import NovelsPage
 import CombinedAuth from "./components/CombinedAuth/CombinedAuth";
+
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Define the pages where the footer or navbar should not be displayed
 const noFooterPages = ["/login", "/register"];
@@ -39,10 +39,11 @@ const App: React.FC = () => {
               </div>
             }
           />
-
+          {/* Novels Page */}
+          <Route path="/novels" element={<NovelsPage />} />
+          {/* Add this route */}
           {/* Login Page */}
           <Route path="/login" element={<CombinedAuth />} />
-
           {/* Register Page */}
           <Route path="/register" element={<CombinedAuth />} />
         </Routes>
