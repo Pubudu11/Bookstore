@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(value = "*", maxAge = 3600)
 @RestController
 @RequestMapping({"/api/users"})
 public class UserController {
@@ -26,12 +29,14 @@ public class UserController {
         return ResponseEntity.ok(newUser);
     }
     @GetMapping
+//    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<User>> getUsers() {
         List<User> users = this.userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         User user = this.userService.getUserById(id);
         if (user != null) {
@@ -58,6 +63,8 @@ public class UserController {
             return new ResponseEntity<String>("Invalid Credentials", HttpStatus.UNAUTHORIZED);}
     }
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('USER')")
+
     public ResponseEntity<User> updateBook(@PathVariable("id") String id, @RequestBody User user) {
         User updatedUser = userService.updateUser(user, id);
         return updatedUser != null ? ResponseEntity.ok(updatedUser) : ResponseEntity.notFound().build();

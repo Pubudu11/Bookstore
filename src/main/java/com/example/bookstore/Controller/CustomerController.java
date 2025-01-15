@@ -6,6 +6,7 @@ import com.example.bookstore.Service.CustomerService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,7 @@ public class CustomerController {
     public ResponseEntity<Customer> getCustomerById(@PathVariable String id) {
         return customerService.getCustomerById(id) != null ? ResponseEntity.ok(customerService.getCustomerById(id)) : ResponseEntity.notFound().build();
     }
+    @PreAuthorize("hasRole('USER')")
     @GetMapping
     public ResponseEntity<List<Customer>> getAllCustomers() {
         return ResponseEntity.ok(customerService.getAllCustomers());
