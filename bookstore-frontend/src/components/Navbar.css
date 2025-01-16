@@ -1,0 +1,211 @@
+.header {
+    width: 100%;
+    padding: 5px;
+}
+
+/* Ensure the body takes up the full height and avoids overlap */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding-top: 120px;
+    /* Account for fixed top bar and main header */
+}
+
+/* Top Bar */
+.top-bar {
+    position: fixed;
+    top: 0;
+    background-color: #4d79ff;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 12px;
+    width: 100%;
+    z-index: 999;
+    /* Ensure it stays above other content */
+}
+
+.top-bar .email a {
+    color: #d3aaf8;
+    text-decoration: none;
+}
+
+.top-bar .email a:hover {
+    text-decoration: underline;
+}
+
+/* Main Header */
+.main-header {
+    position: fixed;
+    top: 50px;
+    /* Positioned below the top bar */
+    background-color: #f8f9fa;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    /* Optional divider for clarity */
+    width: 100%;
+    z-index: 998;
+    /* Below the top bar */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for a modern look */
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.site-name {
+    font-size: 28px;
+    margin: 0;
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 8px 70px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.search-button {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background-color: #3079cc;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.search-button:hover {
+    background-color: #3079cc;
+}
+
+/* Navigation Section */
+.nav-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #3079cc;
+    color: white;
+}
+
+.currency {
+    font-size: 14px;
+}
+
+.cart {
+    position: relative;
+}
+
+.cart img {
+    width: 24px;
+    height: 24px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: black;
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wishlist {
+    position: relative;
+}
+
+.wishlist img {
+    width: 24px;
+    height: 24px;
+}
+
+.wishlist-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: black;
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-section {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .nav-section {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .logo-section {
+        margin-bottom: 10px;
+    }
+}

@@ -1,8 +1,21 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx", // Use the new JSX transform
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    },
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
-  }
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "src"
+  ]
 }

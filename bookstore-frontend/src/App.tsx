@@ -1,18 +1,26 @@
-import { Routes, Route } from "react-router-dom"
-import { Container } from "react-bootstrap"
-import { Home } from "./pages/Home"
-import { Store } from "./pages/Store"
-import { About } from "./pages/About"
+// App.tsx
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ShoppingCart from "./components/ShoppingCart"; // Import the ShoppingCart component
+import CardDetails from "./components/CardDetails"; // Import the CardDetails component
+import Navbar from "./components/Navbar"; // Import the Navbar component
 
+const App: React.FC = () => {
+    return (
+        <Router>
+            {/* Add Navbar to the top of the page */}
+            <Navbar />
 
-function App() {
-  return <Container>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/store" element={<Store />} />
-      <Route path="/about" element={<About />} />
+            {/* Define Routes */}
+            <Routes>
+                {/* Home route: ShoppingCart */}
+                <Route path="/" element={<ShoppingCart />} />
 
-    </Routes>
-  </Container>
-}
-export default App
+                {/* Payment route: CardDetails */}
+                <Route path="/payment" element={<CardDetails />} />
+            </Routes>
+        </Router>
+    );
+};
+
+export default App;
