@@ -5,7 +5,6 @@ const categories = [
   { color: "#90ee90", title: "Children's Books", icon: "📚" },
   { color: "#ffcc99", title: "නවකතා", icon: "📖" },
   { color: "#add8e6", title: "පරිවර්තන", icon: "📘" },
-
   { color: "#90ee90", title: "කෙටිකතා", icon: "📚" },
   { color: "#add8e6", title: "Educational", icon: "📘" },
 ];

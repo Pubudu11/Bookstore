@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 // Import Swiper styles
@@ -36,7 +37,7 @@ import bookImage18 from "./../../images/18.jpeg";
 import bookImage19 from "./../../images/19.jpeg";
 import bookImage20 from "./../../images/20.jpeg";
 import bookImage21 from "./../../images/21.jpeg";
-import bookImage22 from "./../../images/11.jpeg";
+import bookImage22 from "./../../images/22.jpeg";
 import bookImage23 from "./../../images/23.jpeg";
 import bookImage24 from "./../../images/24.jpeg";
 import bookImage25 from "./../../images/25.jpeg";
@@ -616,6 +617,7 @@ const Educationalbooks = [
 ];
 
 const BookList = () => {
+  const navigate = useNavigate();
   return (
     <div className="container mt-5">
       {/* Header Section */}
@@ -866,16 +868,19 @@ const BookList = () => {
             <b>Best Sinhala Novels.</b>
           </p>
         </div>
-        <a
-          href="Novels.tsx"
-          className="btn btn-light"
+        <button
+          className="btn btn-primary"
           style={{
             color: "rgb(13, 12, 13)",
             whiteSpace: "nowrap",
+            backgroundColor: "white",
+            borderColor: "white",
+            fontStyle: "italic",
           }}
+          onClick={() => navigate("/novels")}
         >
           Explore All
-        </a>
+        </button>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
