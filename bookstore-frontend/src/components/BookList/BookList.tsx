@@ -750,16 +750,19 @@ const BookList = () => {
             <b>Discover the Latest Books.</b>
           </p>
         </div>
-        <a
-          href="Newarrivals.html"
-          className="btn btn-light"
+        <button
+          className="btn btn-primary"
           style={{
             color: "rgb(13, 12, 13)",
-            whiteSpace: "nowrap", // Ensures the button text stays in one line
+            whiteSpace: "nowrap",
+            backgroundColor: "white",
+            borderColor: "white",
+            fontStyle: "italic",
           }}
+          onClick={() => navigate("/novels")}
         >
           Explore All
-        </a>
+        </button>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
@@ -984,16 +987,19 @@ const BookList = () => {
             <strong>CHILDREN</strong>
           </p>
         </div>
-        <a
-          href="children.html"
-          className="btn btn-light"
+        <button
+          className="btn btn-primary"
           style={{
             color: "rgb(13, 12, 13)",
-            whiteSpace: "nowrap", // Ensures the button text stays in one line
+            whiteSpace: "nowrap",
+            backgroundColor: "white",
+            borderColor: "white",
+            fontStyle: "italic",
           }}
+          onClick={() => navigate("/novels")}
         >
           Explore All
-        </a>
+        </button>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
@@ -1097,16 +1103,19 @@ const BookList = () => {
             <strong>EDUCATIONAL</strong>
           </p>
         </div>
-        <a
-          href="Education.html"
-          className="btn btn-light"
+        <button
+          className="btn btn-primary"
           style={{
             color: "rgb(13, 12, 13)",
-            whiteSpace: "nowrap", // Ensures the button text stays in one line
+            whiteSpace: "nowrap",
+            backgroundColor: "white",
+            borderColor: "white",
+            fontStyle: "italic",
           }}
+          onClick={() => navigate("/novels")}
         >
           Explore All
-        </a>
+        </button>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
