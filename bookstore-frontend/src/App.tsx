@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -12,6 +11,7 @@ import Slideshow from "./components/SlideShow/SlideShow";
 import BookList from "./components/BookList/BookList"; // Ensure this path is correct
 import NovelsPage from "./components/NovelsPage/Novels"; // Import NovelsPage
 import CombinedAuth from "./components/CombinedAuth/CombinedAuth";
+import BookCategories from "./components/BookCategories/BookCategories";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -36,6 +36,7 @@ const App: React.FC = () => {
             element={
               <div className="body-background">
                 <Slideshow />
+                <BookCategories />
                 <BookList />
               </div>
             }
@@ -64,4 +65,3 @@ const AppWrapper: React.FC = () => (
 );
 
 export default AppWrapper;
-
