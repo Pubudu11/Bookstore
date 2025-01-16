@@ -46,16 +46,17 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findByAuthorAndTitle(author, title);
     }
     @Override
-    public List<Book> getBooksByGenre(String genre) {
-        return bookRepository.findByGenre(genre);
+    public List<Book> getBooksByCategory(String genre) {
+        return bookRepository.findByCategory(genre);
     }
     public Book updateBook(Book book, String id) {
         Book existingBook = bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found"));
         existingBook.setTitle(book.getTitle());
         existingBook.setAuthor(book.getAuthor());
         existingBook.setIsbn(book.getIsbn());
-        existingBook.setEdition(book.getEdition());
-        existingBook.setGenre(book.getGenre());
+        existingBook.setLanguage(book.getLanguage());
+        existingBook.setPublisher(book.getPublisher());
+        existingBook.setCategory(book.getCategory());
         existingBook.setQuantity(book.getQuantity());
         existingBook.setPrice(book.getPrice());
 
