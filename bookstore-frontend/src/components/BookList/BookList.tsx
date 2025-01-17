@@ -759,7 +759,7 @@ const BookList = () => {
             borderColor: "white",
             fontStyle: "italic",
           }}
-          onClick={() => navigate("/novels")}
+          onClick={() => navigate("/new-arrivals")}
         >
           Explore All
         </button>
@@ -996,7 +996,7 @@ const BookList = () => {
             borderColor: "white",
             fontStyle: "italic",
           }}
-          onClick={() => navigate("/novels")}
+          onClick={() => navigate("/children")}
         >
           Explore All
         </button>
@@ -1112,7 +1112,7 @@ const BookList = () => {
             borderColor: "white",
             fontStyle: "italic",
           }}
-          onClick={() => navigate("/novels")}
+          onClick={() => navigate("/educational")}
         >
           Explore All
         </button>

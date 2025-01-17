@@ -1,4 +1,5 @@
 import React from "react";
+import ChildrenPage from "./components/Children/Children"; // Import the correct component
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,6 +16,8 @@ import BookCategories from "./components/BookCategories/BookCategories";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import NewArrivals from "./components/NewArrivalsPage/NewArrivals";
+import Educational from "./components/Education/Education";
 
 // Define the pages where the footer or navbar should not be displayed
 const noFooterPages = ["/login", "/register"];
@@ -43,6 +46,9 @@ const App: React.FC = () => {
           />
           {/* Novels Page */}
           <Route path="/novels" element={<NovelsPage />} />
+          <Route path="/new-arrivals" element={<NewArrivals />} />
+          <Route path="/children" element={<ChildrenPage />} />
+          <Route path="/educational" element={<Educational />} />
           {/* Add this route */}
           {/* Login Page */}
           <Route path="/login" element={<CombinedAuth />} />
