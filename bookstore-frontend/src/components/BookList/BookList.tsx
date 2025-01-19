@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useNavigate, Link } from "react-router-dom";
 import "./style.css";
 
 // Import Swiper styles
@@ -36,7 +37,7 @@ import bookImage18 from "./../../images/18.jpeg";
 import bookImage19 from "./../../images/19.jpeg";
 import bookImage20 from "./../../images/20.jpeg";
 import bookImage21 from "./../../images/21.jpeg";
-import bookImage22 from "./../../images/11.jpeg";
+import bookImage22 from "./../../images/22.jpeg";
 import bookImage23 from "./../../images/23.jpeg";
 import bookImage24 from "./../../images/24.jpeg";
 import bookImage25 from "./../../images/25.jpeg";
@@ -616,6 +617,7 @@ const Educationalbooks = [
 ];
 
 const BookList = () => {
+  const navigate = useNavigate();
   return (
     <div className="container mt-5">
       {/* Header Section */}
@@ -667,17 +669,19 @@ const BookList = () => {
                 style={{ width: "150px", borderRadius: "10px" }}
               >
                 <div className="position-relative">
-                  <img
-                    src={book.image}
-                    alt={book.title}
-                    className="card-img-top"
-                    style={{
-                      height: "200px", // Reduced height for book images
-                      objectFit: "cover",
-                      borderTopLeftRadius: "10px",
-                      borderTopRightRadius: "10px",
-                    }}
-                  />
+                  <Link to="/book-details" state={{ book }}>
+                    <img
+                      src={book.image}
+                      alt={book.title}
+                      className="card-img-top"
+                      style={{
+                        height: "200px", // Reduced height for book images
+                        objectFit: "cover",
+                        borderTopLeftRadius: "10px",
+                        borderTopRightRadius: "10px",
+                      }}
+                    />
+                  </Link>
                   <span
                     className="badge bg-danger text-white position-absolute top-0 end-0"
                     style={{ borderBottomLeftRadius: "8px" }}
@@ -707,6 +711,7 @@ const BookList = () => {
                   >
                     {book.discountPrice}
                   </p>
+
                   <div className="d-flex justify-content-around mt-2">
                     <OverlayTrigger
                       placement="top"
@@ -748,16 +753,19 @@ const BookList = () => {
             <b>Discover the Latest Books.</b>
           </p>
         </div>
-        <a
-          href="Newarrivals.html"
-          className="btn btn-light"
+        <button
+          className="btn btn-primary"
           style={{
             color: "rgb(13, 12, 13)",
-            whiteSpace: "nowrap", // Ensures the button text stays in one line
+            whiteSpace: "nowrap",
+            backgroundColor: "white",
+            borderColor: "white",
+            fontStyle: "italic",
           }}
+          onClick={() => navigate("/new-arrivals")}
         >
           Explore All
-        </a>
+        </button>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
@@ -866,16 +874,19 @@ const BookList = () => {
             <b>Best Sinhala Novels.</b>
           </p>
         </div>
-        <a
-          href="novels.html"
-          className="btn btn-light"
+        <button
+          className="btn btn-primary"
           style={{
             color: "rgb(13, 12, 13)",
-            whiteSpace: "nowrap", // Ensures the button text stays in one line
+            whiteSpace: "nowrap",
+            backgroundColor: "white",
+            borderColor: "white",
+            fontStyle: "italic",
           }}
+          onClick={() => navigate("/novels")}
         >
           Explore All
-        </a>
+        </button>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
@@ -979,16 +990,19 @@ const BookList = () => {
             <strong>CHILDREN</strong>
           </p>
         </div>
-        <a
-          href="children.html"
-          className="btn btn-light"
+        <button
+          className="btn btn-primary"
           style={{
             color: "rgb(13, 12, 13)",
-            whiteSpace: "nowrap", // Ensures the button text stays in one line
+            whiteSpace: "nowrap",
+            backgroundColor: "white",
+            borderColor: "white",
+            fontStyle: "italic",
           }}
+          onClick={() => navigate("/children")}
         >
           Explore All
-        </a>
+        </button>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">
@@ -1092,16 +1106,19 @@ const BookList = () => {
             <strong>EDUCATIONAL</strong>
           </p>
         </div>
-        <a
-          href="Education.html"
-          className="btn btn-light"
+        <button
+          className="btn btn-primary"
           style={{
             color: "rgb(13, 12, 13)",
-            whiteSpace: "nowrap", // Ensures the button text stays in one line
+            whiteSpace: "nowrap",
+            backgroundColor: "white",
+            borderColor: "white",
+            fontStyle: "italic",
           }}
+          onClick={() => navigate("/educational")}
         >
           Explore All
-        </a>
+        </button>
       </header>
 
       <div className="vertical-slideshow mb-5 swiper-slide-books">

@@ -1,7 +1,3 @@
-.header {
-  width: 100%;
-  padding: 5px;
-}
 /* Ensure the body takes up the full height and avoids overlap */
 body {
   margin: 0;
@@ -11,41 +7,16 @@ body {
   padding-top: 120px; /* Account for fixed top bar and main header */
 }
 
-/* Top Bar */
-.top-bar {
-  position: fixed;
-  top: 0;
-  background-color: #4d79ff;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50px;
-  padding: 0 20px;
-  font-size: 12px;
-  width: 100%;
-  z-index: 999; /* Ensure it stays above other content */
-}
-
-.top-bar .email a {
-  color: #d3aaf8;
-  text-decoration: none;
-}
-
-.top-bar .email a:hover {
-  text-decoration: underline;
-}
-
 /* Main Header */
 .main-header {
   position: fixed;
-  top: 50px; /* Positioned below the top bar */
+  top: 0px; /* Positioned below the top bar */
   background-color: #f8f9fa;
   color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 1px 10px;
   font-weight: bold;
   font-size: 16px;
   border-bottom: 2px solid #ccc; /* Optional divider for clarity */

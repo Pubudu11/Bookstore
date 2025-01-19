@@ -3,16 +3,6 @@ import "./Navbar.css"; // Assuming CSS file for styling
 const Header = () => {
   return (
     <header className="header">
-      {/* Top Bar */}
-      <div className="top-bar">
-        <p className="contact">
-          ----Call us for Web Orders: +94 765252133 / 0111234567----
-        </p>
-        <p className="email">
-          Email: <a href="mailto:bookhaven.lk">bookhaven.lk</a>
-        </p>
-      </div>
-
       {/* Main Content */}
       <div className="main-header">
         <div className="logo-section">
