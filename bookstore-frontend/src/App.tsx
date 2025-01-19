@@ -1,5 +1,5 @@
-
 import React from "react";
+import ChildrenPage from "./components/Children/Children"; // Import the correct component
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,12 +9,16 @@ import {
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Slideshow from "./components/SlideShow/SlideShow";
-
 import BookList from "./components/BookList/BookList"; // Ensure this path is correct
-// import "./App.css";
-
-import "bootstrap/dist/css/bootstrap.min.css";
+import NovelsPage from "./components/NovelsPage/Novels"; // Import NovelsPage
 import CombinedAuth from "./components/CombinedAuth/CombinedAuth";
+import BookCategories from "./components/BookCategories/BookCategories";
+
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NewArrivals from "./components/NewArrivalsPage/NewArrivals";
+import Educational from "./components/Education/Education";
+import BookDetails from "./components/BookDetails/BookDetails"; // Import BookDetails component
 
 // Define the pages where the footer or navbar should not be displayed
 const noFooterPages = ["/login", "/register"];
@@ -36,14 +40,21 @@ const App: React.FC = () => {
             element={
               <div className="body-background">
                 <Slideshow />
+                <BookCategories />
                 <BookList />
               </div>
             }
           />
-
+          <Route path="/" element={<BookList />} />
+          <Route path="/book-details" element={<BookDetails />} />
+          {/* Novels Page */}
+          <Route path="/novels" element={<NovelsPage />} />
+          <Route path="/new-arrivals" element={<NewArrivals />} />
+          <Route path="/children" element={<ChildrenPage />} />
+          <Route path="/educational" element={<Educational />} />
+          {/* Add this route */}
           {/* Login Page */}
           <Route path="/login" element={<CombinedAuth />} />
-
           {/* Register Page */}
           <Route path="/register" element={<CombinedAuth />} />
         </Routes>
@@ -63,4 +74,3 @@ const AppWrapper: React.FC = () => (
 );
 
 export default AppWrapper;
-
