@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function BookDetails() {
   const location = useLocation();
   const navigate = useNavigate();
   const { book } = location.state;
+
+  const [quantity, setQuantity] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(book.price);
+
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuantity = parseInt(e.target.value, 10);
+    if (newQuantity >= 1) {
+      setQuantity(newQuantity);
+      setTotalPrice(newQuantity * book.price);
+    }
+  };
 
   return (
     <div className="container mt-5">
@@ -56,9 +67,9 @@ function BookDetails() {
           <div className="mb-3">
             <span className="badge bg-success fs-6 me-2">In Stock</span>
             <span className="text-decoration-line-through text-muted fs-5 me-2">
-              LKR {book.originalPrice}
+              {book.originalPrice}
             </span>
-            <span className="fs-4 text-danger fw-bold">LKR {book.price}</span>
+            <span className="fs-4 text-danger fw-bold">{book.price}</span>
           </div>
 
           <h5 className="fw-semibold mt-4">Details</h5>
@@ -67,18 +78,29 @@ function BookDetails() {
               <strong>Discount:</strong> {book.discount}
             </li>
             <li>
-              <strong>Author:</strong> {book.author || "N/A"}
+              <strong>Author:</strong> {book.author || "MARTIN WICKRAMASINGHE"}
             </li>
             <li>
-              <strong>Language:</strong> {book.language || "N/A"}
+              <strong>Language:</strong> {book.language || "SINHALA"}
             </li>
             <li>
               <strong>Publisher:</strong> {book.publisher || "N/A"}
             </li>
             <li>
-              <strong>ISBN:</strong> {book.isbn || "N/A"}
+              <strong>Discription:</strong> {book.discription || "N/A"}
             </li>
           </ul>
+          {/* Quantity and Buttons */}
+          <div className="d-flex align-items-center mt-3">
+            <input
+              type="number"
+              min="1"
+              value={quantity}
+              onChange={handleQuantityChange}
+              className="form-control w-25 me-3"
+            />
+            <h5>Total:{totalPrice}</h5>
+          </div>
 
           <div className="d-flex mt-4">
             <button className="btn btn-primary me-3 px-4 py-2">
