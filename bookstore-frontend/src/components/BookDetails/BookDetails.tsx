@@ -29,7 +29,7 @@ function BookDetails() {
       </button>
 
       {/* Main Content */}
-      <div className="row shadow-lg p-4 bg-blue rounded">
+      <div className="row shadow-lg p-4 bg-white rounded">
         {/* Book Image Section */}
         <div className="col-md-2 text-center mb-4 mb-md-0">
           <img
@@ -40,12 +40,20 @@ function BookDetails() {
               maxHeight: "400px",
               objectFit: "cover",
               width: "100%",
+
+              margin: "100px",
             }}
           />
         </div>
 
         {/* Book Details Section */}
-        <div className="col-md-7">
+        <div
+          className="col-md-7 p-4"
+          style={{
+            marginLeft: "auto", // Adds space between the image and details
+            paddingLeft: "20px", // Extra padding for better readability
+          }}
+        >
           <h2 className="text-primary mb-4">{book.title}</h2>
           <div className="mb-4">
             <span className="badge bg-success fs-6 me-2">In Stock</span>
@@ -59,19 +67,19 @@ function BookDetails() {
           <div className="mb-4">
             <h6>Details</h6>
             <p>
-              <strong>Discount:</strong> {book.discount}
+              <strong>Discount :</strong> {book.discount}
             </p>
             <p>
-              <strong>Author:</strong> {book.author || "N/A"}
+              <strong>Author :</strong> {book.author || "N/A"}
             </p>
             <p>
-              <strong>Publisher:</strong> {book.publisher || "N/A"}
+              <strong>Publisher :</strong> {book.publisher || "N/A"}
             </p>
             <p>
               <strong>Language:</strong> {book.language || "N/A"}
             </p>
             <p>
-              <strong>ISBN:</strong> {book.isbn || "N/A"}
+              <strong>Description:</strong> {book.isbn || "N/A"}
             </p>
           </div>
 
