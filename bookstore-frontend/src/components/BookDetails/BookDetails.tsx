@@ -6,32 +6,31 @@ function BookDetails() {
   const navigate = useNavigate();
   const { book } = location.state;
 
-  if (!book) {
-    return (
-      <div className="container text-center mt-5">
-        <h2 className="text-danger">No book details found!</h2>
-        <button className="btn btn-secondary mt-3" onClick={() => navigate(-1)}>
-          Back
-        </button>
-      </div>
-    );
-  }
-
   return (
     <div className="container mt-5">
       {/* Back Button */}
       <button
-        className="btn btn-secondary mb-3 mt-5"
+        className="btn btn-secondary mb-5 mt-5"
         onClick={() => navigate(-1)}
-        style={{ marginBottom: "20px" }}
+        style={{ marginBottom: "10px" }}
       >
         &larr; Back
       </button>
 
       {/* Main Content */}
-      <div className="row shadow-lg p-4 bg-white rounded">
+      <div
+        className="row shadow-lg bg-white rounded g-4"
+        style={{
+          padding: "20px",
+          marginBottom: "30px",
+          borderRadius: "10px",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+          backgroundColor: "#ffffff",
+          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        }}
+      >
         {/* Book Image Section */}
-        <div className="col-md-2 text-center mb-4 mb-md-0">
+        <div className="col-12 col-md-2 text-center">
           <img
             src={book.image}
             alt={book.title}
@@ -40,53 +39,54 @@ function BookDetails() {
               maxHeight: "400px",
               objectFit: "cover",
               width: "100%",
-
-              margin: "100px",
+              margin: "50px",
             }}
           />
         </div>
 
         {/* Book Details Section */}
         <div
-          className="col-md-7 p-4"
+          className="col-12 col-md-8"
           style={{
             marginLeft: "auto", // Adds space between the image and details
-            paddingLeft: "20px", // Extra padding for better readability
+            paddingLeft: "2s0px", // Extra padding for better readability
           }}
         >
-          <h2 className="text-primary mb-4">{book.title}</h2>
-          <div className="mb-4">
+          <h2 className="text-primary fw-bold mb-3">{book.title}</h2>
+          <div className="mb-3">
             <span className="badge bg-success fs-6 me-2">In Stock</span>
             <span className="text-decoration-line-through text-muted fs-5 me-2">
               LKR {book.originalPrice}
             </span>
-            <span className="fs-4 text-danger">LKR {book.price}</span>
+            <span className="fs-4 text-danger fw-bold">LKR {book.price}</span>
           </div>
 
-          {/* Book Details */}
-          <div className="mb-4">
-            <h6>Details</h6>
-            <p>
-              <strong>Discount :</strong> {book.discount}
-            </p>
-            <p>
-              <strong>Author :</strong> {book.author || "N/A"}
-            </p>
-            <p>
-              <strong>Publisher :</strong> {book.publisher || "N/A"}
-            </p>
-            <p>
+          <h5 className="fw-semibold mt-4">Details</h5>
+          <ul className="list-unstyled">
+            <li>
+              <strong>Discount:</strong> {book.discount}
+            </li>
+            <li>
+              <strong>Author:</strong> {book.author || "N/A"}
+            </li>
+            <li>
               <strong>Language:</strong> {book.language || "N/A"}
-            </p>
-            <p>
-              <strong>Description:</strong> {book.isbn || "N/A"}
-            </p>
-          </div>
+            </li>
+            <li>
+              <strong>Publisher:</strong> {book.publisher || "N/A"}
+            </li>
+            <li>
+              <strong>ISBN:</strong> {book.isbn || "N/A"}
+            </li>
+          </ul>
 
-          {/* Action Buttons */}
-          <div className="d-flex">
-            <button className="btn btn-primary me-3">Add to Cart</button>
-            <button className="btn btn-outline-success">Buy Now</button>
+          <div className="d-flex mt-4">
+            <button className="btn btn-primary me-3 px-4 py-2">
+              Add to Cart
+            </button>
+            <button className="btn btn-outline-success px-4 py-2">
+              Buy Now
+            </button>
           </div>
         </div>
       </div>
