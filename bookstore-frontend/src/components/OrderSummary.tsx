@@ -26,7 +26,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ subtotal }) => {
             </div>
             <hr />
             <button className="btn" onClick={handleProceedToCheckout}>
-                Proceed to Checkouts
+                Proceed to Checkout
             </button>
         </div>
     );
