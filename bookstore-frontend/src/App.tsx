@@ -18,6 +18,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NewArrivals from "./components/NewArrivalsPage/NewArrivals";
 import Educational from "./components/Education/Education";
+import BookDetails from "./components/BookDetails/BookDetails"; // Import BookDetails component
 
 // Define the pages where the footer or navbar should not be displayed
 const noFooterPages = ["/login", "/register"];
@@ -44,6 +45,8 @@ const App: React.FC = () => {
               </div>
             }
           />
+          <Route path="/" element={<BookList />} />
+          <Route path="/book-details" element={<BookDetails />} />
           {/* Novels Page */}
           <Route path="/novels" element={<NovelsPage />} />
           <Route path="/new-arrivals" element={<NewArrivals />} />

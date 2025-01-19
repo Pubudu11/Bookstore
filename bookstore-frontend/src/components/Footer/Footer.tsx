@@ -7,41 +7,22 @@ const Footer = () => {
       <Container>
         <Row>
           <Col xs={12} className="text-center mb-4">
-            <h5>Receive The Latest Offers & Updates Via Email</h5>
-            <p>
-              Signup To Be The First To Hear About Exclusive Deals, Special
-              Offers And Upcoming Collections
-            </p>
-            <Form className="d-flex justify-content-center">
-              <Form.Control
-                type="email"
-                placeholder="Enter Your Email"
-                className="me-2"
-              />
-              <Button
-                variant="primary"
-                style={{
-                  backgroundColor: " #4d94ff",
-
-                  color: " #fff",
-                  fontWeight: "bold",
-                  fontSize: "1rem",
-                  padding: "10px 20px",
-                  borderRadius: "10px",
-                  marginTop: "8px",
-                  transition: "transform 0.3s ease",
-                }}
-                onMouseEnter={(e) =>
-                  ((e.target as HTMLButtonElement).style.transform =
-                    "scale(1.1)")
-                }
-                onMouseLeave={(e) =>
-                  ((e.target as HTMLButtonElement).style.transform = "scale(1)")
-                }
-              >
-                Subscribe
-              </Button>
-            </Form>
+            {/* Subscription Section */}
+            <div className="text-center bg-black  mt-4 rounded">
+              <h5 className="fw-bold mb-3">Stay Updated!</h5>
+              <p className="text-muted bg-white mb-3">
+                Subscribe to get the latest offers, updates, and exclusive
+                deals.
+              </p>
+              <div className="d-flex justify-content-center">
+                <input
+                  type="email"
+                  className="form-control w-50 me-3"
+                  placeholder="Enter your email"
+                />
+                <button className="btn btn-primary">Subscribe</button>
+              </div>
+            </div>
           </Col>
         </Row>
         <Row>

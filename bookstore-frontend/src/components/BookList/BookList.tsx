@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./style.css";
 
 // Import Swiper styles
@@ -669,17 +669,19 @@ const BookList = () => {
                 style={{ width: "150px", borderRadius: "10px" }}
               >
                 <div className="position-relative">
-                  <img
-                    src={book.image}
-                    alt={book.title}
-                    className="card-img-top"
-                    style={{
-                      height: "200px", // Reduced height for book images
-                      objectFit: "cover",
-                      borderTopLeftRadius: "10px",
-                      borderTopRightRadius: "10px",
-                    }}
-                  />
+                  <Link to="/book-details" state={{ book }}>
+                    <img
+                      src={book.image}
+                      alt={book.title}
+                      className="card-img-top"
+                      style={{
+                        height: "200px", // Reduced height for book images
+                        objectFit: "cover",
+                        borderTopLeftRadius: "10px",
+                        borderTopRightRadius: "10px",
+                      }}
+                    />
+                  </Link>
                   <span
                     className="badge bg-danger text-white position-absolute top-0 end-0"
                     style={{ borderBottomLeftRadius: "8px" }}
@@ -709,6 +711,7 @@ const BookList = () => {
                   >
                     {book.discountPrice}
                   </p>
+
                   <div className="d-flex justify-content-around mt-2">
                     <OverlayTrigger
                       placement="top"
