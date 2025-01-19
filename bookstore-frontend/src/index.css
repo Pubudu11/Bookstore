@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+}
+=======
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,3 +19,4 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+>>>>>>> 32d520c34c51ce316d8c3ba58769759632cac19c

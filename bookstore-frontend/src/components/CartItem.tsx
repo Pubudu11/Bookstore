@@ -1,46 +1,41 @@
 import React from 'react';
-import { CartItem as CartItemType } from '../types/book';
 
 interface CartItemProps {
-    item: CartItemType;
-    onUpdateQuantity: (id: string, quantity: number) => void;
-    onRemove: (id: string) => void;
+    id: number;
+    name: string;
+    author: string;
+    quantity: number;
+    price: number;
+    image: string;
+    onRemove: (id: number) => void; // Callback to remove the item
 }
 
-export const CartItem: React.FC<CartItemProps> = ({ item, onUpdateQuantity, onRemove }) => {
-    return (
-        <div className="flex items-center justify-between p-4 border-b">
-            <div className="flex items-center space-x-4">
-                <img src={item.book.imageUrl} alt={item.book.title} className="w-20 h-28 object-cover" />
-                <div>
-                    <h3 className="font-semibold">{item.book.title}</h3>
-                    <p className="text-gray-600">{item.book.author}</p>
-                    <p className="text-green-600">${item.book.price.toFixed(2)}</p>
-                </div>
-            </div>
-            <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-2">
-                    <button
-                        onClick={() => onUpdateQuantity(item.book.id, Math.max(0, item.quantity - 1))}
-                        className="px-2 py-1 bg-gray-200 rounded"
-                    >
-                        -
-                    </button>
-                    <span>{item.quantity}</span>
-                    <button
-                        onClick={() => onUpdateQuantity(item.book.id, item.quantity + 1)}
-                        className="px-2 py-1 bg-gray-200 rounded"
-                    >
-                        +
-                    </button>
-                </div>
-                <button
-                    onClick={() => onRemove(item.book.id)}
-                    className="text-red-500 hover:text-red-700"
-                >
-                    Remove
-                </button>
+const CartItem: React.FC<CartItemProps> = ({ id, name, author, quantity, price, image, onRemove }) => (
+    <div className="d-flex justify-content-between align-items-center p-3 border-bottom">
+        {/* Item Image and Details */}
+        <div className="d-flex">
+            <img
+                src={image}
+                alt={name}
+                style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+            />
+            <div className="ms-3">
+                <h6 className="mb-0">{name}</h6>
+                <small className="text-muted">{author}</small>
             </div>
         </div>
-    );
-};
+        {/* Quantity, Price, and Remove Button */}
+        <div className="d-flex align-items-center">
+            <span className="me-3">{quantity}</span>
+            <strong className="me-3">${(price * quantity).toFixed(2)}</strong>
+            <button
+                onClick={() => onRemove(id)}
+                className="btn btn-sm btn-danger"
+            >
+                Remove
+            </button>
+        </div>
+    </div>
+);
+
+export default CartItem;
