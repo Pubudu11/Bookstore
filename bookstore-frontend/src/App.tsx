@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer";
 import Slideshow from "./components/SlideShow/SlideShow";
 
 import BookList from "./components/BookList/BookList"; // Ensure this path is correct
-import "./App.css";
+// import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import CombinedAuth from "./components/CombinedAuth/CombinedAuth";
