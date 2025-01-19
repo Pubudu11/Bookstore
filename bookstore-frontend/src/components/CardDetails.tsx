@@ -85,7 +85,7 @@ const CardDetails = () => {
                 {/* Order Summary */}
                 <div className="mt-3 text-end">
                     <p>Subtotal: $3000.00</p>
-                    <p>Shipping: $20.00</p>
+                    <p>Shipping: Rs.300.00</p>
                     <p><strong>Total (Incl. taxes): $3020.00</strong></p>
                     <button className="btn btn-primary w-100">Checkout</button>
                 </div>

@@ -1,37 +1,33 @@
-// OrderSummary.tsx
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface OrderSummaryProps {
     subtotal: number;
-    shippingCost: number;
 }
 
-const OrderSummary: React.FC<OrderSummaryProps> = ({ subtotal, shippingCost }) => {
-    const total = subtotal + shippingCost;
+const OrderSummary: React.FC<OrderSummaryProps> = ({ subtotal }) => {
+    const total = subtotal;
+    const navigate = useNavigate(); // Hook for navigation
+
+    const handleProceedToCheckout = () => {
+        navigate("/shipping"); // Navigate to the Shipping Details page
+    };
 
     return (
-        <div
-            style={{
-                border: "1px solid #ccc",
-                borderRadius: "8px",
-                padding: "1rem",
-                backgroundColor: "#f8f9fa",
-            }}
-        >
-            <h4>Order Summary</h4>
-            <div className="d-flex justify-content-between">
-                <span>Subtotal:</span>
-                <span>${subtotal.toFixed(2)}</span>
+        <div className="order-summary-container">
+            <h4>Price Details</h4><br></br>
+            <div className="d-flex">
+                <span>Subtotal</span>
+                <span>LKR {subtotal.toFixed(2)}</span>
             </div>
-            <div className="d-flex justify-content-between">
-                <span>Shipping:</span>
-                <span>${shippingCost.toFixed(2)}</span>
+            <div className="d-flex">
+                <span>Total</span>
+                <span>LKR {total.toFixed(2)}</span>
             </div>
             <hr />
-            <div className="d-flex justify-content-between">
-                <strong>Total:</strong>
-                <strong>${total.toFixed(2)}</strong>
-            </div>
+            <button className="btn" onClick={handleProceedToCheckout}>
+                Proceed to Checkouts
+            </button>
         </div>
     );
 };
