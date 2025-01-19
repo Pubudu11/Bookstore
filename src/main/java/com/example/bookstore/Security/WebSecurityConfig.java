@@ -22,6 +22,9 @@ import com.example.bookstore.Security.JWT.AuthEntryPointJwt;
 import com.example.bookstore.Security.JWT.AuthTokenFilter;
 
 import org.springframework.http.HttpMethod;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsConfigurationSource;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 
 @Configuration
@@ -108,6 +111,20 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 //
 //    return http.build();
 //  }
+
+// CORS configuration
+@Bean
+public CorsConfigurationSource corsConfigurationSource() {
+  CorsConfiguration corsConfig = new CorsConfiguration();
+  corsConfig.setAllowCredentials(true);
+  corsConfig.addAllowedOrigin("http://localhost:3000"); // Frontend URL
+  corsConfig.addAllowedHeader("*");
+  corsConfig.addAllowedMethod("*"); // Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
+
+  UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+  source.registerCorsConfiguration("/**", corsConfig); // Apply to all endpoints
+  return source;
+}
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.csrf(csrf -> csrf.disable())
@@ -123,12 +140,15 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
                             "/v3/api-docs/**",    // Swagger v3 API docs
                             "/swagger-ui/**",     // Swagger UI
                             "/swagger-resources/**", // Swagger resources
-                            "/webjars/**"         // Swagger webjars
+                            "/webjars/**"   ,      // Swagger webjars
+                            "/api/books/**"  ,   // Book API endpoints
+                            "/api/users/**"   // User API endpoints
+
                     ).permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/orders/").permitAll() // Allow GET requests to /api/orders/
                     .requestMatchers(HttpMethod.GET, "/api/orders").permitAll() // Allow GET requests to /api/orders
-                    .requestMatchers(HttpMethod.GET, "/api/users").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/users/").permitAll()
+//                    .requestMatchers(HttpMethod.GET, "/api/users").permitAll()
+//                    .requestMatchers(HttpMethod.GET, "/api/users/").permitAll()
                     .anyRequest().authenticated());
 
     http.authenticationProvider(authenticationProvider());

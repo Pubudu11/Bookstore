@@ -6,6 +6,7 @@ import com.example.bookstore.Repository.UserRepository;
 import com.example.bookstore.Service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,8 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    PasswordEncoder encoder;
 
     @Override
     public User createUser(User user){
@@ -75,7 +78,7 @@ public class UserServiceImpl implements UserService {
         existingUser.setFirstName(user.getFirstName());
         existingUser.setLastName(user.getLastName());
         existingUser.setUsername(user.getUsername());
-        existingUser.setPassword(user.getPassword());
+        existingUser.setPassword(encoder.encode(user.getPassword()));
         existingUser.setEmail(user.getEmail());
 
         userRepository.save(existingUser);

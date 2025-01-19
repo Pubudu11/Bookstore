@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         User user = this.userService.getUserById(id);
         if (user != null) {
@@ -63,8 +63,6 @@ public class UserController {
             return new ResponseEntity<String>("Invalid Credentials", HttpStatus.UNAUTHORIZED);}
     }
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('USER')")
-
     public ResponseEntity<User> updateBook(@PathVariable("id") String id, @RequestBody User user) {
         User updatedUser = userService.updateUser(user, id);
         return updatedUser != null ? ResponseEntity.ok(updatedUser) : ResponseEntity.notFound().build();

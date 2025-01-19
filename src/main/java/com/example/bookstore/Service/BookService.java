@@ -11,7 +11,7 @@ public interface BookService {
     List<Book> getBookByTitle(String title);
     List<Book> getBooksByAuthor(String author);
     List<Book> getBooksByAuthorAndTitle(String author, String title);
-    List<Book> getBooksByCategory(String genre);
+    List<Book> getBooksByCategory(String category);
     Book updateBook(Book book, String id);
     void deleteBook(String id);
 }

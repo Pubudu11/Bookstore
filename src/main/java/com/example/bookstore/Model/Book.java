@@ -3,6 +3,8 @@ package com.example.bookstore.Model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document(collection = "books")
 
 public class Book {
@@ -12,8 +14,9 @@ public class Book {
     private String author;
     private String Language;
     private String Publisher;
-    private String isbn;
-    private String category;
+    private String ImgPath;
+    private List<String> category;
+    private String description;
     private String quantity;
     private String price;
 
@@ -41,12 +44,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getImgPath() {
+        return ImgPath;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setImgPath(String imgPath) {
+        this.ImgPath = imgPath;
     }
 
     public String getLanguage() {
@@ -57,11 +60,11 @@ public class Book {
         this.Language = language;
     }
 
-    public String getCategory() {
+    public List<String> getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(List<String> category) {
         this.category = category;
     }
 
@@ -87,6 +90,14 @@ public class Book {
 
     public void setPublisher(String publisher) {
         Publisher = publisher;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 //update
