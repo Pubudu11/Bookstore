@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import './CardDetails.css'; // Import the CSS
+import './CardDetails.css';
+import { useLocation } from "react-router-dom";
+
 
 const CardDetails = () => {
+    const { subtotal = 0, shippingCost = 0, total = 0 } = location.state || {};
+
     const [selectedCard, setSelectedCard] = useState<string>("visa");
 
     const handleCardSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,9 +88,9 @@ const CardDetails = () => {
 
                 {/* Order Summary */}
                 <div className="mt-3 text-end">
-                    <p>Subtotal: $3000.00</p>
-                    <p>Shipping: Rs.300.00</p>
-                    <p><strong>Total (Incl. taxes): $3020.00</strong></p>
+                    <p>Subtotal: LKR {subtotal.toFixed(2)}</p>
+                    <p>Shipping: LKR {shippingCost.toFixed(2)}</p>
+                    <p><strong>Total (Incl. taxes): LKR {total.toFixed(2)}</strong></p>
                     <button className="btn btn-primary w-100">Checkout</button>
                 </div>
             </form>

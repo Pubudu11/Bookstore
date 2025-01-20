@@ -1,59 +1,94 @@
-/* Order Summary Styles */
 .order-summary-container {
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    background-color: #f8f9fa;
+    /* Light background */
+    border: 1px solid #dee2e6;
+    /* Subtle border */
+    border-radius: 8px;
+    /* Rounded corners */
     padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add spacing */
+    margin-top: 20px;
+    /* Space above */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Light shadow */
     font-family: Arial, sans-serif;
+    /* Clean font */
+    width: 100%;
+    /* Full width inside container */
+    max-width: 400px;
+    /* Limit width for better design */
 }
 
 .order-summary-container h4 {
-    font-size: 1.25rem;
-    margin-bottom: 20px;
+    font-size: 20px;
+    /* Larger heading */
     font-weight: bold;
-    color: #333;
+    /* Bold title */
+    margin-bottom: 15px;
+    /* Space below */
+    color: #343a40;
+    /* Dark text */
+    border-bottom: 2px solid #007bff;
+    /* Accent line below heading */
+    padding-bottom: 5px;
+    /* Spacing below text */
 }
 
 .order-summary-container .d-flex {
     display: flex;
     justify-content: space-between;
+    /* Space out items */
+    align-items: center;
+    /* Align items vertically */
     margin-bottom: 10px;
-    font-size: 1rem;
-    color: #555;
+    /* Space between rows */
 }
 
 .order-summary-container .d-flex span {
-    font-size: 1rem;
-    color: #333;
+    font-size: 16px;
+    /* Comfortable size */
+    color: #495057;
+    /* Neutral text color */
 }
 
-.order-summary-container .d-flex strong {
-    font-size: 1.2rem;
-    color: #333;
+.order-summary-container .d-flex span:last-child {
+    font-weight: bold;
+    /* Highlight amounts */
+}
+
+.order-summary-container hr {
+    border: none;
+    /* Remove default border */
+    border-top: 1px solid #dee2e6;
+    /* Custom thin line */
+    margin: 15px 0;
+    /* Space above and below */
 }
 
 .order-summary-container .btn {
     background-color: #007bff;
+    /* Primary button color */
     color: #fff;
-    padding: 10px;
-    font-size: 1rem;
+    /* White text */
     border: none;
-    border-radius: 5px;
+    /* No border */
+    border-radius: 4px;
+    /* Rounded button */
+    padding: 10px 15px;
+    /* Button padding */
+    font-size: 16px;
+    /* Comfortable size */
     cursor: pointer;
-    transition: background-color 0.3s;
-    text-transform: uppercase;
+    /* Pointer cursor */
+    width: 100%;
+    /* Full width button */
+    text-align: center;
+    /* Center text */
+    transition: background-color 0.3s ease;
+    /* Smooth hover transition */
 }
 
 .order-summary-container .btn:hover {
     background-color: #0056b3;
-}
-
-.order-summary-container hr {
-    border-top: 1px solid #ccc;
-    margin: 10px 0;
-}
-
-.order-summary-container .btn:focus {
-    outline: none;
+    /* Darker blue on hover */
 }

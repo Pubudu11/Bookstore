@@ -7,6 +7,7 @@ interface CartItemProps {
     quantity: number;
     price: number;
     image: string;
+
     onRemove: (id: number) => void; // Callback to remove the item
 }
 
