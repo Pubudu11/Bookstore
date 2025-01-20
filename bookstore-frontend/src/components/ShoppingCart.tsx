@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header"; // Import your custom header component
 import { useNavigate } from "react-router-dom";
 import OrderSummary from "../components/OrderSummary"; // Import your order summary component
+
 import "./ShoppingCart.css";
 
 interface CartItem {
@@ -14,9 +15,9 @@ interface CartItem {
 }
 
 const initialCartItems: CartItem[] = [
-    { id: 1, name: "Mai Maara Prasangaya", author: "Mahinda Prasad Masimbula", price: 900, quantity: 2, image: "/book1.jpeg" },
-    { id: 2, name: "Hath Pana", author: "Kumarathunga Munidasa", price: 900, quantity: 3, image: "/oneplus.png" },
-    { id: 3, name: "Seeni Murukku", author: "Kasun Heenatigala", price: 800, quantity: 1, image: "/pixel.png" },
+    { id: 1, name: "Mai Maara Prasangaya", author: "Mahinda Prasad Masimbula", price: 900, quantity: 2, image: "10.jpg" },
+    { id: 2, name: "Hath Pana", author: "Kumarathunga Munidasa", price: 900, quantity: 3, image: "10.jpg" },
+    { id: 3, name: "Seeni Murukku", author: "Kasun Heenatigala", price: 800, quantity: 1, image: "10.jpg" },
 ];
 
 const ShoppingCart: React.FC = () => {
