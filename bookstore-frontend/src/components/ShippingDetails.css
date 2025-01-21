@@ -88,3 +88,12 @@
     font-weight: bold;
     margin-top: 10px;
 }
+.error-text {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.is-invalid {
+    border-color: red;
+}

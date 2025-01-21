@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 const CardDetails = () => {
     const location = useLocation();
-    const { subtotal = 0, shippingCost = 0, total = 0 } = location.state || {};
+    const { subtotal = "", shippingCost = "", total = "" } = location.state || {};
 
     const [formData, setFormData] = useState({
         cardName: "",
@@ -29,7 +29,7 @@ const CardDetails = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
-        setErrors({ ...errors, [id]: "" }); // Clear errors on change
+        setErrors({ ...errors, [id]: "" }); 
     };
 
     const validateForm = () => {
@@ -40,22 +40,19 @@ const CardDetails = () => {
             cvv: "",
         };
 
-        // Validate name (only letters and spaces)
         if (!/^[A-Za-z\s]+$/.test(formData.cardName)) {
             newErrors.cardName = "Name must contain only letters and spaces.";
         }
 
-        // Validate card number (exactly 16 digits)
         if (!/^\d{16}$/.test(formData.cardNumber)) {
             newErrors.cardNumber = "Card number must be exactly 16 digits.";
         }
 
-        // Validate expiry date (MM/YY format)
         if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(formData.expiryDate)) {
             newErrors.expiryDate = "Expiry date must be in MM/YY format.";
         }
 
-        // Validate CVV (exactly 3 digits)
+        
         if (!/^\d{3}$/.test(formData.cvv)) {
             newErrors.cvv = "CVV must be exactly 3 digits.";
         }

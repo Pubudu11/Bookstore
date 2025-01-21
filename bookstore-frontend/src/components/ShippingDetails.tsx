@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./ShippingDetails.css";
 
 const ShippingDetails: React.FC = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const subtotal = location.state?.subtotal || 0;
 
     const [formData, setFormData] = useState({
@@ -24,8 +25,13 @@ const ShippingDetails: React.FC = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { id, value } = e.target;
+
+        if (id === "zipCode" || id === "contactNumber") {
+            if (!/^\d*$/.test(value)) return; // Allow only numeric input
+        }
+
         setFormData({ ...formData, [id]: value });
-        setErrors({ ...errors, [id]: "" });
+        setErrors({ ...errors, [id]: "" }); // Clear error on valid input
     };
 
     const validateForm = () => {
@@ -49,7 +55,9 @@ const ShippingDetails: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (validateForm()) {
-            alert("Shipping details submitted successfully!");
+            navigate("/cart-details", {
+                state: { total, subtotal, shippingCost },
+            });
         }
     };
 
@@ -119,7 +127,9 @@ const ShippingDetails: React.FC = () => {
                         <input
                             type="text"
                             id="contactNumber"
-                            className={`form-control ${errors.contactNumber ? "is-invalid" : ""}`}
+                            className={`form-control ${
+                                errors.contactNumber ? "is-invalid" : ""
+                            }`}
                             placeholder="Enter your contact number"
                             value={formData.contactNumber}
                             onChange={handleChange}
@@ -130,18 +140,9 @@ const ShippingDetails: React.FC = () => {
                         )}
                     </div>
 
-                    <Link to="/cart-details"
-                        state={{
-                            subtotal: subtotal,
-                            shippingCost: shippingCost,
-                            total: total,
-                        }}
-                    >
-                        <button type="submit" className="btn-primary">
-                            Continue to Payment
-
-                        </button>
-                    </Link>
+                    <button type="submit" className="btn-primary">
+                        Continue to Payment
+                    </button>
                 </form>
             </div>
 

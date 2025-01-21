@@ -7,8 +7,8 @@ interface CartItemProps {
     quantity: number;
     price: number;
     image: string;
-
-    onRemove: (id: number) => void; // Callback to remove the item
+    
+    onRemove: (id: number) => void; 
 }
 
 const CartItem: React.FC<CartItemProps> = ({ id, name, author, quantity, price, image, onRemove }) => (

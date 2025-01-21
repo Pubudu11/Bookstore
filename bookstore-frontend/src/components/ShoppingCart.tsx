@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Header from "./Header"; // Import your custom header component
+import Header from "./Header"; 
 import { useNavigate } from "react-router-dom";
-import OrderSummary from "../components/OrderSummary"; // Import your order summary component
-
+import OrderSummary from "../components/OrderSummary";
 import "./ShoppingCart.css";
 
 interface CartItem {
