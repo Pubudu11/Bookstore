@@ -4,8 +4,8 @@
   margin: 0 auto;
   padding: 50px;
   border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: rgb(189, 224, 237);
+  box-shadow: 0 10px 20px #111111;
+  background-color: #ffffff;
   /* Centering the form in the viewport */
   position: absolute;
   top: 50%;
@@ -18,7 +18,7 @@
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #111212;
+  color: #000000;
 }
 
 .tabs {
@@ -31,12 +31,12 @@
   flex: 1;
   padding: 10px;
   border: none;
-  background-color: #f0f0f0;
+  background-color: #000000;
   cursor: pointer;
   font-size: 16px;
   border-radius: 10px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  color: #2c3e50;
+  color: #fafafa;
   font-weight: 600;
 }
 
@@ -79,14 +79,14 @@ form {
 }
 
 .form-group input:focus {
-  border-color: #3498db;
+  border-color: #080808;
   outline: none;
-  box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 
 button {
   padding: 12px;
-  background-color: #e74c3c;
+  background-color: #3235dd;
   color: white;
   border: none;
   border-radius: 8px;
@@ -105,7 +105,7 @@ button:hover {
   display: block;
   text-align: center;
   margin-top: 20px;
-  color: #3498db;
+  color: #000000;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
