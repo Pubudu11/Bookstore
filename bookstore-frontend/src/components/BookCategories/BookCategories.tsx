@@ -16,7 +16,7 @@ const categories = [
     route: "/novels",
   },
   {
-    color: "linear-gradient(135deg, #add8e6, #3399ff)",
+    color: "linear-gradient(135deg, #add8e6,rgb(127, 172, 218))",
     title: "පරිවර්තන",
     icon: "📘",
     route: "/translations",
@@ -28,7 +28,7 @@ const categories = [
     route: "/shortstories",
   },
   {
-    color: "linear-gradient(135deg, #add8e6, #0073e6)",
+    color: "linear-gradient(135deg,rgb(55, 198, 246),rgb(24, 130, 236))",
     title: "Educational",
     icon: "📘",
     route: "/educational",
