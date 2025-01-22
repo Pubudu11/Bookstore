@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./CombinedAuth.css";
 import { Link, useNavigate } from "react-router-dom";
-import { authAPI }from "../../api/auth.ts"
-import {RegisterRequest, LoginCredentials} from "../../types"
-import {toast} from "react-toastify"
+import { authAPI } from "../../api/auth.ts";
+import { RegisterRequest, LoginCredentials } from "../../types";
+import { toast } from "react-toastify";
 
 const CombinedAuth: React.FC = () => {
-  const navgate = useNavigate();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
   // Login states
   const [username, setUsername] = useState("");
@@ -20,15 +20,20 @@ const CombinedAuth: React.FC = () => {
     confirmPassword: "",
   });
 
+  const handleTabChange = (tab: "login" | "register") => {
+    setActiveTab(tab);
+    navigate(`/${tab}`); // Navigate to /login or /register based on tab
+  };
+
   const handleLogin = (event: React.FormEvent) => {
     event.preventDefault();
     const loginData: LoginCredentials = {
-        username: formData.username,
-        password: formData.password,
-    }
+      username,
+      password,
+    };
     authAPI.login(loginData);
     toast.success("Login successful");
-    navgate("/");
+    navigate("/"); // Navigate to home page after successful login
   };
 
   const handleRegister = (event: React.FormEvent) => {
@@ -40,12 +45,10 @@ const CombinedAuth: React.FC = () => {
         username: formData.username,
         email: formData.email,
         password: formData.password,
-      }
-      var res = authAPI.register(registerData);
+      };
+      authAPI.register(registerData);
       toast.success("Registration successful");
-      navgate("/login");
-
-
+      navigate("/login"); // Navigate to login page after successful registration
     }
   };
 
@@ -59,13 +62,13 @@ const CombinedAuth: React.FC = () => {
       <div className="tabs">
         <button
           className={activeTab === "login" ? "active" : ""}
-          onClick={() => setActiveTab("login")}
+          onClick={() => handleTabChange("login")}
         >
           Login
         </button>
         <button
           className={activeTab === "register" ? "active" : ""}
-          onClick={() => setActiveTab("register")}
+          onClick={() => handleTabChange("register")}
         >
           Register
         </button>
@@ -102,28 +105,28 @@ const CombinedAuth: React.FC = () => {
         )}
 
         {activeTab === "register" && (
-            <form onSubmit={handleRegister} className="register-form">
-              <h2 className="auth-title">Register</h2>
-              <div className="form-group">
-                <label htmlFor="username">User Name:</label>
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    placeholder="Enter User name"
-                    value={formData.username}
-                    onChange={handleRegisterChange}
-                    required
-                />
+          <form onSubmit={handleRegister} className="register-form">
+            <h2 className="auth-title">Register</h2>
+            <div className="form-group">
+              <label htmlFor="username">User Name:</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter User name"
+                value={formData.username}
+                onChange={handleRegisterChange}
+                required
+              />
             </div>
-          <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Enter email"
-          value={formData.email}
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter email"
+                value={formData.email}
                 onChange={handleRegisterChange}
                 required
               />
