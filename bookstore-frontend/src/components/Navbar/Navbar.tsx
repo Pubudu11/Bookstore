@@ -28,7 +28,7 @@ const Header = () => {
           <a href="/login" className="nav-link">
             Sign Up / Login
           </a>
-          <span className="currency">LKR</span>
+
           <div className="cart">
             <img src="cart-icon.png" alt="Cart" />
             <span className="cart-count">0</span>
