@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "./CombinedAuth.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { authAPI }from "../../api/auth.ts"
+import {RegisterRequest, LoginCredentials} from "../../types"
+import {toast} from "react-toastify"
 
 const CombinedAuth: React.FC = () => {
+  const navgate = useNavigate();
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
-
   // Login states
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   // Register states
   const [formData, setFormData] = useState({
-    fullName: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -19,15 +22,30 @@ const CombinedAuth: React.FC = () => {
 
   const handleLogin = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("Logging in with:", { username, password });
+    const loginData: LoginCredentials = {
+        username: formData.username,
+        password: formData.password,
+    }
+    authAPI.login(loginData);
+    toast.success("Login successful");
+    navgate("/");
   };
 
   const handleRegister = (event: React.FormEvent) => {
     event.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
+      toast.error("Passwords do not match!");
     } else {
-      console.log("Registering with:", formData);
+      const registerData: RegisterRequest = {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+      }
+      var res = authAPI.register(registerData);
+      toast.success("Registration successful");
+      navgate("/login");
+
+
     }
   };
 
@@ -84,28 +102,28 @@ const CombinedAuth: React.FC = () => {
         )}
 
         {activeTab === "register" && (
-          <form onSubmit={handleRegister} className="register-form">
-            <h2 className="auth-title">Register</h2>
-            <div className="form-group">
-              <label htmlFor="fullName">Full Name:</label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                placeholder="Enter full name"
-                value={formData.fullName}
-                onChange={handleRegisterChange}
-                required
-              />
+            <form onSubmit={handleRegister} className="register-form">
+              <h2 className="auth-title">Register</h2>
+              <div className="form-group">
+                <label htmlFor="username">User Name:</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter User name"
+                    value={formData.username}
+                    onChange={handleRegisterChange}
+                    required
+                />
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter email"
-                value={formData.email}
+          <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          value={formData.email}
                 onChange={handleRegisterChange}
                 required
               />
