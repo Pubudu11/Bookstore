@@ -1,0 +1,14 @@
+.category-card {
+  height: 150px;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover,
+.category-card:focus {
+  transform: scale(1.1);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}

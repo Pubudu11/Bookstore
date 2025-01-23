@@ -622,9 +622,9 @@ const BookList = () => {
     <div className="container mt-5">
       {/* Header Section */}
       <header
-        className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
+        className="d-flex justify-content-between align-items-center mb-4 py-2"
         style={{
-          backgroundColor: "rgb(202, 139, 233)",
+          backgroundColor: "rgb(8, 8, 8)",
           color: "white",
           borderRadius: "8px",
         }}
@@ -633,7 +633,7 @@ const BookList = () => {
           <p className="lead mb-1">
             <strong>Explore Best Novels</strong>
           </p>
-          <p className="text-muted mb-0" style={{ color: "white" }}>
+          <p className="" style={{ color: "white", fontStyle: "italic" }}>
             <b>Find Your Books.</b>
           </p>
         </div>
@@ -740,7 +740,7 @@ const BookList = () => {
       <header
         className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
         style={{
-          backgroundColor: "rgb(112, 141, 210)",
+          backgroundColor: "rgb(8, 8, 8)",
           color: "white",
           borderRadius: "8px",
         }}
@@ -749,7 +749,7 @@ const BookList = () => {
           <p className="lead mb-1">
             <strong>New Arrivals</strong>
           </p>
-          <p className="text-muted mb-0" style={{ color: "white" }}>
+          <p className=" " style={{ color: "white", fontStyle: "italic" }}>
             <b>Discover the Latest Books.</b>
           </p>
         </div>
@@ -861,7 +861,7 @@ const BookList = () => {
       <header
         className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
         style={{
-          backgroundColor: "rgb(136, 217, 225)",
+          backgroundColor: "rgb(8, 8, 8)",
           color: "white",
           borderRadius: "8px",
         }}
@@ -870,7 +870,7 @@ const BookList = () => {
           <p className="lead mb-1">
             <strong>නවකතා</strong>
           </p>
-          <p className="text-muted mb-0" style={{ color: "white" }}>
+          <p className=" " style={{ color: "white", fontStyle: "italic" }}>
             <b>Best Sinhala Novels.</b>
           </p>
         </div>
@@ -980,7 +980,7 @@ const BookList = () => {
       <header
         className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
         style={{
-          backgroundColor: "rgb(99, 127, 236)",
+          backgroundColor: "rgb(8, 8, 8)",
           color: "white",
           borderRadius: "8px",
         }}
@@ -1094,14 +1094,14 @@ const BookList = () => {
       </div>
       {/* fifth Swiper Slider Section */}
       <header
-        className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
+        className="d-flex justify-content-between align-items-center mb-4 py-3 px-4 "
         style={{
-          backgroundColor: "rgb(242, 86, 198)",
+          backgroundColor: "rgb(8, 8, 8)",
           color: "white",
           borderRadius: "8px",
         }}
       >
-        <div className="text-center w-100">
+        <div className="text-center w-100 m-0 p-0">
           <p className="lead mb-1">
             <strong>EDUCATIONAL</strong>
           </p>

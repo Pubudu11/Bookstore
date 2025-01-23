@@ -41,6 +41,9 @@ body {
 .site-name {
   font-size: 28px;
   margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
 }
 
 /* Search Section */
@@ -81,6 +84,7 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 .nav-link {
@@ -148,6 +152,10 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+}
+.account img {
+  width: 30px;
+  height: 30px;
 }
 
 /* Responsive adjustments */

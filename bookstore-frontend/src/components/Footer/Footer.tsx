@@ -3,14 +3,17 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: "#000", color: "#fff" }} className="py-4">
+    <footer
+      style={{ backgroundColor: "rgb(11, 50, 108)", color: "#fff" }}
+      className="py-4"
+    >
       <Container>
         <Row>
           <Col xs={12} className="text-center mb-4">
             {/* Subscription Section */}
-            <div className="text-center bg-black  mt-4 rounded">
+            <div className="text-center   mt-4 rounded">
               <h5 className="fw-bold mb-3">Stay Updated!</h5>
-              <p className="text-muted bg-white mb-3">
+              <p className="text-muted bg-white rounded mb-3">
                 Subscribe to get the latest offers, updates, and exclusive
                 deals.
               </p>
