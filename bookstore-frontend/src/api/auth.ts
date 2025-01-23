@@ -2,7 +2,7 @@ import api from './axios';
 import { LoginCredentials, AuthResponse , RegisterRequest} from '../types';
 export const authAPI = {
     login: async (credentials: LoginCredentials) => {
-        const { data } = await api.post<AuthResponse>('/api/auth/user/signin/', credentials);
+        const { data } = await api.post<AuthResponse>('/api/auth/user/signin', credentials);
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
         return data;
