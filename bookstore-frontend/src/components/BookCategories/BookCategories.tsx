@@ -4,31 +4,31 @@ import { useNavigate } from "react-router-dom"; // For navigation
 
 const categories = [
   {
-    color: "linear-gradient(135deg, #90ee90, #66cc66)",
+    color: "linear-gradient(135deg,rgb(195, 204, 235), #66cc66)",
     title: "Children's Books",
     icon: "📚",
     route: "/children",
   },
   {
-    color: "linear-gradient(135deg, #ffcc99, #ff9966)",
+    color: "linear-gradient(135deg,rgb(186, 169, 152), #ff9966)",
     title: "නවකතා",
     icon: "📖",
     route: "/novels",
   },
   {
-    color: "linear-gradient(135deg, #add8e6,rgb(127, 172, 218))",
+    color: "linear-gradient(135deg,rgb(127, 149, 156),rgb(127, 172, 218))",
     title: "පරිවර්තන",
     icon: "📘",
     route: "/translations",
   },
   {
-    color: "linear-gradient(135deg, #90ee90, #33cc33)",
+    color: "linear-gradient(135deg,rgb(155, 205, 155), #33cc33)",
     title: "කෙටිකතා",
     icon: "📚",
     route: "/shortstories",
   },
   {
-    color: "linear-gradient(135deg,rgb(55, 198, 246),rgb(24, 130, 236))",
+    color: "linear-gradient(135deg,rgb(26, 35, 39),rgb(24, 130, 236))",
     title: "Educational",
     icon: "📘",
     route: "/educational",
