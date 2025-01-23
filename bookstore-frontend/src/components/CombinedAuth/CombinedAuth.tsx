@@ -25,18 +25,66 @@ const CombinedAuth: React.FC = () => {
     navigate(`/${tab}`); // Navigate to /login or /register based on tab
   };
 
-  const handleLogin = (event: React.FormEvent) => {
+  // const handleLogin = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   const loginData: LoginCredentials = {
+  //     username,
+  //     password,
+  //   };
+  //   authAPI.login(loginData);
+  //   toast.success("Login successful");
+  //   setUsername(""); // Clear username
+  //   setPassword(""); // Clear password
+  //   navigate("/"); // Navigate to home page after successful login
+  // };
+
+
+  // const handleRegister = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   if (formData.password !== formData.confirmPassword) {
+  //     toast.error("Passwords do not match!");
+  //   }
+  //   else{
+  //     const registerData: RegisterRequest = {
+  //       username: formData.username,
+  //       email: formData.email,
+  //       password: formData.password,
+  //     };
+  //     var res = authAPI.register(registerData);
+  //
+  //     toast.success("Registration successful");
+  //     setFormData({
+  //       username: "",
+  //       email: "",
+  //       password: "",
+  //       confirmPassword: "",
+  //     }); // Clear form data
+  //     handleTabChange("login"); // Navigate to login page after successful registration
+  //   }
+  // };
+
+  const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     const loginData: LoginCredentials = {
       username,
       password,
     };
-    authAPI.login(loginData);
-    toast.success("Login successful");
-    navigate("/"); // Navigate to home page after successful login
+    try {
+      await authAPI.login(loginData);
+      toast.success("Login successful");
+      setUsername(""); // Clear username
+      setPassword(""); // Clear password
+      navigate("/"); // Navigate to home page after successful login
+    } catch (error: any) {
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(`${error.response.status} ${error.response.data.message}`);
+      } else {
+        toast.error("Network error. Please check your connection.");
+      }
+    }
   };
 
-  const handleRegister = (event: React.FormEvent) => {
+  const handleRegister = async (event: React.FormEvent) => {
     event.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match!");
@@ -46,12 +94,25 @@ const CombinedAuth: React.FC = () => {
         email: formData.email,
         password: formData.password,
       };
-      authAPI.register(registerData);
-      toast.success("Registration successful");
-      navigate("/login"); // Navigate to login page after successful registration
+      try {
+        await authAPI.register(registerData);
+        toast.success("Registration successful");
+        setFormData({
+          username: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        }); // Clear form data
+        handleTabChange("login"); // Navigate to login page after successful registration
+      } catch (error: any) {
+        if (error.response && error.response.data && error.response.data.message) {
+          toast.error(`${error.response.status} ${error.response.data.message}`);
+        } else {
+          toast.error("Network error. Please check your connection.");
+        }
+      }
     }
   };
-
   const handleRegisterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
