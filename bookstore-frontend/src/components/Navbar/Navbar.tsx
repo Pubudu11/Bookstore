@@ -37,6 +37,9 @@ const Header = () => {
             <img src="Wishlist.png" alt="wishList" />
             <span className="wishlist-count">0</span>
           </div>
+          <div className="account">
+            <img src="profile.jpeg" alt="account" />
+          </div>
         </div>
       </div>
     </header>
