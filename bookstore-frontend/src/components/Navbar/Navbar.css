@@ -1,28 +1,15 @@
-/* Ensure the body takes up the full height and avoids overlap */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  padding-top: 120px; /* Account for fixed top bar and main header */
-}
-
 /* Main Header */
 .main-header {
   position: fixed;
-  top: 0px; /* Positioned below the top bar */
+  top: 0;
   background-color: #f8f9fa;
-  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 10px;
-  font-weight: bold;
-  font-size: 16px;
-  border-bottom: 2px solid #ccc; /* Optional divider for clarity */
+  padding: 5px 20px;
   width: 100%;
-  z-index: 998; /* Below the top bar */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+  z-index: 999;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo Section */
@@ -35,15 +22,12 @@ body {
   width: 75px;
   height: 75px;
   margin-right: 10px;
-  padding: 5px;
 }
 
 .site-name {
-  font-size: 28px;
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-style: italic;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "popins", sans-serif;
 }
 
 /* Search Section */
@@ -53,30 +37,24 @@ body {
 }
 
 .search-input {
-  padding: 8px 70px;
+  padding: 8px 50px;
   font-size: 16px;
-  border: 2px solid black;
-  border-radius: 8px;
+  border: 2px solid #070707;
+  border-radius: 4px;
   margin-right: 10px;
 }
 
 .search-button {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  padding: 5px;
+  padding: 8px;
   background-color: #3079cc;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .search-button:hover {
-  background-color: #3079cc;
+  background-color: #205a8f;
 }
 
 /* Navigation Section */
@@ -84,66 +62,92 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  font-family: "Poppins", sans-serif;
+  font-family: "popins", sans-serif;
+  font-size: 16px;
 }
 
 .nav-link {
-  color: black;
   text-decoration: none;
+  color: #000;
   font-size: 14px;
-  font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 8px;
+  transition: background-color 0.3s;
 }
 
 .nav-link:hover {
   background-color: #3079cc;
-  color: white;
+  color: #fff;
 }
-
-.currency {
-  font-size: 14px;
-}
-
-.cart {
+/* Profile Section Styling */
+.profile-container {
   position: relative;
 }
 
-.cart img {
-  width: 24px;
-  height: 24px;
-}
-
-.cart-count {
-  position: absolute;
-  top: -5px;
-  right: -10px;
-  background-color: red;
-  color: black;
-  font-size: 12px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
+.profile-section {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
 }
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  white-space: nowrap;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Cart and Wishlist */
+.cart,
 .wishlist {
   position: relative;
 }
 
+.cart img,
 .wishlist img {
   width: 24px;
   height: 24px;
 }
 
+.cart-count,
 .wishlist-count {
   position: absolute;
   top: -5px;
   right: -10px;
   background-color: red;
-  color: black;
+  color: #fff;
   font-size: 12px;
   width: 16px;
   height: 16px;
@@ -151,32 +155,4 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-}
-.account img {
-  width: 30px;
-  height: 30px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .main-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .search-section {
-    margin-top: 10px;
-    width: 100%;
-  }
-
-  .nav-section {
-    margin-top: 10px;
-    width: 100%;
-    justify-content: space-around;
-  }
-
-  .logo-section {
-    margin-bottom: 10px;
-  }
 }
