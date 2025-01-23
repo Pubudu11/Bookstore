@@ -19,7 +19,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NewArrivals from "./components/NewArrivalsPage/NewArrivals";
 import Educational from "./components/Education/Education";
 import BookDetails from "./components/BookDetails/BookDetails"; // Import BookDetails component
-import Background from "./components/BackGround/background";
+
 import BackgroundImageComponent from "./components/BackGround/background";
 
 // Define the pages where the footer or navbar should not be displayed
