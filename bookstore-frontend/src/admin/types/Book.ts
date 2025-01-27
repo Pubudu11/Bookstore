@@ -8,7 +8,7 @@ export interface Book {
     publisher:string;
     quantity: string;
     price: string;
-    imgPath: string;
+    imgData?: string;
     description: string;
     action: boolean;
 }
