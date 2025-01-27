@@ -14,7 +14,7 @@ public class Book {
     private String author;
     private String Language;
     private String Publisher;
-    private String ImgPath;
+    private String ImgData;
     private List<String> category;
     private String description;
     private String quantity;
@@ -44,12 +44,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getImgPath() {
-        return ImgPath;
+    public String getImgData() {
+        return ImgData;
     }
 
-    public void setImgPath(String imgPath) {
-        this.ImgPath = imgPath;
+    public void setImgData(String imgData) {
+        this.ImgData = imgData;
     }
 
     public String getLanguage() {
