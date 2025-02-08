@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
     Box,
     Button,
     CardContent,
+    Dialog,
     DialogTitle,
+    DialogContent,
     Grid,
     IconButton,
     InputAdornment,
@@ -15,8 +17,10 @@ import {
     TableRow,
     TextField,
     Typography,
+    CircularProgress,
     useTheme,
-    styled
+    styled,
+    TableContainer
 } from '@mui/material';
 import {
     Add as AddIcon,
@@ -25,120 +29,179 @@ import {
     Search as SearchIcon
 } from '@mui/icons-material';
 import { toast } from 'react-toastify';
-import {addUsers, deleteUserById, getUsers, updateUser, users} from "../Api/baseApi.ts";
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { addUsers, deleteUserById, updateUser, getUsers, deleteAllUsers } from "../Api/baseApi.ts";
 import { User } from "../types/User";
-import { StyledCard, StyledTableContainer, StyledDialog, StyledDialogContent } from './style'; // Adjust the path as necessary
+import { StyledCard } from './style';
+import axios from "axios";
 
-const CategoryChip = styled('span')(({ theme }) => ({
-    display: 'inline-block',
-    padding: '4px 8px',
-    borderRadius: '16px',
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    fontSize: '0.75rem',
-    marginRight: '4px',
-    marginBottom: '4px',
+const StyledDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialog-paper': {
+        borderRadius: '12px',
+        padding: theme.spacing(2),
+        backgroundColor: theme.palette.background.default,
+        boxShadow: theme.shadows[5],
+    },
 }));
+
+const StyledDialogTitle = styled(DialogTitle)(({ theme }) => ({
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    marginBottom: theme.spacing(2),
+    paddingBottom: theme.spacing(1),
+    fontWeight: 'bold',
+}));
+// Define a styled component for the table header cells
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.black, // Set text color to black
+    fontWeight: 'bold',
+    fontSize: '1rem',
+    textAlign: 'center',
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+    },
+}));
+
+const StyledDialogContent = styled(DialogContent)(({ theme }) => ({
+    padding: theme.spacing(2),
+}));
+
+const validationSchema = yup.object({
+    username: yup.string().required('Username is required'),
+    password: yup.string().required('Password is required'),
+    email: yup.string().required('Email is required'),
+});
 
 function Users() {
     const theme = useTheme();
-    const [users, setUsers] = useState<users[]>([]);
+    const [Users, setUsers] = useState<User[]>([]);
     const [open, setOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
+    const [uploading, setUploading] = useState(false);
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
-    const [formData, setFormData] = useState({
-        id: '',
-        firstName: '',
-        lastName: '',
-        username: '',
-        password:'',
-        email: ''
-    });
 
     useEffect(() => {
-        fetchBooks();
+        fetchUsers();
     }, []);
 
-    const fetchBooks = async () => {
+    const fetchUsers = async () => {
         try {
             const response = await getUsers();
-            setUsers(response.data);
+            setUsers(response);
         } catch (error) {
-            toast.error("Error fetching books");
+            if (axios.isAxiosError(error) && error.response) {
+                toast.error(`${error.response.status} ${error.response.data.message}`);
+            } else {
+                toast.error("Network error. Please check your connection.");
+            }
         } finally {
             setLoading(false);
         }
     };
 
-    const handleAddBook = () => {
+    const handleAddUser = () => {
         setSelectedUser(null);
-        setFormData({
-            id: "",
-            email: "",
-            firstName: "",
-            lastName: "",
-            username: "",
-            password: ""
-
-        });
+        formik.resetForm();
         setOpen(true);
     };
 
-    const handleEditBook = (user: User) => {
+    const handleEditUser = (user: User) => {
         setSelectedUser(user);
-        setFormData({
+        formik.setValues({
             id: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
+            firstName: user.firstName || "",
+            lastName: user.lastName || "",
             username: user.username,
             password: user.password,
-            email: user.email
+            email: user.email,
         });
         setOpen(true);
     };
 
-    const handleDeleteBook = async (id: string) => {
-        if (window.confirm("Are you sure you want to delete this book?")) {
+    const handleDeleteUser = async (id: string) => {
+        if (window.confirm("Are you sure you want to delete this user?")) {
             try {
                 await deleteUserById(id);
-                toast.success("Book deleted successfully");
-                fetchBooks();
+                toast.success("User deleted successfully");
+                fetchUsers();
             } catch (error) {
-                toast.error("Error deleting book");
+                if (axios.isAxiosError(error) && error.response) {
+                    toast.error(`${error.response.status} ${error.response.data.message}`);
+                } else {
+                    toast.error("Network error. Please check your connection.");
+                }
             }
         }
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-            const userData: User = {
-                id: formData.id,
-                firstName: formData.firstName,
-                lastName: formData.lastName,
-                username: formData.username,
-                password: formData.password,
-                email: formData.email
-            };
-
-            if (selectedUser) {
-                await updateUser(selectedUser.id, userData);
-                toast.success("User updated successfully");
-            } else {
-                await addUsers(userData);
-                toast.success("User added successfully");
+    const handleDeleteAllUsers = async () => {
+        if (window.confirm("Are you sure you want to delete all users?")) {
+            try {
+                await deleteAllUsers();
+                toast.success("All users deleted successfully");
+                fetchUsers();
+            } catch (error) {
+                if (axios.isAxiosError(error) && error.response) {
+                    toast.error(`${error.response.status} ${error.response.data.message}`);
+                } else {
+                    toast.error("Network error. Please check your connection.");
+                }
             }
-
-            setOpen(false);
-            fetchBooks();
-        } catch (error) {
-            toast.error("Error saving User");
         }
     };
 
-    const filteredUsers = users.filter(
-        (user) =>
+    const formik = useFormik({
+        initialValues: {
+            id: "", // Initialize as an empty string
+            firstName: "", // Initialize as an empty string
+            lastName: "", // Initialize as an empty string
+            username: "", // Initialize as an empty string
+            password: "", // Initialize as an empty string
+            email: "", // Initialize as an empty string
+        },
+        validationSchema: validationSchema,
+        onSubmit: async (values) => {
+            setUploading(true);
+            try {
+                const userData: User = {
+                    id: values.id,
+                    firstName: values.firstName,
+                    lastName: values.lastName,
+                    username: values.username,
+                    password: values.password,
+                    email: values.email,
+                };
+
+                if (selectedUser) {
+                    await updateUser(selectedUser.id, userData);
+                    toast.success("User updated successfully");
+                } else {
+                    await addUsers(userData);
+                    toast.success("User added successfully");
+                }
+
+                setOpen(false);
+                fetchUsers();
+            } catch (error) {
+                if (axios.isAxiosError(error) && error.response) {
+                    error.response.data[1] ? console.log(`${error.response.data[1].field}'s ${error.response.data[1].defaultMessage}\n${error.response.data[0].field}'s ${error.response.data[0].defaultMessage}`) :console.log(`${error.response.data[0].field}'s ${error.response.data[0].defaultMessage}`);
+                    error.response.data[1] ? toast.error(`${error.response.data[1].field}'s ${error.response.data[1].defaultMessage}\n${error.response.data[0].field}'s ${error.response.data[0].defaultMessage}`) :toast.error(`${error.response.data[0].field}'s ${error.response.data[0].defaultMessage}`);
+                } else {
+                    toast.error("Network error. Please check your connection.");
+                }
+            } finally {
+                setUploading(false);
+            }
+        },
+    });
+
+    const filteredUsers = Users.filter(
+        (user: User) =>
             (user.firstName && user.firstName.toLowerCase().includes(searchTerm.toLowerCase())) ||
             (user.lastName && user.lastName.toLowerCase().includes(searchTerm.toLowerCase())) ||
             (user.username && user.username.toLowerCase().includes(searchTerm.toLowerCase())) ||
@@ -155,12 +218,12 @@ function Users() {
                 <CardContent>
                     <Box sx={{ mb: 4, mt: 5, display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'center' }, gap: 2 }}>
                         <Typography variant="h5" component="h2" sx={{ fontWeight: 'bold' }}>
-                            User Management
+                            Users Management
                         </Typography>
                         <Button
                             variant="contained"
                             startIcon={<AddIcon />}
-                            onClick={handleAddBook}
+                            onClick={handleAddUser}
                             sx={{
                                 backgroundColor: theme.palette.primary.main,
                                 '&:hover': {
@@ -175,7 +238,7 @@ function Users() {
                     <TextField
                         fullWidth
                         variant="outlined"
-                        placeholder="Search books..."
+                        placeholder="Search users..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         sx={{ mb: 4 }}
@@ -188,17 +251,17 @@ function Users() {
                         }}
                     />
 
-                    <StyledTableContainer component={Paper}>
+                    <TableContainer component={Paper}>
                         <Table stickyHeader>
                             <TableHead>
-                                <TableRow>
-                                    <TableCell>User ID</TableCell>
-                                    <TableCell>Full Name</TableCell>
-                                    <TableCell>UserName</TableCell>
-                                    <TableCell>Password</TableCell>
-                                    <TableCell>Email</TableCell>
-                                    <TableCell align="right">Actions</TableCell>
-                                </TableRow>
+                                <StyledTableRow>
+                                    <StyledTableCell>User ID</StyledTableCell>
+                                    <StyledTableCell>Full Name</StyledTableCell>
+                                    <StyledTableCell>Username</StyledTableCell>
+                                    <StyledTableCell>Password</StyledTableCell>
+                                    <StyledTableCell>Email</StyledTableCell>
+                                    <StyledTableCell align="right">Actions</StyledTableCell>
+                                </StyledTableRow>
                             </TableHead>
                             <TableBody>
                                 {loading ? (
@@ -206,25 +269,18 @@ function Users() {
                                         <TableCell colSpan={6} align="center">Loading...</TableCell>
                                     </TableRow>
                                 ) : (
-                                    filteredUsers.map((user) => (
+                                    filteredUsers.map((user: User) => (
                                         <TableRow key={user.id}>
                                             <TableCell>{user.id}</TableCell>
-                                            <TableCell>
-                                                <Typography component="span" display="inline">
-                                                    {user.firstName}
-                                                </Typography>
-                                                <Typography component="span" display="inline" sx={{ marginLeft: 1 }}>
-                                                    {user.lastName}
-                                                </Typography>
-                                            </TableCell>
+                                            <TableCell>{user.firstName} {user.lastName}</TableCell>
                                             <TableCell>{user.username}</TableCell>
                                             <TableCell>{user.password}</TableCell>
                                             <TableCell>{user.email}</TableCell>
                                             <TableCell align="right">
-                                                <IconButton onClick={() => handleEditBook(user)} color="primary">
+                                                <IconButton onClick={() => handleEditUser(user)} color="primary">
                                                     <EditIcon />
                                                 </IconButton>
-                                                <IconButton onClick={() => handleDeleteBook(user.id)} color="error">
+                                                <IconButton onClick={() => handleDeleteUser(user.id)} color="error">
                                                     <DeleteIcon />
                                                 </IconButton>
                                             </TableCell>
@@ -233,21 +289,25 @@ function Users() {
                                 )}
                             </TableBody>
                         </Table>
-                    </StyledTableContainer>
+                    </TableContainer>
                 </CardContent>
             </StyledCard>
 
             <StyledDialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
-                <DialogTitle>{selectedUser ? 'Edit User' : 'Add New User'}</DialogTitle>
+                <StyledDialogTitle>{selectedUser ? 'Edit User' : 'Add New User'}</StyledDialogTitle>
                 <StyledDialogContent>
-                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
+                    <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 2 }}>
                         <Grid container spacing={3}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     fullWidth
                                     label="User ID"
-                                    value={formData.id}
-                                    onChange={(e) => setFormData({ ...formData, id: e.target.value })}
+                                    name="id"
+                                    value={formik.values.id}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    error={formik.touched.id && Boolean(formik.errors.id)}
+                                    helperText={formik.touched.id && formik.errors.id}
                                     required
                                 />
                             </Grid>
@@ -255,26 +315,32 @@ function Users() {
                                 <TextField
                                     fullWidth
                                     label="First Name"
-                                    value={formData.firstName}
-                                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                                    required
+                                    name="firstName"
+                                    value={formik.values.firstName}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     fullWidth
                                     label="Last Name"
-                                    value={formData.lastName}
-                                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                                    required
+                                    name="lastName"
+                                    value={formik.values.lastName}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     fullWidth
                                     label="Username"
-                                    value={formData.username}
-                                    onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                                    name="username"
+                                    value={formik.values.username}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    error={formik.touched.username && Boolean(formik.errors.username)}
+                                    helperText={formik.touched.username && formik.errors.username}
                                     required
                                 />
                             </Grid>
@@ -282,21 +348,56 @@ function Users() {
                                 <TextField
                                     fullWidth
                                     label="Password"
-                                    value={formData.password}
-                                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                                    type="password"
+                                    name="password"
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    error={formik.touched.password && Boolean(formik.errors.password)}
+                                    helperText={formik.touched.password && formik.errors.password}
+                                    required
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    fullWidth
+                                    label="Email"
+                                    name="email"
+                                    type="email"
+                                    value={formik.values.email}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    error={formik.touched.email && Boolean(formik.errors.email)}
+                                    helperText={formik.touched.email && formik.errors.email}
                                     required
                                 />
                             </Grid>
                         </Grid>
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 3 }}>
                             <Button onClick={handleClose}>Cancel</Button>
-                            <Button type="submit" variant="contained">
-                                {selectedUser ? 'Update User' : 'Save User'}
+                            <Button type="submit" variant="contained" disabled={uploading}>
+                                {uploading ? <CircularProgress size={24} /> : (selectedUser ? 'Update User' : 'Save User')}
                             </Button>
                         </Box>
                     </Box>
                 </StyledDialogContent>
             </StyledDialog>
+
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 3 }}>
+                <Button
+                    variant="contained"
+                    color="error"
+                    onClick={handleDeleteAllUsers}
+                    sx={{
+                        backgroundColor: theme.palette.error.main,
+                        '&:hover': {
+                            backgroundColor: theme.palette.error.dark,
+                        },
+                    }}
+                >
+                    Delete All Users
+                </Button>
+            </Box>
         </Box>
     );
 }

@@ -3,7 +3,7 @@ import { LoginCredentials, AuthResponse , RegisterRequest} from '../types';
 export const authAPI = {
     login: async (credentials: LoginCredentials) => {
         const { data } = await api.post<AuthResponse>('/api/auth/user/signin', credentials);
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('userToken', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
         return data;
     },
@@ -16,12 +16,13 @@ export const authAPI = {
     register: async (userData: RegisterRequest): Promise<AuthResponse> => {
         const { data } = await api.post<AuthResponse>('/api/auth/user/signup', userData);
         if (data.token) {
-            localStorage.setItem('token', data.token);
+            localStorage.setItem('userToken', data.token);
             localStorage.setItem('user', JSON.stringify(data.user));
         }
         return data;
     },
     logout: () => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('userToken')
+        localStorage.removeItem('user');
     }
 };

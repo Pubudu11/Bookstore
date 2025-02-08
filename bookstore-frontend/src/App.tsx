@@ -21,8 +21,7 @@ import BookDetails from "./components/BookDetails/BookDetails"; // Import BookDe
 
 import BackgroundImageComponent from "./components/BackGround/background";
 import AdminLayout from "./admin/Layouts/admin_layout";
-import Books from "./admin/Components/bookDetails.tsx";
-import Sidebar from "./admin/Components/Sidebar.tsx";
+
 
 // Define the pages where the footer or navbar should not be displayed
 const noFooterPages = ["/login", "/register", "/admin"];
