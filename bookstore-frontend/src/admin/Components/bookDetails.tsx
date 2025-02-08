@@ -380,6 +380,17 @@ function Books() {
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     fullWidth
+                                    label="Language"
+                                    name="language"
+                                    value={formik.values.language}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    required
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    fullWidth
                                     label="Price"
                                     type="number"
                                     name="price"
