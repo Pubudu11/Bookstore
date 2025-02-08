@@ -17,8 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping({"/api/books/"})
 public class BookController {
-    @Value("${upload.path}")
-    private String uploadPath;
 
     @Autowired
     private BookService bookService;

@@ -2,13 +2,17 @@ package com.example.bookstore.Controller;
 
 
 import com.example.bookstore.Model.User;
+import com.example.bookstore.Payload.Response.MessageResponse;
+import com.example.bookstore.Repository.UserRepository;
 import com.example.bookstore.Service.UserService;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,15 +23,26 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserRepository userRepository;
     public UserController() {
 
     }
 
     @PostMapping
-    public ResponseEntity<User> addUser(@RequestBody User user) {
-        User newUser = this.userService.createUser(user);
-        return ResponseEntity.ok(newUser);
+    public ResponseEntity<?> addUser(@RequestBody @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return ResponseEntity.badRequest().body(result.getAllErrors());
+        }
+        if (userRepository.existsByEmail(user.getEmail())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: Email is already in use!"));
+        }
+        User newUser = userService.createUser(user);
+        return ResponseEntity.ok("MSG : User created successfully" + newUser.getEmail());
     }
+
     @GetMapping
 //    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<User>> getUsers() {
@@ -54,17 +69,12 @@ public class UserController {
         this.userService.deleteUserById(id);
         return ResponseEntity.noContent().build();
     }
-    @GetMapping("auth")
-    public ResponseEntity auth(String username, String password){
-        try {
-            return new ResponseEntity<User>(userService.check_credentials(username, password), HttpStatus.OK);
-        }
-        catch (Exception e){
-            return new ResponseEntity<String>("Invalid Credentials", HttpStatus.UNAUTHORIZED);}
+@PutMapping("/{id}")
+public ResponseEntity<?> updateUser(@PathVariable("id") String id, @RequestBody @Valid User user, BindingResult result) {
+    if (result.hasErrors()) {
+        return ResponseEntity.badRequest().body(result.getAllErrors());
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<User> updateBook(@PathVariable("id") String id, @RequestBody User user) {
-        User updatedUser = userService.updateUser(user, id);
-        return updatedUser != null ? ResponseEntity.ok(updatedUser) : ResponseEntity.notFound().build();
+    User updatedUser = userService.updateUser(user, id);
+    return updatedUser != null ? ResponseEntity.ok("MSG : User updated successfully" + updatedUser.getEmail()) : ResponseEntity.notFound().build();
 }
 }
