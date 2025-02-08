@@ -7,13 +7,11 @@ function BookDetails() {
   const { book } = location.state;
 
   const [quantity, setQuantity] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(book.price);
 
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newQuantity = parseInt(e.target.value, 10);
     if (newQuantity >= 1) {
       setQuantity(newQuantity);
-      setTotalPrice(newQuantity * book.price);
     }
   };
 
@@ -99,7 +97,6 @@ function BookDetails() {
               onChange={handleQuantityChange}
               className="form-control w-25 me-3"
             />
-            <h5>Total:{totalPrice}</h5>
           </div>
 
           <div className="d-flex mt-4">
