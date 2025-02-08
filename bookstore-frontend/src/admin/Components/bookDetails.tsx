@@ -63,6 +63,20 @@ const StyledDialogTitle = styled(DialogTitle)(({ theme }) => ({
     paddingBottom: theme.spacing(1),
     fontWeight: 'bold',
 }));
+// Define a styled component for the table header cells
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.black, // Set text color to black
+    fontWeight: 'bold',
+    fontSize: '1rem',
+    textAlign: 'center',
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+    },
+}));
 
 const StyledDialogContent = styled(DialogContent)(({ theme }) => ({
     padding: theme.spacing(2),
@@ -95,7 +109,7 @@ function Books() {
     const fetchBooks = async () => {
         try {
             const response = await getBooks();
-            setBooks(response.data);
+            setBooks(response);
         } catch {
             toast.error("Error fetching books");
         } finally {
@@ -180,7 +194,7 @@ function Books() {
             try {
                 const formData = new FormData();
                 formData.append("book", new Blob([JSON.stringify({
-                    id: values.id || Math.random().toString(36).substr(2, 9),
+                    id: values.id,
                     title: values.title,
                     author: values.author,
                     category: values.category.split(",").map((c) => c.trim()),
@@ -270,17 +284,17 @@ function Books() {
                     <TableContainer component={Paper}>
                         <Table stickyHeader>
                             <TableHead>
-                                <TableRow>
-                                    <TableCell>Title</TableCell>
-                                    <TableCell>Author</TableCell>
-                                    <TableCell>Categories</TableCell>
-                                    <TableCell>Language</TableCell>
-                                    <TableCell>Publisher</TableCell>
-                                    <TableCell>Description</TableCell>
-                                    <TableCell>Price</TableCell>
-                                    <TableCell>Quantity</TableCell>
-                                    <TableCell align="right">Actions</TableCell>
-                                </TableRow>
+                                <StyledTableRow>
+                                    <StyledTableCell>Title</StyledTableCell>
+                                    <StyledTableCell>Author</StyledTableCell>
+                                    <StyledTableCell>Categories</StyledTableCell>
+                                    <StyledTableCell>Language</StyledTableCell>
+                                    <StyledTableCell>Publisher</StyledTableCell>
+                                    <StyledTableCell>Description</StyledTableCell>
+                                    <StyledTableCell>Price</StyledTableCell>
+                                    <StyledTableCell>Quantity</StyledTableCell>
+                                    <StyledTableCell align="right">Actions</StyledTableCell>
+                                </StyledTableRow>
                             </TableHead>
                             <TableBody>
                                 {loading ? (
@@ -360,6 +374,17 @@ function Books() {
                                     onBlur={formik.handleBlur}
                                     error={formik.touched.category && Boolean(formik.errors.category)}
                                     helperText={formik.touched.category && formik.errors.category}
+                                    required
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    fullWidth
+                                    label="Language"
+                                    name="language"
+                                    value={formik.values.language}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
                                     required
                                 />
                             </Grid>
@@ -446,5 +471,6 @@ function Books() {
         </Box>
     );
 }
+// fsdda
 
 export default Books;

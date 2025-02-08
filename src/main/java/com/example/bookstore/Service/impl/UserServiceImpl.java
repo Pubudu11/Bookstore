@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public User updateUser(User user, String id) {
-        User existingUser = userRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found"));
+        User existingUser = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
         existingUser.setFirstName(user.getFirstName());
         existingUser.setLastName(user.getLastName());
         existingUser.setUsername(user.getUsername());
