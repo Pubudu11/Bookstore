@@ -136,7 +136,8 @@ const ShippingDetails: React.FC = () => {
                     </div>
                         
                     
-                <Link to="/"
+                <Link to="/card-details"
+                
                  state={{ total, subtotal, shippingCost }}
                 >
                     <button type="submit" className="btn-primary">

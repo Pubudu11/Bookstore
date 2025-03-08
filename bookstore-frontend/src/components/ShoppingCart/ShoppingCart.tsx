@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import Header from "./Header"; 
-import { useNavigate } from "react-router-dom";
-// import OrderSummary from "../components/OrderSummary";
+import Header from "../Navbar/Navbar"; 
+import {useNavigate}  from "react-router-dom";
+import OrderSummary from "../OrderSummary/OrderSummary";
 import "./ShoppingCart.css";
 
 interface CartItem {

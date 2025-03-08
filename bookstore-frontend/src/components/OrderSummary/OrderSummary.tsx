@@ -10,7 +10,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ subtotal }) => {
     const navigate = useNavigate();
 
     const handleProceedToCheckout = () => {
-        navigate("/shipping", { state: { subtotal } });
+        navigate("/shipping-details", { state: { subtotal } });
     };
 
     return (
