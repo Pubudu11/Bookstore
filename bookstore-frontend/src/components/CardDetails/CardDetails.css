@@ -1,0 +1,110 @@
+.card-details-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-details-container h5 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-control {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-item input[type="radio"] {
+    margin-right: 10px;
+}
+
+.radio-item label {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.card-img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.mt-3 {
+    margin-top: 20px;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.text-end p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.text-end button {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .card-details-container {
+        padding: 15px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+    }
+
+    .radio-item {
+        margin-bottom: 10px;
+    }
+}
+.error-text {
+    color: red;
+    font-size: 0.85em;
+}
+
+.is-invalid {
+    border-color: red;
+}
