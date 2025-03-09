@@ -28,6 +28,8 @@ import {
     People as PeopleIcon,
     Settings as SettingsIcon,
     ShoppingCart as ShoppingCartIcon,
+    AdminPanelSettings as AdminPanelSettingsIcon,
+    LocalShipping as LocalShippingIcon
 } from '@mui/icons-material';
 
 function Sidebar() {
@@ -155,7 +157,9 @@ function Sidebar() {
                                 { text: 'Dashboard', icon: <DashboardIcon />, route: 'admin/dashboard' },
                                 { text: 'Books', icon: <BookIcon />, route: 'books' },
                                 { text: 'Users', icon: <PeopleIcon />, route: 'users' },
+                                { text: 'Admins', icon: <AdminPanelSettingsIcon />, route: 'admins' },
                                 { text: 'Orders', icon: <ShoppingCartIcon />, route: 'orders' },
+                                { text: 'Shpping Details', icon: <LocalShippingIcon />, route: 'shipping' },
                                 { text: 'Settings', icon: <SettingsIcon />, route: 'settings' },
                             ].map(({ text, icon, route }) => (
                                 <ListItem key={text} disablePadding>

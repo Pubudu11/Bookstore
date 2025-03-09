@@ -22,11 +22,14 @@ import BookDetails from "./components/BookDetails/BookDetails"; // Import BookDe
 
 import BackgroundImageComponent from "./components/BackGround/background";
 import AdminLayout from "./admin/Layouts/admin_layout";
+
 import ShippingDetails from "./components/ShippingDetails/ShippingDetails.tsx";
 import CardDetails from "./components/CardDetails/CardDetails.tsx";
 import OrderSummary from "./components/OrderSummary/OrderSummary.tsx";
 //import Books from "./admin/components/bookDetails.tsx";
 //import Sidebar from "./admin/components/Sidebar.tsx";
+
+
 
 // Define the pages where the footer or navbar should not be displayed
 const noFooterPages = ["/login", "/register", "/admin"];

@@ -49,12 +49,13 @@ public class BookServiceImpl implements BookService {
     public List<Book> getBooksByCategory(String category) {
         return bookRepository.findByCategory(category);
     }
+    @Override
     public Book updateBook(Book book, String id) {
         Book existingBook = bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found"));
         existingBook.setId(book.getId());
         existingBook.setTitle(book.getTitle());
         existingBook.setAuthor(book.getAuthor());
-        existingBook.setImgPath(book.getImgPath());
+        existingBook.setImgData(book.getImgData());
         existingBook.setLanguage(book.getLanguage());
         existingBook.setPublisher(book.getPublisher());
         existingBook.setCategory(book.getCategory());

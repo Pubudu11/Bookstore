@@ -1,6 +1,6 @@
 // src/types/Book.ts
 export interface Book {
-    id: string;
+    id?: string;
     title: string;
     author: string;
     category: [string];
@@ -8,7 +8,7 @@ export interface Book {
     publisher:string;
     quantity: string;
     price: string;
-    imgPath: string;
+    imgData?: string;
     description: string;
     action: boolean;
 }
