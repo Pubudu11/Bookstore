@@ -126,6 +126,35 @@ export const deleteAllOrders = async () => {
     const response = await api.delete<void>("/orders");
     return response.data;
 };
+export const getShippingDetails = async () => {
+    const response = await api.get<ShippingDetails[]>("/shipping-details");
+    return response.data;
+};
+
+export const getShippingDetailsById = async (id: string) => {
+    const response = await api.get<ShippingDetails>(`/shipping-details/${id}`);
+    return response.data;
+};
+
+export const addShippingDetails = async (data: ShippingDetails) => {
+    const response = await api.post<ShippingDetails>("/shipping-details", data);
+    return response.data;
+};
+
+export const updateShippingDetails = async (id: string, data: ShippingDetails) => {
+    const response = await api.put<ShippingDetails>(`/shipping-details/${id}`, data);
+    return response.data;
+};
+
+export const deleteShippingDetailsById = async (id: string) => {
+    const response = await api.delete<void>(`/shipping-details/${id}`);
+    return response.data;
+};
+
+export const deleteAllShippingDetails = async () => {
+    const response = await api.delete<void>("/shipping-details");
+    return response.data;
+};
 export default api;
 
 
