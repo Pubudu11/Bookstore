@@ -12,7 +12,6 @@ import BookList from "./components/BookList/BookList"; // Ensure this path is co
 import NovelsPage from "./components/NovelsPage/Novels"; // Import NovelsPage
 import CombinedAuth from "./components/CombinedAuth/CombinedAuth";
 import BookCategories from "./components/BookCategories/BookCategories";
-import ShoppingCart from "./components/ShoppingCart/ShoppingCart.tsx";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,13 +21,6 @@ import BookDetails from "./components/BookDetails/BookDetails"; // Import BookDe
 
 import BackgroundImageComponent from "./components/BackGround/background";
 import AdminLayout from "./admin/Layouts/admin_layout";
-
-import ShippingDetails from "./components/ShippingDetails/ShippingDetails.tsx";
-import CardDetails from "./components/CardDetails/CardDetails.tsx";
-import OrderSummary from "./components/OrderSummary/OrderSummary.tsx";
-//import Books from "./admin/components/bookDetails.tsx";
-//import Sidebar from "./admin/components/Sidebar.tsx";
-
 
 
 // Define the pages where the footer or navbar should not be displayed
@@ -74,14 +66,6 @@ const App: React.FC = () => {
           <Route path="/login" element={<CombinedAuth />} />
           {/* Register Page */}
           <Route path="/register" element={<CombinedAuth />} />
-          <Route path="/shopping-cart" element={<ShoppingCart />} />
-          <Route path="/shipping-details" element={<ShippingDetails />} />
-          <Route path="/card-details" element={<CardDetails />} />
-          <Route path="/order-summary" element={<OrderSummary subtotal={0} />} />
-
-
-
-
 
         </Routes>
       </div>

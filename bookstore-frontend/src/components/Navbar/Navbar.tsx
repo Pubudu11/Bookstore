@@ -93,13 +93,10 @@ const Header = () => {
           )}
 
           {/* Cart Section */}
-          
-         <a href="/shopping-cart">
           <div className="cart">
             <img src="cart-icon.png" alt="Cart" />
             <span className="cart-count">0</span>
           </div>
-          </a>
 
           {/* Wishlist Section */}
           <div className="wishlist">
