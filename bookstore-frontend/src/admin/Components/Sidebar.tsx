@@ -154,7 +154,7 @@ function Sidebar() {
                     <Box sx={{ overflow: 'hidden' }}>
                         <List>
                             {[
-                                { text: 'Dashboard', icon: <DashboardIcon />, route: 'admin/dashboard' },
+                                // { text: 'Dashboard', icon: <DashboardIcon />, route: 'admin/dashboard' },
                                 { text: 'Books', icon: <BookIcon />, route: 'books' },
                                 { text: 'Users', icon: <PeopleIcon />, route: 'users' },
                                 { text: 'Admins', icon: <AdminPanelSettingsIcon />, route: 'admins' },

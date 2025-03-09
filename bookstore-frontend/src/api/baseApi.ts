@@ -1,8 +1,6 @@
 import axios from "axios";
 import { Book } from "../types/Book";
 import { User } from "../types/User";
-import { Admin } from "../types/Admin.ts";
-import { Order } from "../types/Order.ts";
 
 const api = axios.create({
     baseURL: "http://localhost:8080/api", // Replace with your backend URL
@@ -68,64 +66,6 @@ export const deleteAllUsers = async () => {
     return response.data;
 };
 
-export const getAdmins = async () => {
-    const response = await api.get<Admin[]>("/admin");
-    return response.data;
-};
-
-export const getAdminById = async (id: string) => {
-    const response = await api.get<Admin>(`/admin/${id}`);
-    return response.data;
-};
-
-export const addAdmins = async (data: User) => {
-    const response = await api.post<Admin>("/admin", data);
-    return response.data;
-};
-
-export const updateAdmin = async (id: string, data: User) => {
-    const response = await api.put<Admin>(`/admin/${id}`, data);
-    return response.data;
-};
-
-export const deleteAdminById = async (id: string) => {
-    const response = await api.delete<void>(`/admin/${id}`);
-    return response.data;
-};
-
-export const deleteAllAdmins = async () => {
-    const response = await api.delete<void>("/admin/");
-    return response.data;
-};
-export const getOrders = async () => {
-    const response = await api.get<Order[]>("/orders");
-    return response.data;
-};
-
-export const getOrderById = async (id: string) => {
-    const response = await api.get<Order>(`/orders/${id}`);
-    return response.data;
-};
-
-export const addOrder = async (data: Order) => {
-    const response = await api.post<Order>("/orders", data);
-    return response.data;
-};
-
-export const updateOrder = async (id: string, data: Order) => {
-    const response = await api.put<Order>(`/orders/${id}`, data);
-    return response.data;
-};
-
-export const deleteOrderById = async (id: string) => {
-    const response = await api.delete<void>(`/orders/${id}`);
-    return response.data;
-};
-
-export const deleteAllOrders = async () => {
-    const response = await api.delete<void>("/orders");
-    return response.data;
-};
 export default api;
 
 
