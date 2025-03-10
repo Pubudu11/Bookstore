@@ -142,7 +142,8 @@ public CorsConfigurationSource corsConfigurationSource() {
                             "/swagger-resources/**", // Swagger resources
                             "/webjars/**"   ,      // Swagger webjars
                             "/api/books/**"  ,   // Book API endpoints
-                            "/api/users/**"   // User API endpoints
+                            "/api/users/**",   // User API endpoints
+                            "/api/admin/**"  // Admin API endpoints
 
                     ).permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/orders/").permitAll() // Allow GET requests to /api/orders/

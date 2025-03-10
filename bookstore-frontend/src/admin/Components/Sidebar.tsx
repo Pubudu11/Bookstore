@@ -159,8 +159,6 @@ function Sidebar() {
                                 { text: 'Users', icon: <PeopleIcon />, route: 'users' },
                                 { text: 'Admins', icon: <AdminPanelSettingsIcon />, route: 'admins' },
                                 { text: 'Orders', icon: <ShoppingCartIcon />, route: 'orders' },
-                                { text: 'Shpping Details', icon: <LocalShippingIcon />, route: 'shipping' },
-                                { text: 'Settings', icon: <SettingsIcon />, route: 'settings' },
                             ].map(({ text, icon, route }) => (
                                 <ListItem key={text} disablePadding>
                                     <ListItemButton

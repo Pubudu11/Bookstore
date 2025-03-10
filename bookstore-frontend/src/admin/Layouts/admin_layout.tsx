@@ -3,6 +3,7 @@ import Sidebar from '../Components/Sidebar';
 import Books from '../Components/bookDetails';
 import Users from '../Components/userDetails.tsx';
 import Admins from "../Components/adminDetails.tsx";
+import Orders from "../Components/oderDetails.tsx";
 
 function AdminLayout() {
     return (
@@ -13,9 +14,8 @@ function AdminLayout() {
                         <Route index element={<Books/>} />
                         <Route path="books" element={<Books />} />
                         <Route path="users" element={<Users />} />
-                        <Route path="orders" element={<h1>orders</h1>} />
+                        <Route path="orders" element={<Orders />} />
                         <Route path="admins" element={<Admins />} />
-                        <Route path="shipping" element={<h1>ship</h1>} />
                 </Routes>
             </div>
         </div>
