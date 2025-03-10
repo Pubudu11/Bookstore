@@ -99,7 +99,6 @@ import bookImage84 from "./../../images/84.jpeg";
 import bookImage85 from "./../../images/85.jpeg";
 import bookImage86 from "./../../images/86.jpeg";
 
-// Define books and moreBooks data
 const books = [
   {
     title: "THIRST",
@@ -639,26 +638,25 @@ const BookList = () => {
         </div>
       </header>
 
-      {/* Swiper Slider Section */}
       <div className="vertical-slideshow mb-5 swiper-slide-books">
         <Swiper
           navigation={true}
           modules={[Navigation]}
           className="mySwiper"
-          slidesPerView={6} // Display 6 books per slide
-          spaceBetween={10} // Reduced spacing between slides
+          slidesPerView={6}
+          spaceBetween={10}
           breakpoints={{
             1200: {
-              slidesPerView: 6, // Large desktops
+              slidesPerView: 6,
             },
             992: {
-              slidesPerView: 4, // Tablets
+              slidesPerView: 4,
             },
             768: {
-              slidesPerView: 3, // Small tablets
+              slidesPerView: 3,
             },
             576: {
-              slidesPerView: 2, // Mobile phones
+              slidesPerView: 2,
             },
           }}
         >
@@ -675,7 +673,7 @@ const BookList = () => {
                       alt={book.title}
                       className="card-img-top"
                       style={{
-                        height: "200px", // Reduced height for book images
+                        height: "200px",
                         objectFit: "cover",
                         borderTopLeftRadius: "10px",
                         borderTopRightRadius: "10px",
@@ -693,7 +691,7 @@ const BookList = () => {
                   <h6
                     className="card-title"
                     style={{
-                      fontSize: "0.85rem", // Reduced title font size
+                      fontSize: "0.85rem",
                       lineHeight: "1.2",
                     }}
                   >
@@ -701,13 +699,13 @@ const BookList = () => {
                   </h6>
                   <p
                     className="text-muted text-decoration-line-through small"
-                    style={{ fontSize: "0.75rem" }} // Reduced price font size
+                    style={{ fontSize: "0.75rem" }}
                   >
                     {book.price}
                   </p>
                   <p
                     className="text-primary fw-bold"
-                    style={{ fontSize: "0.85rem" }} // Reduced discount price font size
+                    style={{ fontSize: "0.85rem" }}
                   >
                     {book.discountPrice}
                   </p>
@@ -736,7 +734,7 @@ const BookList = () => {
           ))}
         </Swiper>
       </div>
-      {/* Second Swiper Slider Section */}
+
       <header
         className="d-flex justify-content-between align-items-center mb-4 py-3 px-4"
         style={{
@@ -784,12 +782,10 @@ const BookList = () => {
         >
           {moreBooks.map((book, index) => (
             <SwiperSlide key={index}>
-              {/* Card Content */}
               <div
                 className="card"
                 style={{ width: "150px", borderRadius: "10px" }}
               >
-                {/* Book Image and Discount */}
                 <div className="position-relative">
                   <img
                     src={book.image}
@@ -809,7 +805,7 @@ const BookList = () => {
                     {book.discount}
                   </span>
                 </div>
-                {/* Book Details */}
+
                 <div className="card-body text-center">
                   <h6
                     className="card-title"
@@ -832,7 +828,7 @@ const BookList = () => {
                   >
                     {book.discountPrice}
                   </p>
-                  {/* Buttons */}
+
                   <div className="d-flex justify-content-around mt-2">
                     <OverlayTrigger
                       placement="top"
@@ -910,7 +906,6 @@ const BookList = () => {
                 className="card"
                 style={{ width: "150px", borderRadius: "10px" }}
               >
-                {/* Book Image and Discount */}
                 <div className="position-relative">
                   <img
                     src={book.image}
@@ -928,7 +923,7 @@ const BookList = () => {
                     style={{ borderBottomLeftRadius: "8px" }}
                   ></span>
                 </div>
-                {/* Book Details */}
+
                 <div className="card-body text-center">
                   <h6
                     className="card-title"
@@ -1021,7 +1016,6 @@ const BookList = () => {
         >
           {childernBooks.map((book, index) => (
             <SwiperSlide key={index}>
-              {/* Card Content */}
               <div
                 className="card"
                 style={{ width: "150px", borderRadius: "10px" }}

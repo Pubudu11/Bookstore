@@ -1,15 +1,11 @@
 import React from "react";
-import ChildrenPage from "./components/Children/Children"; // Import the correct component
-import {
-  Routes,
-  Route,
-  useLocation, BrowserRouter,
-} from "react-router-dom";
+import ChildrenPage from "./components/Children/Children";
+import { Routes, Route, useLocation, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Slideshow from "./components/SlideShow/SlideShow";
-import BookList from "./components/BookList/BookList"; // Ensure this path is correct
-import NovelsPage from "./components/NovelsPage/Novels"; // Import NovelsPage
+import BookList from "./components/BookList/BookList";
+import NovelsPage from "./components/NovelsPage/Novels";
 import CombinedAuth from "./components/CombinedAuth/CombinedAuth";
 import BookCategories from "./components/BookCategories/BookCategories";
 
@@ -17,30 +13,25 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NewArrivals from "./components/NewArrivalsPage/NewArrivals";
 import Educational from "./components/Education/Education";
-import BookDetails from "./components/BookDetails/BookDetails"; // Import BookDetails component
+import BookDetails from "./components/BookDetails/BookDetails";
 
 import BackgroundImageComponent from "./components/BackGround/background";
 import AdminLayout from "./admin/Layouts/admin_layout";
 
-
-// Define the pages where the footer or navbar should not be displayed
 const noFooterPages = ["/login", "/register", "/admin"];
 const noNavbarPages = ["/login", "/register", "/admin"];
 
-
 const App: React.FC = () => {
-  const location = useLocation(); // Get the current route
+  const location = useLocation();
 
   const isAdminPath = location.pathname.startsWith("/admin");
 
   return (
     <div className="app">
-      {/* Conditionally render Navbar on pages except specified ones */}
       {!noNavbarPages.includes(location.pathname) && !isAdminPath && <Navbar />}
 
       <div className="main-content">
         <Routes>
-          {/* Home Page */}
           <Route
             path="/"
             element={
@@ -53,30 +44,26 @@ const App: React.FC = () => {
             }
           />
           <Route path="/" element={<BookList />} />
-            {/* Book Details Page */}
+
           <Route path="/book-details" element={<BookDetails />} />
-          {/* Novels Page */}
+
           <Route path={"/admin/*"} element={<AdminLayout />} />
           <Route path="/novels" element={<NovelsPage />} />
           <Route path="/new-arrivals" element={<NewArrivals />} />
           <Route path="/children" element={<ChildrenPage />} />
           <Route path="/educational" element={<Educational />} />
-          {/* Add this route */}
-          {/* Login Page */}
-          <Route path="/login" element={<CombinedAuth />} />
-          {/* Register Page */}
-          <Route path="/register" element={<CombinedAuth />} />
 
+          <Route path="/login" element={<CombinedAuth />} />
+
+          <Route path="/register" element={<CombinedAuth />} />
         </Routes>
       </div>
 
-      {/* Conditionally render Footer on pages except specified ones */}
       {!noFooterPages.includes(location.pathname) && !isAdminPath && <Footer />}
     </div>
   );
 };
 
-// Wrap the App component with Router to provide routing context
 const AppWrapper: React.FC = () => (
   <BrowserRouter>
     <App />

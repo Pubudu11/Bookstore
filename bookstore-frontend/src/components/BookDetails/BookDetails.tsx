@@ -19,7 +19,6 @@ function BookDetails() {
 
   return (
     <div className="container mt-5">
-      {/* Back Button */}
       <button
         className="btn btn-secondary mb-5 mt-5"
         onClick={() => navigate(-1)}
@@ -28,7 +27,6 @@ function BookDetails() {
         &larr; Back
       </button>
 
-      {/* Main Content */}
       <div
         className="row shadow-lg bg-white rounded g-4"
         style={{
@@ -40,7 +38,6 @@ function BookDetails() {
           transition: "transform 0.3s ease, box-shadow 0.3s ease",
         }}
       >
-        {/* Book Image Section */}
         <div className="col-12 col-md-2 text-center">
           <img
             src={book.image}
@@ -55,12 +52,11 @@ function BookDetails() {
           />
         </div>
 
-        {/* Book Details Section */}
         <div
           className="col-12 col-md-8"
           style={{
-            marginLeft: "auto", // Adds space between the image and details
-            paddingLeft: "2s0px", // Extra padding for better readability
+            marginLeft: "auto",
+            paddingLeft: "2s0px",
           }}
         >
           <h2 className="text-primary fw-bold mb-3">{book.title}</h2>

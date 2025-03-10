@@ -21,7 +21,7 @@ const BackgroundImageComponent = () => {
     textShadow: "10px 6px 15px rgba(0, 0, 0, 1)",
     fontFamily: "'Poppins', sans-serif",
     marginBottom: "1rem",
-    color: "rgb(255, 251, 251)", // Attractive gold color
+    color: "rgb(255, 251, 251)",
   };
 
   const paragraphStyle = {
@@ -30,7 +30,7 @@ const BackgroundImageComponent = () => {
     maxWidth: "800px",
     margin: "0 auto",
     padding: "1rem 2rem",
-    color: "rgb(239, 239, 87)", // Softer yellow for better readability
+    color: "rgb(239, 239, 87)",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     borderRadius: "10px",
   };

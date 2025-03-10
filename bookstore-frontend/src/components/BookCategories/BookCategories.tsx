@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom"; // For navigation
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   {
@@ -36,7 +36,7 @@ const categories = [
 ];
 
 const BookCategories: React.FC = () => {
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
 
   return (
     <div className="container mt-4">
@@ -52,7 +52,7 @@ const BookCategories: React.FC = () => {
           <div
             key={index}
             className="mx-2 d-inline-block"
-            onClick={() => navigate(category.route)} // Navigate on click
+            onClick={() => navigate(category.route)}
             style={{ cursor: "pointer", minWidth: "160px" }}
           >
             <div
